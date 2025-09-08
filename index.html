@@ -220,10 +220,21 @@
     </a>
   </div>
 
-  <!-- Копирайт -->
-  <div class="copyright">
-    © 2025 vecna-VPN. Все права защищены.<br>
-    Лицензия: Использование материалов сайта регулируется лицензией Creative Commons BY-NC-SA 4.0.
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+  <footer class="py-4 text-center">
+        <p class="text-sm">&copy; 2025 NightmareCraft. Все права защищены.</p>
+        <p class="text-xs">Лицензия: Использование материалов сайта регулируется лицензией Creative Commons BY-NC-SA 4.0.</p>
+    </footer>
   </div>
 </body>
 </html>

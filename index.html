@@ -38,7 +38,7 @@
       top: 0; left: 0;
       width: 100%;
       height: 80px;
-      background: rgba(20,20,20,0.7);
+      background: rgba(14,15,16,0.5);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -134,105 +134,65 @@
     .vpn-description {
       font-size: 22px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       color: #7dbbff;
       line-height: 1.4;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .intro-text {
       font-size: 26px;
       font-weight: 700;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       color: #f5f5f5;
     }
 
-    /* Блок PREM и FREE */
-    .plans {
+    .tiles {
       display: flex;
       justify-content: center;
-      gap: 60px;
-      margin-bottom: 50px;
       flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .plan-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .plan-tile {
+    .tile {
       width: 260px;
       height: 120px;
-      background: rgba(58, 110, 165, 0.7); /* полупрозрачный темно-голубой */
-      border-radius: 12px;
+      background: rgba(70, 70, 70, 0.8);
+      border: 2px solid #888;
+      border-radius: 10px;
+      padding: 10px;
+      box-sizing: border-box;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: white;
-      font-weight: 700;
-      font-size: 36px;
-      margin-bottom: 15px;
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    .plan-tile:hover {
-      transform: translateY(-5px);
-      background: rgba(90, 143, 207, 0.8);
-    }
-
-    .plan-button {
-      background: #7dbbff;
-      color: black;
-      text-decoration: none;
-      padding: 10px 24px;
-      border-radius: 8px;
-      font-size: 16px;
+      font-size: 18px;
       transition: background 0.3s;
     }
 
-    .plan-button:hover {
-      background: #a1d1ff;
+    .tile:hover {
+      background: rgba(50, 50, 50, 0.9);
     }
 
-    /* Блок преимуществ */
-    .features {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 50px;
-      flex-wrap: wrap;
-    }
-
-    .feature-tile {
-      width: 260px;
-      height: 180px;
-      background: #2c5a8f; /* ещё более тёмный голубой */
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-weight: 600;
+    .tile h3 {
+      margin: 0 0 8px;
       font-size: 20px;
-      position: relative;
-      transition: transform 0.3s, background 0.3s;
+      color: #cfcfcf;
     }
 
-    .feature-tile:hover {
-      transform: translateY(-5px);
-      background: #3e7ba5;
-    }
-
-    .feature-tile h3 {
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
-
-    .feature-tile p {
+    .tile p {
+      margin: 0;
       font-size: 14px;
-      text-align: center;
+      color: #e0e0e0;
     }
 
     /* Подвал */
@@ -283,7 +243,7 @@
   <!-- Шапка -->
   <div class="header">
     <div class="logo-section">
-      <img src="https://images.unsplash.com/photo-1757339860570-860dee679155?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0" alt="vecnaVPN logo">
+      <img src="https://i.postimg.cc/CMfr9BpG/image.jpg">
       <h1>Vecna-VPN</h1>
     </div>
     <div class="nav">
@@ -298,7 +258,7 @@
       </div>
 
       <a href="#about" data-i18n="about">О нас</a>
-      <a href="#plans" data-i18n="download">Скачать</a>
+      <a href="#download" data-i18n="download">Скачать</a>
       <a href="#contacts" data-i18n="contacts">Контакты</a>
     </div>
   </div>
@@ -306,46 +266,21 @@
   <!-- Контент -->
   <div class="content" id="about">
 
-    <!-- Краткое описание VPN -->
+    <!-- Новое краткое описание VPN -->
     <div class="vpn-description">
       Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью.
     </div>
 
-    <!-- Преимущества -->
-    <p class="intro-text">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
+    <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
 
-    <!-- Блок PREM и FREE -->
-    <div class="plans" id="plans">
-      <div class="plan-container">
-        <div class="plan-tile prem">PREM</div>
-        <a href="https://example.com/buy" class="plan-button">Купить</a>
-      </div>
-      <div class="plan-container">
-        <div class="plan-tile free">FREE</div>
-        <a href="https://example.com/download" class="plan-button">Скачать</a>
-      </div>
+    <div class="tiles">
+      <div class="tile"><h3 data-i18n="anonymityTitle">Анонимность</h3><p data-i18n="anonymityText">Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
+      <div class="tile"><h3 data-i18n="securityTitle">Безопасность</h3><p data-i18n="securityText">Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
+      <div class="tile"><h3 data-i18n="speedTitle">Скорость</h3><p data-i18n="speedText">Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
+      <div class="tile"><h3 data-i18n="accessTitle">Доступ</h3><p data-i18n="accessText">Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
+      <div class="tile"><h3 data-i18n="mobilityTitle">Мобильность</h3><p data-i18n="mobilityText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
+      <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
-
-    <!-- Блок преимуществ -->
-    <div class="features">
-      <div class="feature-tile">
-        <h3>Анонимность</h3>
-        <p>Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p>
-      </div>
-      <div class="feature-tile">
-        <h3>Безопасность</h3>
-        <p>Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p>
-      </div>
-      <div class="feature-tile">
-        <h3>Скорость</h3>
-        <p>Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p>
-      </div>
-      <div class="feature-tile">
-        <h3>Доступ</h3>
-        <p>Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p>
-      </div>
-    </div>
-
   </div>
 
   <!-- Подвал -->
@@ -369,26 +304,80 @@
   <!-- Скрипт -->
   <script>
     const translations = {
-      ru: { about: "О нас", download: "Скачать", contacts: "Контакты" },
-      en: { about: "About", download: "Download", contacts: "Contacts" },
-      de: { about: "Über uns", download: "Herunterladen", contacts: "Kontakte" }
+      ru: {
+        about: "О нас",
+        download: "Скачать",
+        contacts: "Контакты",
+        intro: "Преимущества использования нашего VPN для вашей безопасности и удобства:",
+        anonymityTitle: "Анонимность",
+        anonymityText: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
+        securityTitle: "Безопасность",
+        securityText: "Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
+        speedTitle: "Скорость",
+        speedText: "Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
+        accessTitle: "Доступ",
+        accessText: "Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.",
+        mobilityTitle: "Мобильность",
+        mobilityText: "Приложения для Windows, Android и iOS с простым интерфейсом.",
+        supportTitle: "Поддержка",
+        supportText: "Круглосуточная помощь в чате и быстрая реакция на любые вопросы."
+      },
+      en: {
+        about: "About",
+        download: "Download",
+        contacts: "Contacts",
+        intro: "Advantages of using our VPN for your safety and convenience:",
+        anonymityTitle: "Anonymity",
+        anonymityText: "Your IP is fully hidden, websites cannot track your activity.",
+        securityTitle: "Security",
+        securityText: "Military-grade encryption protects traffic from hackers and ISPs.",
+        speedTitle: "Speed",
+        speedText: "Optimized servers provide stable and fast connections.",
+        accessTitle: "Access",
+        accessText: "Unlock your favorite sites and services unavailable in your country.",
+        mobilityTitle: "Mobility",
+        mobilityText: "Apps for Windows, Android, and iOS with a simple interface.",
+        supportTitle: "Support",
+        supportText: "24/7 chat support and quick responses to any questions."
+      },
+      de: {
+        about: "Über uns",
+        download: "Herunterladen",
+        contacts: "Kontakte",
+        intro: "Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit:",
+        anonymityTitle: "Anonymität",
+        anonymityText: "Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen.",
+        securityTitle: "Sicherheit",
+        securityText: "Verschlüsselung nach Militärstandards schützt den Datenverkehr vor Hackern und Providern.",
+        speedTitle: "Geschwindigkeit",
+        speedText: "Optimierte Server sorgen für stabile und schnelle Verbindungen.",
+        accessTitle: "Zugang",
+        accessText: "Entsperren Sie Ihre Lieblingsseiten und -dienste, die in Ihrem Land nicht verfügbar sind.",
+        mobilityTitle: "Mobilität",
+        mobilityText: "Apps für Windows, Android, und iOS mit einfacher Benutzeroberfläche.",
+        supportTitle: "Support",
+        supportText: "24/7 Chat-Support und schnelle Antworten auf alle Fragen."
+      }
     };
 
     const langSwitch = document.getElementById("langSwitch");
     const flagImg = langSwitch.querySelector("img");
 
+    // Открытие меню выбора
     flagImg.addEventListener("click", () => {
       langSwitch.classList.toggle("open");
     });
 
+    // Переключение языка
     langSwitch.querySelectorAll(".lang-dropdown img").forEach(img => {
       img.addEventListener("click", () => {
         const lang = img.dataset.lang;
         flagImg.src = img.src;
         langSwitch.classList.remove("open");
+
         document.querySelectorAll("[data-i18n]").forEach(el => {
           const key = el.dataset.i18n;
-          if (translations[lang][key]) el.textContent = translations[lang][key];
+          el.textContent = translations[lang][key];
         });
       });
     });

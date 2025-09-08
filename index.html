@@ -23,24 +23,7 @@
       filter: blur(5px);
       transform: scale(1.05);
       z-index: 0;
-      }
-
-    /* Звёздный слой поверх картинки */
-    .stars {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-      animation: moveStars 100s linear infinite;
-      z-index: 1;
-      opacity: 0.6; /* прозрачность, чтобы картинка снизу была видна */
-    }
-
-    /* Анимация движения звёзд */
-    @keyframes moveStars {
-      from { background-position: 0 0; }
-      to { background-position: -10000px 5000px; }
-    }
+    } 
 
     /* Шапка */
     .header {

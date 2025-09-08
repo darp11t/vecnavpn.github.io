@@ -66,6 +66,7 @@
     .nav {
       display: flex;
       gap: 20px;
+      align-items: center;
     }
 
     .nav a {
@@ -78,6 +79,62 @@
 
     .nav a:hover {
       color: #7dbbff;
+    }
+
+    /* Языковой переключатель */
+    .language-selector {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .lang-btn img {
+      width: 22px;
+      height: 16px;
+      border-radius: 2px;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: rgba(30, 30, 30, 0.95);
+      border-radius: 5px;
+      padding: 5px 0;
+      flex-direction: column;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    .lang-menu a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: white;
+      text-decoration: none;
+      padding: 6px 12px;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+
+    .lang-menu a img {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+    }
+
+    .lang-menu a:hover {
+      background: rgba(100,100,100,0.5);
+    }
+
+    .language-selector.active .lang-menu {
+      display: flex;
     }
 
     /* Контент */
@@ -187,15 +244,25 @@
       <h1>Vecna-VPN</h1>
     </div>
     <div class="nav">
-  <a href="#about">О нас</a>
-  <a href="#download">Скачать</a>
-  <a href="#contacts">Контакты</a>
-</div>
+      <div class="language-selector">
+        <button class="lang-btn">
+          <img src="https://flagcdn.com/w20/ru.png" alt="Русский">
+        </button>
+        <div class="lang-menu">
+          <a href="#"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+          <a href="#"><img src="https://flagcdn.com/w20/us.png" alt="English"> English</a>
+          <a href="#"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+        </div>
+      </div>
+      <a href="#about">О нас</a>
+      <a href="#download">Скачать</a>
+      <a href="#contacts">Контакты</a>
+    </div>
   </div>
 
   <!-- Контент -->
   <div class="content" id="about">
-  <p class="intro-text">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
+    <p class="intro-text">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
 
     <div class="tiles">
       <div class="tile"><h3>Анонимность</h3><p>Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
@@ -207,26 +274,27 @@
     </div>
   </div>
 
-  <!-- Подвал с контактами и копирайтом -->
-<footer id="contacts" style="position: relative; width: 100%; z-index: 5; background: rgba(20,20,20,0.7); padding: 20px 0;">
-  <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 10px;">
-    <a href="https://discord.com" target="_blank" class="footer-tile">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
-      <span>Discord</span>
-    </a>
-    <a href="mailto:example@gmail.com" class="footer-tile">
-      <img src="https://fs39.fex.net/preview/5636191154/400x0">
-      <span>Gmail</span>
-    </a>
-  </div>
-  <div class="copyright" style="text-align: center; font-size: 12px; color: #ddd;">
-    © 2025 vecna-VPN. Все права защищены.<br>
-    Лицензия: Использование материалов сайта регулируется лицензией Creative Commons BY-NC-SA 4.0.
-  </div>
-</footer>
+  <!-- Подвал -->
+  <footer id="contacts" style="position: relative; width: 100%; z-index: 5; background: rgba(20,20,20,0.7); padding: 20px 0;">
+    <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 10px;">
+      <a href="https://discord.com" target="_blank" class="footer-tile">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+        <span>Discord</span>
+      </a>
+      <a href="mailto:example@gmail.com" class="footer-tile">
+        <img src="https://fs39.fex.net/preview/5636191154/400x0">
+        <span>Gmail</span>
+      </a>
+    </div>
+    <div class="copyright">
+      © 2025 vecna-VPN. Все права защищены.<br>
+      Лицензия: Использование материалов сайта регулируется лицензией Creative Commons BY-NC-SA 4.0.
+    </div>
+  </footer>
 
-  <!-- Скрипт плавной прокрутки -->
+  <!-- Скрипты -->
   <script>
+    // плавная прокрутка
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -234,6 +302,14 @@
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
         }
+      });
+    });
+
+    // переключатель языков
+    document.querySelectorAll('.language-selector .lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        btn.parentElement.classList.toggle('active');
       });
     });
   </script>

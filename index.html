@@ -11,6 +11,7 @@
       background: black;
       color: white;
       font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden; /* убираем горизонтальную прокрутку */
     }
 
     /* Фон */
@@ -65,14 +66,15 @@
     /* Навигация справа */
     .nav {
       display: flex;
-      gap: 25px;
+      gap: 20px;
     }
 
     .nav a {
       color: white;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px; /* уменьшили чтобы помещалось */
       transition: color 0.3s;
+      white-space: nowrap; /* текст не переносится */
     }
 
     .nav a:hover {
@@ -83,8 +85,9 @@
     .content {
       position: relative;
       z-index: 2;
-      padding: 120px 20px 100px;
+      padding: 120px 20px 300px; /* делаем сайт длиннее */
       text-align: center;
+      min-height: 1000px; /* добавили высоту */
     }
 
     .intro-text {

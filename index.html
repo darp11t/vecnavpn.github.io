@@ -10,7 +10,7 @@
       background: black;
       color: white;
       font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden; /* убираем горизонтальный скролл */
+      overflow-x: hidden;
     }
 
     /* Фон */
@@ -67,6 +67,7 @@
       display: flex;
       gap: 20px;
       align-items: center;
+      position: relative;
     }
 
     .nav a {
@@ -82,59 +83,43 @@
     }
 
     /* Языковой переключатель */
-    .language-selector {
+    .lang-switch {
       position: relative;
-    }
-
-    .lang-btn {
-      background: none;
-      border: none;
       cursor: pointer;
-      padding: 0;
     }
 
-    .lang-btn img {
-      width: 22px;
-      height: 16px;
-      border-radius: 2px;
+    .lang-switch img {
+      width: 25px;
+      height: 18px;
+      border-radius: 3px;
     }
 
-    .lang-menu {
+    .lang-dropdown {
       display: none;
       position: absolute;
       top: 30px;
       left: 0;
-      background: rgba(30, 30, 30, 0.95);
+      background: rgba(20,20,20,0.9);
+      border: 1px solid #555;
       border-radius: 5px;
-      padding: 5px 0;
+      padding: 5px;
+    }
+
+    .lang-dropdown img {
+      width: 25px;
+      height: 18px;
+      margin: 5px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .lang-dropdown img:hover {
+      transform: scale(1.1);
+    }
+
+    .lang-switch.open .lang-dropdown {
+      display: flex;
       flex-direction: column;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    }
-
-    .lang-menu a {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: white;
-      text-decoration: none;
-      padding: 6px 12px;
-      font-size: 14px;
-      white-space: nowrap;
-      transition: background 0.3s;
-    }
-
-    .lang-menu a img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
-    }
-
-    .lang-menu a:hover {
-      background: rgba(100,100,100,0.5);
-    }
-
-    .language-selector.active .lang-menu {
-      display: flex;
     }
 
     /* Контент */
@@ -244,33 +229,33 @@
       <h1>Vecna-VPN</h1>
     </div>
     <div class="nav">
-      <div class="language-selector">
-        <button class="lang-btn">
-          <img src="https://flagcdn.com/w20/ru.png" alt="Русский">
-        </button>
-        <div class="lang-menu">
-          <a href="#"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
-          <a href="#"><img src="https://flagcdn.com/w20/us.png" alt="English"> English</a>
-          <a href="#"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+      <!-- Языковой переключатель -->
+      <div class="lang-switch" id="langSwitch">
+        <img src="https://flagcdn.com/w20/ru.png" alt="RU">
+        <div class="lang-dropdown">
+          <img src="https://flagcdn.com/w20/ru.png" alt="RU" data-lang="ru">
+          <img src="https://flagcdn.com/w20/us.png" alt="EN" data-lang="en">
+          <img src="https://flagcdn.com/w20/de.png" alt="DE" data-lang="de">
         </div>
       </div>
-      <a href="#about">О нас</a>
-      <a href="#download">Скачать</a>
-      <a href="#contacts">Контакты</a>
+
+      <a href="#about" data-i18n="about">О нас</a>
+      <a href="#download" data-i18n="download">Скачать</a>
+      <a href="#contacts" data-i18n="contacts">Контакты</a>
     </div>
   </div>
 
   <!-- Контент -->
   <div class="content" id="about">
-    <p class="intro-text">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
+    <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
 
     <div class="tiles">
-      <div class="tile"><h3>Анонимность</h3><p>Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
-      <div class="tile"><h3>Безопасность</h3><p>Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
-      <div class="tile"><h3>Скорость</h3><p>Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
-      <div class="tile"><h3>Доступ</h3><p>Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
-      <div class="tile"><h3>Мобильность</h3><p>Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
-      <div class="tile"><h3>Поддержка</h3><p>Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
+      <div class="tile"><h3 data-i18n="anonymityTitle">Анонимность</h3><p data-i18n="anonymityText">Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
+      <div class="tile"><h3 data-i18n="securityTitle">Безопасность</h3><p data-i18n="securityText">Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
+      <div class="tile"><h3 data-i18n="speedTitle">Скорость</h3><p data-i18n="speedText">Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
+      <div class="tile"><h3 data-i18n="accessTitle">Доступ</h3><p data-i18n="accessText">Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
+      <div class="tile"><h3 data-i18n="mobilityTitle">Мобильность</h3><p data-i18n="mobilityText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
+      <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
   </div>
 
@@ -288,28 +273,88 @@
     </div>
     <div class="copyright">
       © 2025 vecna-VPN. Все права защищены.<br>
-      Лицензия: Использование материалов сайта регулируется лицензией Creative Commons BY-NC-SA 4.0.
+      Лицензия: Creative Commons BY-NC-SA 4.0.
     </div>
   </footer>
 
-  <!-- Скрипты -->
+  <!-- Скрипт -->
   <script>
-    // плавная прокрутка
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+    const translations = {
+      ru: {
+        about: "О нас",
+        download: "Скачать",
+        contacts: "Контакты",
+        intro: "Преимущества использования нашего VPN для вашей безопасности и удобства:",
+        anonymityTitle: "Анонимность",
+        anonymityText: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
+        securityTitle: "Безопасность",
+        securityText: "Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
+        speedTitle: "Скорость",
+        speedText: "Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
+        accessTitle: "Доступ",
+        accessText: "Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.",
+        mobilityTitle: "Мобильность",
+        mobilityText: "Приложения для Windows, Android и iOS с простым интерфейсом.",
+        supportTitle: "Поддержка",
+        supportText: "Круглосуточная помощь в чате и быстрая реакция на любые вопросы."
+      },
+      en: {
+        about: "About",
+        download: "Download",
+        contacts: "Contacts",
+        intro: "Advantages of using our VPN for your safety and convenience:",
+        anonymityTitle: "Anonymity",
+        anonymityText: "Your IP is fully hidden, websites cannot track your activity.",
+        securityTitle: "Security",
+        securityText: "Military-grade encryption protects traffic from hackers and ISPs.",
+        speedTitle: "Speed",
+        speedText: "Optimized servers provide stable and fast connections.",
+        accessTitle: "Access",
+        accessText: "Unlock your favorite sites and services unavailable in your country.",
+        mobilityTitle: "Mobility",
+        mobilityText: "Apps for Windows, Android, and iOS with a simple interface.",
+        supportTitle: "Support",
+        supportText: "24/7 chat support and quick responses to any questions."
+      },
+      de: {
+        about: "Über uns",
+        download: "Herunterladen",
+        contacts: "Kontakte",
+        intro: "Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit:",
+        anonymityTitle: "Anonymität",
+        anonymityText: "Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen.",
+        securityTitle: "Sicherheit",
+        securityText: "Verschlüsselung nach Militärstandards schützt den Datenverkehr vor Hackern und Providern.",
+        speedTitle: "Geschwindigkeit",
+        speedText: "Optimierte Server sorgen für stabile und schnelle Verbindungen.",
+        accessTitle: "Zugang",
+        accessText: "Entsperren Sie Ihre Lieblingsseiten und -dienste, die in Ihrem Land nicht verfügbar sind.",
+        mobilityTitle: "Mobilität",
+        mobilityText: "Apps für Windows, Android und iOS mit einfacher Benutzeroberfläche.",
+        supportTitle: "Support",
+        supportText: "24/7 Chat-Support und schnelle Antworten auf alle Fragen."
+      }
+    };
+
+    const langSwitch = document.getElementById("langSwitch");
+    const flagImg = langSwitch.querySelector("img");
+
+    // Открытие меню выбора
+    flagImg.addEventListener("click", () => {
+      langSwitch.classList.toggle("open");
     });
 
-    // переключатель языков
-    document.querySelectorAll('.language-selector .lang-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        btn.parentElement.classList.toggle('active');
+    // Переключение языка
+    langSwitch.querySelectorAll(".lang-dropdown img").forEach(img => {
+      img.addEventListener("click", () => {
+        const lang = img.dataset.lang;
+        flagImg.src = img.src;
+        langSwitch.classList.remove("open");
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.dataset.i18n;
+          el.textContent = translations[lang][key];
+        });
       });
     });
   </script>

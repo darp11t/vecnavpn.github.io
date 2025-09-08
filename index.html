@@ -162,33 +162,6 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-    <!-- Добавляем после блока tiles -->
-<div class="content" id="plans">
-
-  <div style="text-align: center; margin-top: 50px;">
-
-    <!-- Планы PREM и FREE -->
-    <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
-
-      <!-- PREM -->
-      <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="width: 260px; height: 120px; background: rgba(58,110,165,0.7); border-radius: 12px; display: flex; justify-content: center; align-items: center; color: white; font-size: 36px; font-weight: 700; margin-bottom: 10px;">PREM</div>
-        <a href="https://example.com/buy" style="background: #7dbbff; color: black; text-decoration: none; padding: 8px 20px; border-radius: 8px; font-size: 14px;">Купить</a>
-        <p style="margin-top: 8px; font-size: 12px; color: #ccc; max-width: 260px;">Доступ ко всем серверам, максимальная скорость и приоритетная поддержка.</p>
-      </div>
-
-      <!-- FREE -->
-      <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="width: 260px; height: 120px; background: rgba(58,110,165,0.7); border-radius: 12px; display: flex; justify-content: center; align-items: center; color: white; font-size: 36px; font-weight: 700; margin-bottom: 10px;">FREE</div>
-        <a href="https://example.com/download" style="background: #7dbbff; color: black; text-decoration: none; padding: 8px 20px; border-radius: 8px; font-size: 14px;">Скачать</a>
-        <p style="margin-top: 8px; font-size: 12px; color: #ccc; max-width: 260px;">Ограниченный доступ к серверам и базовая скорость соединения.</p>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-    }
 
     .tile {
       width: 260px;
@@ -220,6 +193,51 @@
       margin: 0;
       font-size: 14px;
       color: #e0e0e0;
+    }
+
+    /* Планы PREM и FREE */
+    .plan-container {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .plan {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plan-tile {
+      width: 260px;
+      height: 120px;
+      background: rgba(58,110,165,0.7);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .plan-button {
+      background: #7dbbff;
+      color: black;
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .plan-desc {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #ccc;
+      max-width: 260px;
     }
 
     /* Подвал */
@@ -285,7 +303,7 @@
       </div>
 
       <a href="#about" data-i18n="about">О нас</a>
-      <a href="#download" data-i18n="download">Скачать</a>
+      <a href="#plans" data-i18n="download">Скачать</a>
       <a href="#contacts" data-i18n="contacts">Контакты</a>
     </div>
   </div>
@@ -308,6 +326,26 @@
       <div class="tile"><h3 data-i18n="mobilityTitle">Мобильность</h3><p data-i18n="mobilityText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
       <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
+
+    <!-- Планы PREM и FREE -->
+    <div class="plan-container">
+
+      <!-- PREM -->
+      <div class="plan">
+        <div class="plan-tile">PREM</div>
+        <a href="https://example.com/buy" class="plan-button">Купить</a>
+        <p class="plan-desc">Доступ ко всем серверам, максимальная скорость и приоритетная поддержка.</p>
+      </div>
+
+      <!-- FREE -->
+      <div class="plan">
+        <div class="plan-tile">FREE</div>
+        <a href="https://example.com/download" class="plan-button">Скачать</a>
+        <p class="plan-desc">Ограниченный доступ к серверам и базовая скорость соединения.</p>
+      </div>
+
+    </div>
+
   </div>
 
   <!-- Подвал -->

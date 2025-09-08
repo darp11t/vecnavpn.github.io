@@ -131,6 +131,24 @@
       min-height: 1000px;
     }
 
+    .vpn-description {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #7dbbff;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .intro-text {
       font-size: 26px;
       font-weight: 700;
@@ -247,6 +265,12 @@
 
   <!-- Контент -->
   <div class="content" id="about">
+
+    <!-- Новое краткое описание VPN -->
+    <div class="vpn-description">
+      Vecna VPN — быстрый и безопасный доступ к любым сайтам без ограничений.
+    </div>
+
     <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
 
     <div class="tiles">

@@ -2,22 +2,21 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Мой сайт</title>
+  <title>VPN Service</title>
   <style>
     body {
       margin: 0;
-      background: black; /* фон */
+      background: black;
       color: violet;
       text-align: center;
       font-family: Arial, sans-serif;
     }
 
-    /* Фон — твоя картинка */
     .background {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: url('https://images.unsplash.com/photo-1757281302524-5a527a5951e1?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1757281302524-5a527a5951e1?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0') center/cover no-repeat;
       z-index: 0;
     }
 
@@ -61,6 +60,148 @@
       margin-top: 40px;
     }
 
+    /* Плитка */
+    .tile {
+      width: 260px;
+      height: 120px;
+      background: rgba(70, 70, 70, 0.8);
+      border: 2px solid #888;
+      border-radius: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      color: white;
+      transition: background 0.3s;
+      user-select: none;
+    }
+
+    .tile:hover {
+      background: rgba(50, 50, 50, 0.9);
+    }
+
+    .tile h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #cfcfcf;
+    }
+
+    .tile p {
+      margin: 0;
+      font-size: 14px;
+      color: #e0e0e0;
+    }
+
+    /* Плитка "Скачать" */
+    .download-tile {
+      position: relative;
+      overflow: hidden;
+      width: 260px;
+      height: 80px;
+      margin: 40px auto 0;
+      background: rgba(70, 70, 70, 0.8);
+      border: 2px solid #888;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .download-tile:hover {
+      background: rgba(50, 50, 50, 0.9);
+    }
+
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      background: rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="stars"></div>
+
+  <header>Наш VPN сервис</header>
+  <div class="content">
+    <p>Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
+
+    <!-- Плитки VPN -->
+    <div class="tiles">
+      <div class="tile">
+        <h3>Анонимность</h3>
+        <p>Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p>
+      </div>
+      <div class="tile">
+        <h3>Безопасность</h3>
+        <p>Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p>
+      </div>
+      <div class="tile">
+        <h3>Скорость</h3>
+        <p>Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p>
+      </div>
+      <div class="tile">
+        <h3>Доступ</h3>
+        <p>Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p>
+      </div>
+      <div class="tile">
+        <h3>Мобильность</h3>
+        <p>Приложения для Windows, Android и iOS с простым интерфейсом.</p>
+      </div>
+      <div class="tile">
+        <h3>Поддержка</h3>
+        <p>Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p>
+      </div>
+    </div>
+
+    <!-- Плитка Скачать -->
+    <div class="download-tile" data-link="https://example.com/file.zip">Скачать</div>
+  </div>
+
+  <script>
+    // Волна + переход по ссылке
+    document.querySelector(".download-tile").addEventListener("click", function(e) {
+      const circle = document.createElement("span");
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      circle.style.width = circle.style.height = size + "px";
+      circle.style.left = x + "px";
+      circle.style.top = y + "px";
+      circle.classList.add("ripple");
+
+      const ripple = this.querySelector(".ripple");
+      if (ripple) ripple.remove();
+      this.appendChild(circle);
+
+      const url = this.getAttribute("data-link");
+      setTimeout(() => window.open(url, "_blank"), 300);
+    });
+  </script>
+</body>
+</html>
     /* Плитка */
     .tile {
       position: relative;

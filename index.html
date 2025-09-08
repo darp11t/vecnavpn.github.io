@@ -24,15 +24,24 @@
       z-index: 0;
     }
 
-    /* Звёзды поверх карты */
+    /* Тёмный градиент поверх фона */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+      z-index: 1;
+    }
+
+    /* Звёзды поверх */
     .stars {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
       animation: moveStars 100s linear infinite;
-      z-index: 1;
-      opacity: 0.5;
+      z-index: 2;
+      opacity: 0.4;
     }
 
     @keyframes moveStars {
@@ -70,7 +79,7 @@
     /* Основное содержимое */
     .content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       padding: 120px 20px 20px;
       color: white;
       text-align: center;
@@ -146,7 +155,7 @@
       cursor: pointer;
       transition: background 0.3s;
       user-select: none;
-      z-index: 2;
+      z-index: 3;
       font-family: 'Montserrat', sans-serif;
     }
 
@@ -173,6 +182,7 @@
 </head>
 <body>
   <div class="background"></div>
+  <div class="overlay"></div>
   <div class="stars"></div>
 
   <!-- Шапка -->

@@ -195,49 +195,56 @@
       color: #e0e0e0;
     }
 
-    /* Планы PREM и FREE */
-    .plan-container {
+    /* Новые плитки Прем и Фри */
+    .plan-tiles {
       display: flex;
       justify-content: center;
-      gap: 60px;
       flex-wrap: wrap;
-      margin-top: 50px;
-    }
-
-    .plan {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      gap: 20px;
+      margin: 30px 0;
     }
 
     .plan-tile {
-      width: 260px;
+      width: 250px;
       height: 120px;
-      background: rgba(58,110,165,0.7);
-      border-radius: 12px;
+      background: rgba(30,144,255,0.6); /* полупрозрачный голубой */
+      border-radius: 10px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       color: white;
-      font-size: 36px;
       font-weight: 700;
-      margin-bottom: 10px;
+      font-size: 28px;
+      position: relative;
     }
 
-    .plan-button {
-      background: #7dbbff;
-      color: black;
-      text-decoration: none;
-      padding: 8px 20px;
+    .plan-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .plan-buttons a {
+      background: rgba(70,130,180,0.8);
+      color: white;
+      padding: 10px 20px;
       border-radius: 8px;
-      font-size: 14px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .plan-buttons a:hover {
+      background: rgba(70,130,180,1);
     }
 
     .plan-desc {
-      margin-top: 8px;
       font-size: 12px;
       color: #ccc;
-      max-width: 260px;
+      max-width: 250px;
+      margin: 5px auto 0;
     }
 
     /* Подвал */
@@ -303,7 +310,7 @@
       </div>
 
       <a href="#about" data-i18n="about">О нас</a>
-      <a href="#plans" data-i18n="download">Скачать</a>
+      <a href="#download" data-i18n="download">Скачать</a>
       <a href="#contacts" data-i18n="contacts">Контакты</a>
     </div>
   </div>
@@ -316,6 +323,24 @@
       Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью.
     </div>
 
+    <!-- Добавленное изображение -->
+    <div style="margin: 30px 0;">
+      <img src="https://cdn.sanity.io/images/jd0fxfd9/production/516bd915041ddfd1576cb4a81611528cb78fac39-5000x2617.jpg" 
+           alt="VPN" style="width: 90%; max-width: 900px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.6);">
+    </div>
+
+    <!-- Текст о работе и VPN-сервисах -->
+    <p style="font-size: 14px; color: #ccc; max-width: 900px; margin: 0 auto 30px; line-height: 1.6;">
+      Мы постоянно обновляем наши серверы, чтобы обеспечить стабильное и безопасное соединение. 
+      Наши VPN-сервисы позволяют обойти блокировки и защитить ваши личные данные. 
+      Используя Vecna VPN, вы можете свободно серфить в интернете, не беспокоясь о слежке. 
+      Мы заботимся о конфиденциальности каждого пользователя и стремимся к максимально быстрому соединению. 
+      Наши сервера расположены по всему миру для оптимальной скорости. 
+      Вы всегда получаете надежную защиту от хакеров и интернет-провайдеров. 
+      Мы предлагаем как бесплатный, так и премиум-доступ, чтобы каждый мог выбрать подходящий вариант. 
+      Vecna VPN – это ваш безопасный проводник в цифровом пространстве.
+    </p>
+
     <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
 
     <div class="tiles">
@@ -327,25 +352,19 @@
       <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
 
-    <!-- Планы PREM и FREE -->
-    <div class="plan-container">
-
-      <!-- PREM -->
-      <div class="plan">
-        <div class="plan-tile">PREM</div>
-        <a href="https://example.com/buy" class="plan-button">Купить</a>
-        <p class="plan-desc">Доступ ко всем серверам, максимальная скорость и приоритетная поддержка.</p>
+    <!-- Плитки Прем и Фри -->
+    <div class="plan-tiles">
+      <div class="plan-tile">PREM
+        <div class="plan-desc">Все премиум функции VPN</div>
       </div>
-
-      <!-- FREE -->
-      <div class="plan">
-        <div class="plan-tile">FREE</div>
-        <a href="https://example.com/download" class="plan-button">Скачать</a>
-        <p class="plan-desc">Ограниченный доступ к серверам и базовая скорость соединения.</p>
+      <div class="plan-tile">FREE
+        <div class="plan-desc">Базовые возможности VPN</div>
       </div>
-
     </div>
-
+    <div class="plan-buttons">
+      <a href="#buy">Купить</a>
+      <a href="https://example.com/download" target="_blank">Скачать</a>
+    </div>
   </div>
 
   <!-- Подвал -->

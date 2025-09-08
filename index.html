@@ -82,7 +82,6 @@
       color: #7dbbff;
     }
 
-    /* Языковой переключатель */
     .lang-switch {
       position: relative;
       cursor: pointer;
@@ -128,7 +127,7 @@
       z-index: 2;
       padding: 120px 20px 300px;
       text-align: center;
-      min-height: 1000px;
+      min-height: 1200px;
     }
 
     .vpn-description {
@@ -152,7 +151,7 @@
     .intro-text {
       font-size: 26px;
       font-weight: 700;
-      margin: 100px 0 30px; /* увеличено верхнее отступление */
+      margin: 100px 0 30px;
       color: #f5f5f5;
     }
 
@@ -193,6 +192,55 @@
       margin: 0;
       font-size: 14px;
       color: #e0e0e0;
+    }
+
+    /* Premium/Free секция */
+    .premium-free-section {
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      margin-top:80px;
+      flex-wrap:wrap;
+    }
+
+    .premium-free-card {
+      background: rgba(70,130,180,0.6);
+      border-radius:12px;
+      width:260px;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .premium-free-card h2 {
+      color:white;
+      font-size:28px;
+      margin:0 0 10px;
+    }
+
+    .premium-free-card p {
+      font-size:12px;
+      color:#ddd;
+      margin-bottom:15px;
+      text-align:center;
+    }
+
+    .premium-free-card a {
+      text-decoration:none;
+      background:#7dbbff;
+      color:black;
+      padding:8px 16px;
+      border-radius:6px;
+      font-weight:700;
+    }
+
+    .premium-features {
+      font-size:12px;
+      color:#ccc;
+      margin-top:15px;
+      max-width:260px;
+      line-height:1.4;
     }
 
     /* Подвал */
@@ -255,7 +303,6 @@
           <img src="https://flagcdn.com/w20/de.png" alt="DE" data-lang="de">
         </div>
       </div>
-
       <a href="#about" data-i18n="about">О нас</a>
       <a href="#download" data-i18n="download">Скачать</a>
       <a href="#contacts" data-i18n="contacts">Контакты</a>
@@ -265,15 +312,12 @@
   <!-- Контент -->
   <div class="content" id="about">
 
-    <!-- Новое краткое описание VPN -->
     <div class="vpn-description">
       Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью.
     </div>
 
-    <!-- Изображение -->
     <img src="https://cdn.sanity.io/images/jd0fxfd9/production/516bd915041ddfd1576cb4a81611528cb78fac39-5000x2617.jpg" alt="VPN Illustration" style="width:80%; max-width:900px; margin:20px auto; display:block; border-radius:10px;">
 
-    <!-- Текст про работу VPN -->
     <p style="font-size:14px; color:#cccccc; max-width:900px; margin:10px auto 0; line-height:1.5;">
       Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные. С нами вы можете свободно заходить на любые сайты и использовать онлайн-сервисы без ограничений. Мы заботимся о приватности, скорости соединения и надежности наших услуг. Независимо от того, Premium вы клиент или используете Free-версию, мы гарантируем стабильность и безопасность. Поддержка доступна на всех платформах, включая Windows, Android и iOS.
     </p>
@@ -288,6 +332,23 @@
       <div class="tile"><h3 data-i18n="mobilityTitle">Мобильность</h3><p data-i18n="mobilityText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
       <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
+
+    <!-- Premium и Free секция -->
+    <div class="premium-free-section">
+      <div class="premium-free-card">
+        <h2>PREM</h2>
+        <p>Премиум доступ ко всем серверам с высокой скоростью</p>
+        <a href="https://example.com/buy-premium" target="_blank">Купить</a>
+        <p class="premium-features">Дополнительные функции Premium: приоритетный доступ, расширенная скорость, эксклюзивные серверы.</p>
+      </div>
+      <div class="premium-free-card">
+        <h2>FREE</h2>
+        <p>Бесплатный доступ с ограниченными серверами</p>
+        <a href="#download">Скачать</a>
+        <p class="premium-features">Ограниченный доступ к серверам и скорости, но стабильное соединение для всех пользователей.</p>
+      </div>
+    </div>
+
   </div>
 
   <!-- Подвал -->
@@ -308,7 +369,6 @@
     </div>
   </footer>
 
-  <!-- Скрипт -->
   <script>
     const translations = {
       ru: {

@@ -40,32 +40,32 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%;
-      height: 70px;
+      height: 90px;
       background: rgba(20, 20, 20, 0.85);
       border-bottom: 2px solid #444;
       display: flex;
+      justify-content: center; /* центрируем */
       align-items: center;
-      padding: 0 20px;
       box-sizing: border-box;
       z-index: 10;
     }
 
     .header img {
-      height: 50px;
+      height: 60px;
       margin-right: 15px;
     }
 
     .header h1 {
-      font-size: 26px;
+      font-size: 30px;
       margin: 0;
       color: white;
     }
 
-    /* Основное содержимое с отступом вниз, чтобы не перекрывалось шапкой */
+    /* Основное содержимое */
     .content {
       position: relative;
       z-index: 2;
-      padding: 100px 20px 20px;
+      padding: 120px 20px 20px; /* отступ больше, чтобы не залезало под шапку */
       color: white;
       text-align: center;
     }
@@ -159,7 +159,7 @@
 
   <!-- Шапка -->
   <div class="header">
-    <img src="file_00000000ca486246b6242fa494b273cd.png" alt="vecnaVPN logo">
+    <img src="https://images.unsplash.com/photo-1757339860570-860dee679155?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="vecnaVPN logo">
     <h1>vecnaVPN</h1>
   </div>
 
@@ -218,244 +218,6 @@
 
       const url = this.getAttribute("data-link");
       setTimeout(() => window.open(url, "_blank"), 300);
-    });
-  </script>
-</body>
-</html>
-
-    header {
-      position: relative;
-      z-index: 2;
-      padding: 16px 20px;
-      font-size: 32px;
-      font-weight: 700;
-      color: white;
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-      color: white;
-    }
-
-    /* Контейнер плиток */
-    .tiles {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    /* Плитка */
-    .tile {
-      width: 260px;
-      height: 120px;
-      background: rgba(70, 70, 70, 0.8);
-      border: 2px solid #888;
-      border-radius: 10px;
-      padding: 10px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      color: white;
-      transition: background 0.3s;
-      user-select: none;
-    }
-
-    .tile:hover {
-      background: rgba(50, 50, 50, 0.9);
-    }
-
-    .tile h3 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      color: #cfcfcf;
-    }
-
-    .tile p {
-      margin: 0;
-      font-size: 14px;
-      color: #e0e0e0;
-    }
-
-    /* Плитка "Скачать" */
-    .download-tile {
-      position: relative;
-      overflow: hidden;
-      width: 260px;
-      height: 80px;
-      margin: 40px auto 0;
-      background: rgba(70, 70, 70, 0.8);
-      border: 2px solid #888;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 22px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-      user-select: none;
-      z-index: 2;
-    }
-
-    .download-tile:hover {
-      background: rgba(50, 50, 50, 0.9);
-    }
-
-    .ripple {
-      position: absolute;
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      background: rgba(255, 255, 255, 0.3);
-      pointer-events: none;
-    }
-
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="background"></div>
-  <div class="stars"></div>
-
-  <header>Наш VPN сервис</header>
-  <div class="content">
-    <p>Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
-
-    <!-- Плитки VPN -->
-    <div class="tiles">
-      <div class="tile">
-        <h3>Анонимность</h3>
-        <p>Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p>
-      </div>
-      <div class="tile">
-        <h3>Безопасность</h3>
-        <p>Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p>
-      </div>
-      <div class="tile">
-        <h3>Скорость</h3>
-        <p>Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p>
-      </div>
-      <div class="tile">
-        <h3>Доступ</h3>
-        <p>Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p>
-      </div>
-      <div class="tile">
-        <h3>Мобильность</h3>
-        <p>Приложения для Windows, Android и iOS с простым интерфейсом.</p>
-      </div>
-      <div class="tile">
-        <h3>Поддержка</h3>
-        <p>Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p>
-      </div>
-    </div>
-
-    <!-- Плитка Скачать -->
-    <div class="download-tile" data-link="https://example.com/file.zip">Скачать</div>
-  </div>
-
-  <script>
-    // Волна + переход по ссылке
-    document.querySelector(".download-tile").addEventListener("click", function(e) {
-      const circle = document.createElement("span");
-      const rect = this.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top - size / 2;
-
-      circle.style.width = circle.style.height = size + "px";
-      circle.style.left = x + "px";
-      circle.style.top = y + "px";
-      circle.classList.add("ripple");
-
-      const ripple = this.querySelector(".ripple");
-      if (ripple) ripple.remove();
-      this.appendChild(circle);
-
-      const url = this.getAttribute("data-link");
-      setTimeout(() => window.open(url, "_blank"), 300);
-    });
-  </script>
-</body>
-</html>
-    /* Плитка */
-    .tile {
-      position: relative;
-      overflow: hidden; /* чтобы волна не выходила за границы */
-      width: 260px;
-      height: 80px;
-      background: rgba(70, 70, 70, 0.8);
-      border: 2px solid #888; /* сероватый контур */
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 22px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-      user-select: none;
-      z-index: 2;
-    }
-
-    /* При наведении — фон темнее */
-    .tile:hover {
-      background: rgba(50, 50, 50, 0.9);
-    }
-
-    /* Волна */
-    .ripple {
-      position: absolute;
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      background: rgba(255, 255, 255, 0.3);
-      pointer-events: none;
-    }
-
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-  <script>
-    // Волна + переход по ссылке
-    document.querySelectorAll(".tile").forEach(tile => {
-      tile.addEventListener("click", function(e) {
-        // ripple эффект
-        const circle = document.createElement("span");
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-
-        circle.style.width = circle.style.height = size + "px";
-        circle.style.left = x + "px";
-        circle.style.top = y + "px";
-        circle.classList.add("ripple");
-
-        const ripple = this.querySelector(".ripple");
-        if (ripple) ripple.remove(); // убираем старую волну
-        this.appendChild(circle);
-
-        // переход по ссылке
-        const url = this.getAttribute("data-link");
-        setTimeout(() => window.open(url, "_blank"), 300);
-      });
     });
   </script>
 </body>

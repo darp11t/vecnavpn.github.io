@@ -11,6 +11,7 @@
       color: white;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
+      scroll-behavior: smooth; /* плавный скролл при внутренних ссылках */
     }
 
     /* Фон */
@@ -82,6 +83,7 @@
       color: #7dbbff;
     }
 
+    /* Языковой переключатель */
     .lang-switch {
       position: relative;
       cursor: pointer;
@@ -127,7 +129,7 @@
       z-index: 2;
       padding: 120px 20px 300px;
       text-align: center;
-      min-height: 1200px;
+      min-height: 1000px;
     }
 
     .vpn-description {
@@ -151,7 +153,7 @@
     .intro-text {
       font-size: 26px;
       font-weight: 700;
-      margin: 100px 0 30px;
+      margin: 100px 0 30px; /* увеличено верхнее отступление */
       color: #f5f5f5;
     }
 
@@ -165,7 +167,7 @@
     .tile {
       width: 260px;
       height: 120px;
-      background: rgba(70, 70, 70, 0.8);
+      background: rgba(70, 70, 70, 0.6); /* полупрозрачные */
       border: 2px solid #888;
       border-radius: 10px;
       padding: 10px;
@@ -179,7 +181,7 @@
     }
 
     .tile:hover {
-      background: rgba(50, 50, 50, 0.9);
+      background: rgba(50, 50, 50, 0.8);
     }
 
     .tile h3 {
@@ -194,53 +196,39 @@
       color: #e0e0e0;
     }
 
-    /* Premium/Free секция */
-    .premium-free-section {
-      display:flex;
-      justify-content:center;
-      gap:40px;
-      margin-top:80px;
-      flex-wrap:wrap;
+    /* Под плитки для действий */
+    .action-tiles {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 20px 0 60px;
+      flex-wrap: wrap;
     }
 
-    .premium-free-card {
-      background: rgba(70,130,180,0.6);
-      border-radius:12px;
-      width:260px;
-      padding:20px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
+    .action-tile {
+      width: 180px;
+      height: 60px;
+      background: rgba(70,130,180,0.6); /* полупрозрачный голубой */
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+      transition: background 0.3s;
+      flex-direction: column;
+      text-decoration: none;
     }
 
-    .premium-free-card h2 {
-      color:white;
-      font-size:28px;
-      margin:0 0 10px;
+    .action-tile:hover {
+      background: rgba(70,130,180,0.9);
     }
 
-    .premium-free-card p {
-      font-size:12px;
-      color:#ddd;
-      margin-bottom:15px;
-      text-align:center;
-    }
-
-    .premium-free-card a {
-      text-decoration:none;
-      background:#7dbbff;
-      color:black;
-      padding:8px 16px;
-      border-radius:6px;
-      font-weight:700;
-    }
-
-    .premium-features {
-      font-size:12px;
-      color:#ccc;
-      margin-top:15px;
-      max-width:260px;
-      line-height:1.4;
+    .action-tile span {
+      font-size: 14px;
+      font-weight: 500;
     }
 
     /* Подвал */
@@ -303,15 +291,15 @@
           <img src="https://flagcdn.com/w20/de.png" alt="DE" data-lang="de">
         </div>
       </div>
+
       <a href="#about" data-i18n="about">О нас</a>
-      <a href="#download" data-i18n="download">Скачать</a>
+      <a href="https://docs.google.com/yourfilelink" target="_blank" data-i18n="download">Скачать</a>
       <a href="#contacts" data-i18n="contacts">Контакты</a>
     </div>
   </div>
 
   <!-- Контент -->
   <div class="content" id="about">
-
     <div class="vpn-description">
       Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью.
     </div>
@@ -333,20 +321,16 @@
       <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
 
-    <!-- Premium и Free секция -->
-    <div class="premium-free-section">
-      <div class="premium-free-card">
-        <h2>PREM</h2>
-        <p>Премиум доступ ко всем серверам с высокой скоростью</p>
-        <a href="https://example.com/buy-premium" target="_blank">Купить</a>
-        <p class="premium-features">Дополнительные функции Premium: приоритетный доступ, расширенная скорость, эксклюзивные серверы.</p>
-      </div>
-      <div class="premium-free-card">
-        <h2>FREE</h2>
-        <p>Бесплатный доступ с ограниченными серверами</p>
-        <a href="#download">Скачать</a>
-        <p class="premium-features">Ограниченный доступ к серверам и скорости, но стабильное соединение для всех пользователей.</p>
-      </div>
+    <!-- Премиум и Фри плитки -->
+    <div class="action-tiles">
+      <a href="#buy-premium" class="action-tile">
+        PREM
+        <span>Купить</span>
+      </a>
+      <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile">
+        FREE
+        <span>Скачать</span>
+      </a>
     </div>
 
   </div>
@@ -369,6 +353,7 @@
     </div>
   </footer>
 
+  <!-- Скрипт -->
   <script>
     const translations = {
       ru: {

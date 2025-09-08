@@ -24,7 +24,6 @@
       z-index: 0;
     }
 
-    /* Лёгкий градиент сверху */
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -139,36 +138,40 @@
       position: relative;
       bottom: 0;
       width: 100%;
-      background: rgba(20,20,20,0.6);
       display: flex;
       justify-content: center;
-      gap: 30px;
-      padding: 25px 20px;
+      gap: 40px;
+      padding: 25px 20px 10px;
       z-index: 5;
     }
 
     .footer-tile {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 20px;
-      background: rgba(60,60,60,0.7);
-      border: 2px solid transparent;
-      border-radius: 10px;
+      gap: 8px;
       color: white;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       transition: all 0.3s;
     }
 
     .footer-tile img {
-      height: 24px;
-      width: 24px;
+      height: 20px;
+      width: 20px;
     }
 
     .footer-tile:hover {
-      border-color: #7dbbff;
-      box-shadow: 0 0 8px #7dbbff;
+      color: #7dbbff;
+      text-shadow: 0 0 5px #7dbbff;
+    }
+
+    /* Копирайт */
+    .copyright {
+      text-align: center;
+      font-size: 12px;
+      color: #ddd;
+      margin-bottom: 15px;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -209,9 +212,15 @@
       <span>Discord</span>
     </a>
     <a href="mailto:example@gmail.com" class="footer-tile">
-      <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail">
+      <img src="https://img2.freepng.ru/20180528/fio/avp4a9dct.webp" alt="Gmail">
       <span>Gmail</span>
     </a>
+  </div>
+
+  <!-- Копирайт -->
+  <div class="copyright">
+    © 2025 vecna-VPN. Все права защищены.<br>
+    Лицензия: Использование материалов сайта регулируется лицензией Creative Commons BY-NC-SA 4.0.
   </div>
 </body>
 </html>

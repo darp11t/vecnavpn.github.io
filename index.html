@@ -6,14 +6,10 @@
   <style>
     body {
       margin: 0;
-      background: black; /* фон любой */
-      color: violet; /* цвет текста */
-      text-align: center; /* выравнивание по центру */
+      background: black; /* фон */
+      color: violet;
+      text-align: center;
       font-family: Arial, sans-serif;
-    }
-    h1 {
-      margin-top: 100px; /* отступ сверху */
-      font-size: 48px; /* размер текста */
     }
 
     /* Фон — твоя картинка */
@@ -25,7 +21,6 @@
       z-index: 0;
     }
 
-    /* Звёздный слой поверх картинки */
     .stars {
       position: fixed;
       top: 0; left: 0;
@@ -33,10 +28,9 @@
       background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
       animation: moveStars 100s linear infinite;
       z-index: 1;
-      opacity: 0.6; /* прозрачность, чтобы картинка снизу была видна */
+      opacity: 0.6;
     }
 
-    /* Анимация движения звёзд */
     @keyframes moveStars {
       from { background-position: 0 0; }
       to { background-position: -10000px 5000px; }
@@ -48,15 +42,17 @@
       padding: 16px 20px;
       font-size: 32px;
       font-weight: 700;
+      color: white;
     }
 
     .content {
       position: relative;
       z-index: 2;
       padding: 20px;
+      color: white;
     }
 
-    /* Плитки */
+    /* Контейнер плиток */
     .tiles {
       display: flex;
       justify-content: center;
@@ -65,26 +61,47 @@
       margin-top: 40px;
     }
 
+    /* Плитка */
     .tile {
-      width: 150px;
-      height: 150px;
-      background: rgba(52, 152, 219, 0.8);
-      border-radius: 12px;
+      position: relative;
+      overflow: hidden; /* чтобы волна не выходила за границы */
+      width: 260px;
+      height: 80px;
+      background: rgba(70, 70, 70, 0.8);
+      border: 2px solid #888; /* сероватый контур */
+      border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 20px;
+      font-size: 22px;
+      font-weight: bold;
       color: white;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
       user-select: none;
-      position: relative;
       z-index: 2;
     }
 
+    /* При наведении — фон темнее */
     .tile:hover {
-      background: rgba(41, 128, 185, 0.9);
-      transform: scale(1.05);
+      background: rgba(50, 50, 50, 0.9);
+    }
+
+    /* Волна */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      background: rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -94,22 +111,37 @@
 
   <header>Привет</header>
   <div class="content">
-    <p>Здесь будет твой текст. Листай вниз — фон и анимация движутся вместе.</p>
+    <p>Здесь будет твой текст.</p>
 
-    <!-- Блок с плитками -->
+    <!-- Блок с плиткой -->
     <div class="tiles">
-      <div class="tile" data-link="https://example.com">Сайт 1</div>
-      <div class="tile" data-link="https://google.com">Google</div>
-      <div class="tile" data-link="https://github.com">GitHub</div>
+      <div class="tile" data-link="https://example.com/file.zip">Скачать</div>
     </div>
   </div>
 
   <script>
-    // Обработчик клика по плитке
+    // Волна + переход по ссылке
     document.querySelectorAll(".tile").forEach(tile => {
-      tile.addEventListener("click", () => {
-        const url = tile.getAttribute("data-link");
-        window.open(url, "_blank"); // откроется в новой вкладке
+      tile.addEventListener("click", function(e) {
+        // ripple эффект
+        const circle = document.createElement("span");
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        circle.style.width = circle.style.height = size + "px";
+        circle.style.left = x + "px";
+        circle.style.top = y + "px";
+        circle.classList.add("ripple");
+
+        const ripple = this.querySelector(".ripple");
+        if (ripple) ripple.remove(); // убираем старую волну
+        this.appendChild(circle);
+
+        // переход по ссылке
+        const url = this.getAttribute("data-link");
+        setTimeout(() => window.open(url, "_blank"), 300);
       });
     });
   </script>

@@ -38,7 +38,7 @@
       top: 0; left: 0;
       width: 100%;
       height: 80px;
-      background: rgba(14,15,16,0.5);
+      background: rgba(20,20,20,0.7);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -134,63 +134,59 @@
     .vpn-description {
       font-size: 22px;
       font-weight: 600;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       color: #7dbbff;
       line-height: 1.4;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeIn 1s forwards;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .intro-text {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #f5f5f5;
     }
 
     /* Блок PREM и FREE */
     .plans {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 60px;
       margin-bottom: 50px;
       flex-wrap: wrap;
     }
 
-    .plan-tile {
-      width: 260px;
-      height: 180px;
-      background: #3a6ea5; /* темный голубой */
-      border-radius: 12px;
+    .plan-container {
       display: flex;
       flex-direction: column;
+      align-items: center;
+    }
+
+    .plan-tile {
+      width: 260px;
+      height: 120px;
+      background: rgba(58, 110, 165, 0.7); /* полупрозрачный темно-голубой */
+      border-radius: 12px;
+      display: flex;
       justify-content: center;
       align-items: center;
       color: white;
       font-weight: 700;
       font-size: 36px;
-      position: relative;
+      margin-bottom: 15px;
       transition: transform 0.3s, background 0.3s;
     }
 
     .plan-tile:hover {
       transform: translateY(-5px);
-      background: #5a8fcf;
-    }
-
-    .plan-title {
-      margin-bottom: 20px;
+      background: rgba(90, 143, 207, 0.8);
     }
 
     .plan-button {
-      position: absolute;
-      bottom: 15px;
       background: #7dbbff;
       color: black;
       text-decoration: none;
-      padding: 8px 18px;
-      border-radius: 6px;
+      padding: 10px 24px;
+      border-radius: 8px;
       font-size: 16px;
       transition: background 0.3s;
     }
@@ -315,14 +311,17 @@
       Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью.
     </div>
 
+    <!-- Преимущества -->
+    <p class="intro-text">Преимущества использования нашего VPN для вашей безопасности и удобства:</p>
+
     <!-- Блок PREM и FREE -->
     <div class="plans" id="plans">
-      <div class="plan-tile prem">
-        <div class="plan-title">PREM</div>
+      <div class="plan-container">
+        <div class="plan-tile prem">PREM</div>
         <a href="https://example.com/buy" class="plan-button">Купить</a>
       </div>
-      <div class="plan-tile free">
-        <div class="plan-title">FREE</div>
+      <div class="plan-container">
+        <div class="plan-tile free">FREE</div>
         <a href="https://example.com/download" class="plan-button">Скачать</a>
       </div>
     </div>
@@ -330,20 +329,20 @@
     <!-- Блок преимуществ -->
     <div class="features">
       <div class="feature-tile">
-        <h3>Быстрая скорость</h3>
-        <p>Подключение до 950 Мбит/с с использованием протокола NordLynx.</p>
+        <h3>Анонимность</h3>
+        <p>Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p>
       </div>
       <div class="feature-tile">
-        <h3>Многоуровневая защита</h3>
-        <p>Поддержка Double VPN и Onion Over VPN для дополнительной анонимности.</p>
+        <h3>Безопасность</h3>
+        <p>Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p>
       </div>
       <div class="feature-tile">
-        <h3>Защита от угроз</h3>
-        <p>Встроенная защита от вредоносных сайтов и блокировка рекламы.</p>
+        <h3>Скорость</h3>
+        <p>Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p>
       </div>
       <div class="feature-tile">
-        <h3>Поддержка стриминга</h3>
-        <p>Доступ к Netflix, Disney+ и BBC iPlayer без ограничений.</p>
+        <h3>Доступ</h3>
+        <p>Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p>
       </div>
     </div>
 

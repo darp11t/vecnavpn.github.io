@@ -57,17 +57,18 @@ p[data-i18n="aboutText"] { margin-bottom: 50px; }
 /* === Футер внизу страницы, компактный === */
 footer {
   background: rgba(20,20,20,0.8);
-  padding: 4px 0; /* минимальный padding сверху/снизу */
+  padding: 2px 0; /* минимальный padding */
   text-align: center;
   color: white;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .footer-contacts {
-  display: inline-flex; /* чтобы иконки и текст были на одной линии */
-  align-items: center;  /* выравнивание по центру по вертикали */
-  gap: 6px; /* расстояние между контактами */
-  margin-bottom: 2px; /* минимальный отступ к копирайту */
+  display: inline-flex; /* иконки + текст в одной линии */
+  align-items: center;  /* вертикальное выравнивание */
+  gap: 8px; /* расстояние между контактами */
+  margin: 0 0 2px 0; /* минимальный отступ к копирайту */
   flex-wrap: nowrap; /* запрет переноса */
 }
 
@@ -81,9 +82,9 @@ footer {
 }
 
 .footer-tile img {
-  width: 16px;
-  height: 16px;
-  vertical-align: middle; /* чтобы точно по центру текста */
+  width: 14px;
+  height: 14px;
+  vertical-align: middle; /* чтобы по центру текста */
 }
 
 .footer-tile:hover {

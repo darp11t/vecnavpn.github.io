@@ -334,17 +334,28 @@
 
     <!-- Раздел: Премиум/Free -->
 <div class="section" id="download">
-  <div class="action-tiles">
-    <a href="#buy-premium" class="action-tile">
-      PREM
-      <span style="font-size:12px; font-weight:400; margin-top:3px; display:block; text-transform: lowercase;">
+  <div class="tiles" style="justify-content:center; gap:40px; flex-wrap:wrap;">
+    <!-- PREM -->
+    <div class="tile" style="width:260px; height:120px; background:rgba(70,130,180,0.6); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+      <h3 style="margin:0; font-size:22px;">PREM</h3>
+      <p style="font-size:12px; color:#ccc; margin:5px 0 0; text-align:center; text-transform:lowercase;">
         быстрее соединение, больше серверов, круглосуточная поддержка
-      </span>
-      <span>Купить</span>
+      </p>
+    </div>
+
+    <!-- FREE -->
+    <div class="tile" style="width:260px; height:120px; background:rgba(70,130,180,0.6); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+      <h3 style="margin:0; font-size:22px;">FREE</h3>
+    </div>
+  </div>
+
+  <!-- Действия под плитками -->
+  <div class="action-tiles" style="justify-content:center; gap:40px; flex-wrap:wrap; margin-top:15px;">
+    <a href="#buy-premium" class="action-tile">
+      Купить
     </a>
     <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile">
-      FREE
-      <span>Скачать</span>
+      Скачать
     </a>
   </div>
 </div>

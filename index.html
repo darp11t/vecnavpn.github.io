@@ -57,33 +57,33 @@ p[data-i18n="aboutText"] { margin-bottom: 50px; }
 /* === Футер внизу страницы, компактный === */
 footer {
   background: rgba(20,20,20,0.8);
-  padding: 8px 0; /* компактнее */
+  padding: 4px 0; /* минимальный padding сверху/снизу */
   text-align: center;
-  box-sizing: border-box;
   color: white;
+  box-sizing: border-box;
 }
 
 .footer-contacts {
-  display: flex;
-  justify-content: center;
-  gap: 10px; /* минимальное расстояние между иконками */
-  margin-bottom: 4px; /* ближе к копирайту */
-  flex-wrap: wrap;
+  display: inline-flex; /* чтобы иконки и текст были на одной линии */
+  align-items: center;  /* выравнивание по центру по вертикали */
+  gap: 6px; /* расстояние между контактами */
+  margin-bottom: 2px; /* минимальный отступ к копирайту */
+  flex-wrap: nowrap; /* запрет переноса */
 }
 
 .footer-tile {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px; /* иконка и текст плотнее */
-  color: white;
+  gap: 4px; /* иконка + текст */
+  font-size: 12px;
   text-decoration: none;
-  font-size: 12px; /* меньше */
-  transition: all 0.3s;
+  color: white;
 }
 
 .footer-tile img {
+  width: 16px;
   height: 16px;
-  width: 16px; /* иконки меньше */
+  vertical-align: middle; /* чтобы точно по центру текста */
 }
 
 .footer-tile:hover {
@@ -92,7 +92,7 @@ footer {
 }
 
 .copyright {
-  font-size: 10px; /* компактный текст */
+  font-size: 10px;
   line-height: 1.2;
   color: #ddd;
   margin: 0;

@@ -74,6 +74,30 @@
   footer a:hover { text-decoration: underline; }
   footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
 
+  /* FAQ Modal */
+  #faqModal {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.85);
+    justify-content:center; align-items:center;
+    z-index:50;
+  }
+  #faqContent {
+    background: rgba(30,30,30,0.95);
+    padding:30px;
+    border-radius:10px;
+    max-width:400px;
+    text-align:center;
+    color:white;
+    display:flex; flex-direction:column; gap:20px;
+  }
+  #faqContent input[type="checkbox"] { transform: scale(1.3); margin-right:10px; cursor:pointer; }
+  #downloadLink { background:var(--blue); padding:10px 20px; border-radius:8px; color:white; font-weight:700; text-decoration:none; opacity:0.5; pointer-events:none; transition:0.25s; }
+  #downloadLink:hover { background:#4a90e2; }
+  #closeFaq { cursor:pointer; color:var(--blue); font-weight:700; margin-top:10px; }
+
   @media (max-width:700px){
     .tiles{ gap:12px }
     .tile, .plan-col { width:92%; max-width:320px; }
@@ -151,7 +175,8 @@
           <div class="plan-tile">
             <h3>FREE</h3>
           </div>
-          <a class="action-tile" target="_blank" href="https://docs.google.com/yourfilelink">Скачать</a>
+          <!-- Ссылка на FAQ вместо прямого скачивания -->
+          <a class="action-tile" href="#faqModal">Скачать</a>
           <div class="plan-features">
             <p>ограниченная скорость</p>
             <p>меньше серверов</p>
@@ -161,12 +186,22 @@
     </section>
   </main>
 
+  <!-- FAQ Modal -->
+  <div id="faqModal">
+    <div id="faqContent">
+      <div>Перед скачиванием подтвердите, что вы ознакомились с FAQ</div>
+      <label><input type="checkbox" id="confirmDownload"> Я прочитал FAQ</label>
+      <a id="downloadLink" href="https://mega.nz/yourlink" target="_blank">Перейти к скачиванию</a>
+      <div id="closeFaq">Закрыть</div>
+    </div>
+  </div>
+
   <!-- Футер -->
   <footer>
     <div class="footer-content">
       <p>© 2025 Vecna VPN. Все права защищены.</p>
       <p>Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></p>
-      <p>Контакты: <a href="mailto:example@gmail.com">example@gmail.com</a></p>
+      <p>Контакты: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a></p>
     </div>
   </footer>
 
@@ -204,6 +239,36 @@
       }
       requestAnimationFrame(animation);
     });
+  });
+
+  // FAQ функционал
+  const faqModal = document.getElementById('faqModal');
+  const downloadLink = document.getElementById('downloadLink');
+  const confirmCheckbox = document.getElementById('confirmDownload');
+  const closeFaq = document.getElementById('closeFaq');
+
+  document.querySelectorAll('.action-tile[href="#faqModal"]').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.preventDefault();
+      faqModal.style.display = 'flex';
+    });
+  });
+
+  confirmCheckbox.addEventListener('change', ()=>{
+    if(confirmCheckbox.checked){
+      downloadLink.style.pointerEvents = 'auto';
+      downloadLink.style.opacity = '1';
+    } else {
+      downloadLink.style.pointerEvents = 'none';
+      downloadLink.style.opacity = '0.5';
+    }
+  });
+
+  closeFaq.addEventListener('click', ()=>{
+    faqModal.style.display = 'none';
+    confirmCheckbox.checked = false;
+    downloadLink.style.pointerEvents = 'none';
+    downloadLink.style.opacity = '0.5';
   });
 </script>
 </body>

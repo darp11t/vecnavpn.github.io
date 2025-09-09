@@ -11,7 +11,7 @@
       color: white;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
-      scroll-behavior: smooth; /* плавный скролл при внутренних ссылках */
+      scroll-behavior: smooth; /* базовый плавный скролл */
     }
 
     /* Фон */
@@ -125,12 +125,12 @@
 
     /* Контент */
     .content {
-  position: relative;
-  z-index: 2;
-  padding: 120px 20px 500px; /* было 300px, увеличил низ */
-  text-align: center;
-  min-height: 1600px; /* было 1000px, сделал длиннее */
-}
+      position: relative;
+      z-index: 2;
+      padding: 120px 20px 500px;
+      text-align: center;
+      min-height: 1600px;
+    }
     .vpn-description {
       font-size: 22px;
       font-weight: 600;
@@ -152,7 +152,7 @@
     .intro-text {
       font-size: 26px;
       font-weight: 700;
-      margin: 100px 0 30px; /* увеличено верхнее отступление */
+      margin: 100px 0 30px;
       color: #f5f5f5;
     }
 
@@ -166,7 +166,7 @@
     .tile {
       width: 260px;
       height: 120px;
-      background: rgba(70, 70, 70, 0.6); /* полупрозрачные */
+      background: rgba(70, 70, 70, 0.6);
       border: 2px solid #888;
       border-radius: 10px;
       padding: 10px;
@@ -207,7 +207,7 @@
     .action-tile {
       width: 180px;
       height: 60px;
-      background: rgba(70,130,180,0.6); /* полупрозрачный голубой */
+      background: rgba(70,130,180,0.6);
       border-radius: 10px;
       display: flex;
       justify-content: center;
@@ -428,6 +428,40 @@
           const key = el.dataset.i18n;
           el.textContent = translations[lang][key];
         });
+      });
+    });
+
+    /* Плавный скролл с анимацией */
+    function smoothScroll(target) {
+      const element = document.querySelector(target);
+      if (!element) return;
+
+      const start = window.pageYOffset;
+      const end = element.getBoundingClientRect().top + start - 70; // отступ под шапку
+      const duration = 800;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        const ease = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        window.scrollTo(0, start + (end - start) * ease);
+
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        smoothScroll(this.getAttribute('href'));
       });
     });
   </script>

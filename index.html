@@ -19,13 +19,24 @@ body {
 
 /* Описание ближе к шапке */
 #about .vpn-description {
-  margin-top: 100px; /* ближе к шапке */
+  margin-top: 120px; /* регулируем, чтобы было ближе к шапке */
+  margin-bottom: 60px; /* чтобы не слипалось с иллюстрацией */
+  font-size:22px;
+  font-weight:600;
+  color:#7dbbff;
+  line-height:1.4;
+  opacity:0;
+  transform:translateY(-20px);
+  animation:fadeIn 1s forwards;
 }
 
-/* "Начать сейчас" между блоками */
-#intro .vpn-description {
-  margin-top: 40px; /* от плиток преимуществ */
-  margin-bottom: 40px; /* до блоков PREM/FREE */
+/* "Начать сейчас" по центру между преимуществами и PREM/FREE */
+#startNowSection {
+  display:flex;
+  justify-content:center;
+  margin:60px 0; /* расстояние сверху и снизу */
+}
+#startNowSection .vpn-description {
   font-size:26px;
   font-weight:700;
   color:#7dbbff;
@@ -168,12 +179,12 @@ footer {
       <div class="tile"><h3 data-i18n="support">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
 
-    <div style="margin-top:50px;">
-      <div class="vpn-description" style="color:#7dbbff; font-size:26px; font-weight:700;" data-i18n="startNow">
-        Начать сейчас
-      </div>
-    </div>
+    <!-- После блока преимуществ, до плиток PREM/FREE -->
+<div id="startNowSection">
+  <div class="vpn-description" data-i18n="startNow">
+    Начать сейчас
   </div>
+</div>
 
   <div class="section" id="download">
     <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">

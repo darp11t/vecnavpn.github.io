@@ -17,7 +17,7 @@
       overflow-x: hidden;
     }
 
-    /* --- Header (старый дизайн) --- */
+    /* Header */
     header {
       background: #111;
       padding: 15px 30px;
@@ -37,7 +37,7 @@
       color: #1e90ff;
     }
 
-    /* --- Основной контент --- */
+    /* Main */
     main {
       padding: 30px;
     }
@@ -57,7 +57,7 @@
       margin-bottom: 10px;
     }
 
-    /* --- Блок тарифов (PREM/FREE) --- */
+    /* Plans block */
     .plans {
       display: flex;
       justify-content: center;
@@ -98,7 +98,7 @@
       background: #0066cc;
     }
 
-    /* --- Футер (оставляем как есть) --- */
+    /* Footer */
     footer {
       background: #111;
       text-align: center;
@@ -126,51 +126,51 @@
   <header>
     <div class="logo">Vecna VPN</div>
     <nav>
-      <a href="#features">Особенности</a>
-      <a href="#plans">Тарифы</a>
-      <a href="#start">Начать сейчас</a>
+      <a href="#features" data-ru="Особенности" data-en="Features">Особенности</a>
+      <a href="#plans" data-ru="Тарифы" data-en="Plans">Тарифы</a>
+      <a href="#start" data-ru="Начать сейчас" data-en="Get Started">Начать сейчас</a>
     </nav>
     <select id="languageSwitcher">
       <option value="ru">RU</option>
       <option value="en">EN</option>
-      <option value="de">DE</option>
     </select>
   </header>
 
   <main>
-    <!-- Старый основной контент -->
     <section id="features">
-      <h2 data-ru="Преимущества использования нашего VPN" data-en="Advantages of using our VPN" data-de="Vorteile unseres VPN">Преимущества использования нашего VPN</h2>
+      <h2 data-ru="Преимущества использования нашего VPN" data-en="Advantages of using our VPN">
+        Преимущества использования нашего VPN
+      </h2>
       <ul>
-        <li data-ru="Анонимность" data-en="Anonymity" data-de="Anonymität">Анонимность</li>
-        <li data-ru="Безопасность" data-en="Security" data-de="Sicherheit">Безопасность</li>
-        <li data-ru="Скорость" data-en="Speed" data-de="Geschwindigkeit">Скорость</li>
-        <li data-ru="Доступ" data-en="Access" data-de="Zugang">Доступ</li>
+        <li data-ru="Анонимность" data-en="Anonymity">Анонимность</li>
+        <li data-ru="Безопасность" data-en="Security">Безопасность</li>
+        <li data-ru="Скорость" data-en="Speed">Скорость</li>
+        <li data-ru="Доступ" data-en="Access">Доступ</li>
       </ul>
     </section>
 
-    <!-- Блок тарифов оставляем -->
+    <!-- Plans block -->
     <section id="plans" class="plans">
       <div class="plan">
         <h3>PREM</h3>
         <p>9.99$ p.m</p>
-        <button>Купить</button>
+        <button data-ru="Купить" data-en="Buy">Купить</button>
         <ul>
-          <li>+ Быстрее соединение</li>
-          <li>+ Больше серверов</li>
-          <li>+ 24/7 поддержка</li>
-          <li>+ Более стабильное подключение</li>
+          <li data-ru="+ Быстрее соединение" data-en="+ Faster connection">+ Быстрее соединение</li>
+          <li data-ru="+ Больше серверов" data-en="+ More servers">+ Больше серверов</li>
+          <li data-ru="+ 24/7 поддержка" data-en="+ 24/7 Support">+ 24/7 поддержка</li>
+          <li data-ru="+ Более стабильное подключение" data-en="+ More stable connection">+ Более стабильное подключение</li>
         </ul>
       </div>
 
       <div class="plan">
         <h3>FREE</h3>
-        <button>Скачать</button>
+        <button data-ru="Скачать" data-en="Download">Скачать</button>
         <ul>
-          <li>- Ограниченная скорость</li>
-          <li>- Меньше серверов</li>
-          <li>- Без гарантированной поддержки</li>
-          <li>- Менее стабильное подключение</li>
+          <li data-ru="- Ограниченная скорость" data-en="- Limited speed">- Ограниченная скорость</li>
+          <li data-ru="- Меньше серверов" data-en="- Fewer servers">- Меньше серверов</li>
+          <li data-ru="- Без гарантированной поддержки" data-en="- No guaranteed support">- Без гарантированной поддержки</li>
+          <li data-ru="- Менее стабильное подключение" data-en="- Less stable connection">- Менее стабильное подключение</li>
         </ul>
       </div>
     </section>
@@ -178,8 +178,8 @@
 
   <footer>
     <div class="contacts">
-      <a href="mailto:example@gmail.com">Gmail</a> | 
-      <a href="https://discord.gg/yourserver">Discord</a>
+      <a href="mailto:example@gmail.com" data-ru="Gmail" data-en="Gmail">Gmail</a> | 
+      <a href="https://discord.gg/yourserver" data-ru="Discord" data-en="Discord">Discord</a>
     </div>
     <div class="copyright">© 2025 Vecna VPN. All rights reserved.</div>
   </footer>

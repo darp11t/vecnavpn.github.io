@@ -213,21 +213,99 @@ footer {
 
 <script>
 // Переключение языка
-const translations = { /* твои переводы */ };
+const translations = {
+  ru: {
+    description: "Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
+    about: "О нас",
+    start: "Начать сейчас",
+    contacts: "Контакты",
+    intro: "Преимущества использования нашего VPN для вашей безопасности и удобства",
+    anon: "Анонимность",
+    anonText: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
+    secure: "Безопасность",
+    secureText: "Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
+    speed: "Скорость",
+    speedText: "Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
+    access: "Доступ",
+    accessText: "Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.",
+    mobile: "Мобильность",
+    mobileText: "Приложения для Windows, Android и iOS с простым интерфейсом.",
+    support: "Поддержка",
+    supportText: "Круглосуточная помощь в чате и быстрая реакция на любые вопросы.",
+    startNow: "Начать сейчас",
+    prem: "PREM",
+    premPrice: "9.99$ p.m.",
+    buy: "Купить",
+    prem1: "быстрее соединение",
+    prem2: "больше серверов",
+    prem3: "24/7 поддержка",
+    prem4: "более стабильное подключение",
+    prem5: "приоритетная поддержка",
+    free: "FREE",
+    download: "Скачать",
+    free1: "ограниченная скорость",
+    free2: "меньше серверов",
+    discord: "Discord",
+    gmail: "Gmail",
+    copyright: "© 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0."
+  },
+  en: {
+    description: "Vecna VPN protects your privacy, hides your IP, and gives access to blocked sites with high speed and reliability",
+    about: "About",
+    start: "Get Started",
+    contacts: "Contacts",
+    intro: "Benefits of using our VPN for your security and convenience",
+    anon: "Anonymity",
+    anonText: "Your IP is fully hidden; sites cannot track your actions.",
+    secure: "Security",
+    secureText: "Military-grade encryption protects traffic from hackers and ISPs.",
+    speed: "Speed",
+    speedText: "Optimized servers provide stable and fast connection.",
+    access: "Access",
+    accessText: "Unblock favorite sites and services unavailable in your country.",
+    mobile: "Mobility",
+    mobileText: "Apps for Windows, Android, and iOS with a simple interface.",
+    support: "Support",
+    supportText: "24/7 chat help and fast response to any questions.",
+    startNow: "Get Started",
+    prem: "PREM",
+    premPrice: "$9.99 p.m.",
+    buy: "Buy",
+    prem1: "faster connection",
+    prem2: "more servers",
+    prem3: "24/7 support",
+    prem4: "more stable connection",
+    prem5: "priority support",
+    free: "FREE",
+    download: "Download",
+    free1: "limited speed",
+    free2: "fewer servers",
+    discord: "Discord",
+    gmail: "Gmail",
+    copyright: "© 2025 vecna-VPN. All rights reserved.<br>License: Creative Commons BY-NC-SA 4.0."
+  }
+};
+
 const langSwitch = document.getElementById("langSwitch");
 const flagImg = langSwitch.querySelector("img");
+
 flagImg.addEventListener("click", ()=>{langSwitch.classList.toggle("open");});
+
 langSwitch.querySelectorAll(".lang-dropdown img").forEach(img=>{
   img.addEventListener("click", ()=>{
-    const lang=img.dataset.lang;
-    flagImg.src=img.src;
+    const lang = img.dataset.lang;
+    flagImg.src = img.src;
     langSwitch.classList.remove("open");
+
     document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key=el.dataset.i18n;
-      if(translations[lang][key]) el.innerHTML=translations[lang][key];
+      const key = el.dataset.i18n;
+      if(translations[lang] && translations[lang][key]){
+        el.innerHTML = translations[lang][key];
+      }
     });
   });
 });
+</script>
 
 // Плавная прокрутка
 function smoothScroll(target){

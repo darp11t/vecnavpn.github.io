@@ -101,27 +101,30 @@ footer { flex-shrink:0; background: rgba(20,20,20,0.7); padding:20px 0; position
     </div>
   </div>
 
-  <div class="section" id="download">
-    <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
-      <div style="display:flex; flex-direction:column; align-items:center;">
-        <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; justify-content:center; align-items:center;">
-          <h3 data-i18n="prem">PREM</h3>
-        </div>
-        <a href="#buy-premium" class="action-tile" data-i18n="buy">Купить</a>
-        <div style="margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.5;">
-          <p data-i18n="prem1">быстрее соединение</p>
-          <p data-i18n="prem2">больше серверов</p>
-          <p data-i18n="prem3">24/7 поддержка</p>
-          <p data-i18n="prem4">более стабильное подключение</p>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; align-items:center;">
-        <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; justify-content:center; align-items:center;">
-          <h3 data-i18n="free">FREE</h3>
-        </div>
-        <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile" data-i18n="download">Скачать</a>
-      </div>
-    </div>
+  <!-- PREM -->
+<div style="display:flex; flex-direction:column; align-items:center;">
+  <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; justify-content:center; align-items:center;">
+    <h3 data-i18n="prem">PREM</h3>
+  </div>
+  <a href="#buy-premium" class="action-tile" data-i18n="buy">Купить</a>
+  <div style="margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.5;">
+    <p data-i18n="prem1">быстрее соединение</p>
+    <p data-i18n="prem2">больше серверов</p>
+    <p data-i18n="prem3">24/7 поддержка</p>
+    <p data-i18n="prem4">более стабильное подключение</p>
+    <p data-i18n="prem5">приоритетная поддержка</p> <!-- NEW -->
+  </div>
+</div>
+
+<!-- FREE -->
+<div style="display:flex; flex-direction:column; align-items:center;">
+  <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; justify-content:center; align-items:center;">
+    <h3 data-i18n="free">FREE</h3>
+  </div>
+  <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile" data-i18n="download">Скачать</a>
+  <div style="margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.5;"> <!-- NEW -->
+    <p data-i18n="free1">ограниченная скорость</p>
+    <p data-i18n="free2">меньше серверов</p>
   </div>
 </div>
 
@@ -147,8 +150,8 @@ const translations = {
     access:"Доступ", accessText:"Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.",
     mobile:"Мобильность", mobileText:"Приложения для Windows, Android и iOS с простым интерфейсом.",
     support:"Поддержка", supportText:"Круглосуточная помощь в чате и быстрая реакция на любые вопросы.",
-    prem:"PREM", prem1:"быстрее соединение", prem2:"больше серверов", prem3:"24/7 поддержка", prem4:"более стабильное подключение",
-    free:"FREE",
+    prem:"PREM", prem1:"быстрее соединение", prem2:"больше серверов", prem3:"24/7 поддержка", prem4:"более стабильное подключение", prem5:"приоритетная поддержка",
+    free:"FREE", free1:"ограниченная скорость", free2:"меньше серверов",
     discord:"Discord", gmail:"Gmail",
     copyright:"© 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0."
   },
@@ -163,8 +166,8 @@ const translations = {
     access:"Access", accessText:"Unlock your favorite websites and services unavailable in your country.",
     mobile:"Mobility", mobileText:"Apps for Windows, Android, and iOS with a simple interface.",
     support:"Support", supportText:"24/7 chat support and fast response to any questions.",
-    prem:"PREM", prem1:"faster connection", prem2:"more servers", prem3:"24/7 support", prem4:"more stable connection",
-    free:"FREE",
+    prem:"PREM", prem1:"faster connection", prem2:"more servers", prem3:"24/7 support", prem4:"more stable connection", prem5:"priority support",
+    free:"FREE", free1:"limited speed", free2:"fewer servers",
     discord:"Discord", gmail:"Gmail",
     copyright:"© 2025 vecna-VPN. All rights reserved.<br>License: Creative Commons BY-NC-SA 4.0."
   },
@@ -179,8 +182,8 @@ const translations = {
     access:"Zugang", accessText:"Schalten Sie Ihre Lieblingswebsites und Dienste frei, die in Ihrem Land nicht verfügbar sind.",
     mobile:"Mobilität", mobileText:"Apps für Windows, Android und iOS mit einfacher Oberfläche.",
     support:"Support", supportText:"24/7 Chat-Support und schnelle Reaktion auf alle Fragen.",
-    prem:"PREM", prem1:"schnellere Verbindung", prem2:"mehr Server", prem3:"24/7 Support", prem4:"stabilere Verbindung",
-    free:"FREE",
+    prem:"PREM", prem1:"schnellere Verbindung", prem2:"mehr Server", prem3:"24/7 Support", prem4:"stabilere Verbindung", prem5:"priorisierte Unterstützung",
+    free:"FREE", free1:"begrenzte Geschwindigkeit", free2:"weniger Server",
     discord:"Discord", gmail:"Gmail",
     copyright:"© 2025 vecna-VPN. Alle Rechte vorbehalten.<br>Lizenz: Creative Commons BY-NC-SA 4.0."
   }

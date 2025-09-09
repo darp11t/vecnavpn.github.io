@@ -54,49 +54,48 @@ p[data-i18n="aboutText"] { margin-bottom: 50px; }
 .action-tile { margin-top:5px; width:180px; height:50px; background: rgba(70,130,180,0.6); border-radius:10px; display:flex; justify-content:center; align-items:center; font-weight:700; font-size:20px; cursor:pointer; color:white; transition:background 0.3s; text-decoration:none; }
 .action-tile:hover { background: rgba(70,130,180,0.9); }
 
-/* === Исправленный фиксированный футер === */
+/* === Футер внизу страницы, компактный === */
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background: rgba(20,20,20,0.8);
-  padding: 10px 0;
-  z-index: 20;
+  padding: 8px 0; /* компактнее */
+  text-align: center;
   box-sizing: border-box;
+  color: white;
 }
 
 .footer-contacts {
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  margin-bottom:5px;
-  flex-wrap:wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* минимальное расстояние между иконками */
+  margin-bottom: 4px; /* ближе к копирайту */
+  flex-wrap: wrap;
 }
 
 .footer-tile {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  color:white;
-  text-decoration:none;
-  font-size:14px;
-  transition:all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 4px; /* иконка и текст плотнее */
+  color: white;
+  text-decoration: none;
+  font-size: 12px; /* меньше */
+  transition: all 0.3s;
 }
 
 .footer-tile img {
-  height:18px;
-  width:18px;
+  height: 16px;
+  width: 16px; /* иконки меньше */
 }
 
-.footer-tile:hover { color:#7dbbff; text-shadow:0 0 5px #7dbbff; }
+.footer-tile:hover {
+  color: #7dbbff;
+  text-shadow: 0 0 5px #7dbbff;
+}
 
 .copyright {
-  text-align:center;
-  font-size:10px;
-  color:#ddd;
-  line-height:1.3;
-  margin:0;
+  font-size: 10px; /* компактный текст */
+  line-height: 1.2;
+  color: #ddd;
+  margin: 0;
 }
 
 .section { margin:50px 0; }
@@ -190,10 +189,18 @@ footer {
 
 <footer id="contacts">
   <div class="footer-contacts">
-    <a href="https://discord.com" target="_blank" class="footer-tile"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord"><span data-i18n="discord">Discord</span></a>
-    <a href="mailto:example@gmail.com" class="footer-tile"><img src="https://fs39.fex.net/preview/5636191154/400x0" alt="Gmail"><span data-i18n="gmail">Gmail</span></a>
+    <a href="https://discord.com" target="_blank" class="footer-tile">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+      <span data-i18n="discord">Discord</span>
+    </a>
+    <a href="mailto:example@gmail.com" class="footer-tile">
+      <img src="https://fs39.fex.net/preview/5636191154/400x0" alt="Gmail">
+      <span data-i18n="gmail">Gmail</span>
+    </a>
   </div>
-  <div class="copyright" data-i18n="copyright">© 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0.</div>
+  <div class="copyright" data-i18n="copyright">
+    © 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0.
+  </div>
 </footer>
 
 <script>

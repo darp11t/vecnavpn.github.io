@@ -17,6 +17,26 @@ body {
   scroll-behavior:smooth;
   overflow-x:hidden;
 }
+  .vpn-description[data-i18n="description"] {
+  margin-bottom: 50px;
+}
+
+.content img {
+  margin-bottom: 50px;
+}
+
+p[data-i18n="aboutText"] {
+  margin-bottom: 50px;
+}
+
+.intro-text {
+  margin-top: 50px;
+}
+
+.content {
+  min-height: 1200px; /* можно увеличить до 3000px, если нужно */
+}
+  
 .content { flex:1 0 auto; position:relative; z-index:2; padding:80px 20px 20px; text-align:center; }
 .background { position:fixed; top:0; left:0; width:100%; height:100%; background:url('https://img.freepik.com/premium-vector/blue-world-map_1378-997.jpg') center/cover no-repeat; filter:blur(5px); transform:scale(1.05); z-index:0; }
 .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85)); z-index:1; }

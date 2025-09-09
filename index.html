@@ -38,13 +38,135 @@ body {
 .nav a { color:white; text-decoration:none; font-size:16px; white-space:nowrap; transition:color 0.3s; }
 .nav a:hover { color:#7dbbff; }
 
-/* Смена языка */
-.lang-switch { position:relative; cursor:pointer; }
-.lang-switch img { width:25px;height:18px;border-radius:3px; }
-.lang-dropdown { display:none; position:absolute; top:30px; left:0; background:rgba(20,20,20,0.9); border:1px solid #555; border-radius:5px; padding:5px; }
-.lang-dropdown img { width:25px;height:18px;margin:5px; cursor:pointer; transition: transform 0.2s; }
-.lang-dropdown img:hover { transform: scale(1.1); }
-.lang-switch.open .lang-dropdown { display:flex; flex-direction:column; }
+<script>
+const translations = {
+  ru: {
+    description: "Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
+    about: "О нас",
+    start: "Начать сейчас",
+    contacts: "Контакты",
+    intro: "Преимущества использования нашего VPN для вашей безопасности и удобства",
+    anon: "Анонимность",
+    anonText: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
+    secure: "Безопасность",
+    secureText: "Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
+    speed: "Скорость",
+    speedText: "Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
+    access: "Доступ",
+    accessText: "Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.",
+    mobile: "Мобильность",
+    mobileText: "Приложения для Windows, Android и iOS с простым интерфейсом.",
+    support: "Поддержка",
+    supportText: "Круглосуточная помощь в чате и быстрая реакция на любые вопросы.",
+    startNow: "Начать сейчас",
+    prem: "PREM",
+    premPrice: "9.99$ p.m.",
+    buy: "Купить",
+    prem1: "быстрее соединение",
+    prem2: "больше серверов",
+    prem3: "24/7 поддержка",
+    prem4: "более стабильное подключение",
+    prem5: "приоритетная поддержка",
+    free: "FREE",
+    download: "Скачать",
+    free1: "ограниченная скорость",
+    free2: "меньше серверов",
+    discord: "Discord",
+    gmail: "Gmail",
+    copyright: "© 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0.",
+    aboutText: "Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные."
+  },
+  en: {
+    description: "Vecna VPN protects your privacy, hides your IP, and gives access to blocked sites with high speed and reliability",
+    about: "About",
+    start: "Get Started",
+    contacts: "Contacts",
+    intro: "Benefits of using our VPN for your security and convenience",
+    anon: "Anonymity",
+    anonText: "Your IP is fully hidden; sites cannot track your actions.",
+    secure: "Security",
+    secureText: "Military-grade encryption protects traffic from hackers and ISPs.",
+    speed: "Speed",
+    speedText: "Optimized servers provide stable and fast connection.",
+    access: "Access",
+    accessText: "Unblock favorite sites and services unavailable in your country.",
+    mobile: "Mobility",
+    mobileText: "Apps for Windows, Android, and iOS with a simple interface.",
+    support: "Support",
+    supportText: "24/7 chat help and fast response to any questions.",
+    startNow: "Get Started",
+    prem: "PREM",
+    premPrice: "$9.99 p.m.",
+    buy: "Buy",
+    prem1: "faster connection",
+    prem2: "more servers",
+    prem3: "24/7 support",
+    prem4: "more stable connection",
+    prem5: "priority support",
+    free: "FREE",
+    download: "Download",
+    free1: "limited speed",
+    free2: "fewer servers",
+    discord: "Discord",
+    gmail: "Gmail",
+    copyright: "© 2025 vecna-VPN. All rights reserved.<br>License: Creative Commons BY-NC-SA 4.0.",
+    aboutText: "We work around the clock, providing a secure connection for all users. Our VPN servers are distributed worldwide to ensure stable access. Each server uses modern encryption protocols to protect your data."
+  },
+  de: {
+    description: "Vecna VPN schützt Ihre Privatsphäre, verbirgt Ihre IP und ermöglicht den Zugriff auf gesperrte Seiten mit hoher Geschwindigkeit und Zuverlässigkeit",
+    about: "Über uns",
+    start: "Jetzt starten",
+    contacts: "Kontakte",
+    intro: "Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit",
+    anon: "Anonymität",
+    anonText: "Ihre IP ist vollständig verborgen; Websites können Ihre Aktionen nicht verfolgen.",
+    secure: "Sicherheit",
+    secureText: "Verschlüsselung auf Militärniveau schützt den Datenverkehr vor Hackern und Internetanbietern.",
+    speed: "Geschwindigkeit",
+    speedText: "Optimierte Server sorgen für eine stabile und schnelle Verbindung.",
+    access: "Zugang",
+    accessText: "Entsperren Sie Lieblingsseiten und -dienste, die in Ihrem Land nicht verfügbar sind.",
+    mobile: "Mobilität",
+    mobileText: "Apps für Windows, Android und iOS mit einfacher Bedienung.",
+    support: "Support",
+    supportText: "24/7 Chat-Hilfe und schnelle Reaktion auf Fragen.",
+    startNow: "Jetzt starten",
+    prem: "PREM",
+    premPrice: "9,99$ p.m.",
+    buy: "Kaufen",
+    prem1: "schnellere Verbindung",
+    prem2: "mehr Server",
+    prem3: "24/7 Unterstützung",
+    prem4: "stabilere Verbindung",
+    prem5: "Prioritätssupport",
+    free: "FREE",
+    download: "Herunterladen",
+    free1: "begrenzte Geschwindigkeit",
+    free2: "weniger Server",
+    discord: "Discord",
+    gmail: "Gmail",
+    copyright: "© 2025 vecna-VPN. Alle Rechte vorbehalten.<br>Lizenz: Creative Commons BY-NC-SA 4.0.",
+    aboutText: "Wir arbeiten rund um die Uhr und bieten eine sichere Verbindung für alle Benutzer. Unsere VPN-Server sind weltweit verteilt, um stabilen Zugang zu gewährleisten. Jeder Server verwendet moderne Verschlüsselungsprotokolle zum Schutz Ihrer Daten."
+  }
+};
+
+const langSwitch = document.getElementById("langSwitch");
+const flagImg = langSwitch.querySelector("img");
+flagImg.addEventListener("click", ()=>{langSwitch.classList.toggle("open");});
+langSwitch.querySelectorAll(".lang-dropdown img").forEach(img=>{
+  img.addEventListener("click", ()=>{
+    const lang = img.dataset.lang;
+    flagImg.src = img.src;
+    langSwitch.classList.remove("open");
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key = el.dataset.i18n;
+      if(translations[lang] && translations[lang][key]){
+        el.innerHTML = translations[lang][key];
+      }
+    });
+  });
+});
+</script>
 
 /* Контент */
 .content {
@@ -224,24 +346,6 @@ const translations = {
   en: { /* ... тот же блок */ },
   de: { /* ... тот же блок */ }
 };
-
-// Переключение языка
-const langSwitch = document.getElementById("langSwitch");
-const flagImg = langSwitch.querySelector("img");
-flagImg.addEventListener("click", ()=>{langSwitch.classList.toggle("open");});
-langSwitch.querySelectorAll(".lang-dropdown img").forEach(img=>{
-  img.addEventListener("click", ()=>{
-    const lang = img.dataset.lang;
-    flagImg.src = img.src;
-    langSwitch.classList.remove("open");
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key = el.dataset.i18n;
-      if(translations[lang] && translations[lang][key]){
-        el.innerHTML = translations[lang][key];
-      }
-    });
-  });
-});
 
 // Плавная прокрутка
 function smoothScroll(target){

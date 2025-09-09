@@ -61,21 +61,18 @@ footer { flex-shrink:0; background: rgba(20,20,20,0.7); padding:20px 0; position
   <div class="logo-section">
     <img src="https://i.postimg.cc/FRBGy0Cr/image.png">
     <h1>Vecna-VPN</h1>
-  </div>
   <div class="nav">
-    <div class="lang-switch" id="langSwitch">
-      <img src="https://flagcdn.com/w20/ru.png" alt="RU">
-      <div class="lang-dropdown">
-        <img src="https://flagcdn.com/w20/ru.png" data-lang="ru">
-        <img src="https://flagcdn.com/w20/us.png" data-lang="en">
-        <img src="https://flagcdn.com/w20/de.png" data-lang="de">
-      </div>
+  <div class="lang-switch" id="langSwitch">
+    <img src="https://flagcdn.com/w20/ru.png" alt="RU">
+    <div class="lang-dropdown">
+      <img src="https://flagcdn.com/w20/ru.png" data-lang="ru">
+      <img src="https://flagcdn.com/w20/us.png" data-lang="en">
+      <img src="https://flagcdn.com/w20/de.png" data-lang="de">
     </div>
-    <a href="#intro" data-i18n="about">О нас</a>
-    <a href="#download" data-i18n="download">Скачать</a>
-    <a href="#download" data-i18n="buy">Купить</a>
-    <a href="#contacts" data-i18n="contacts">Контакты</a>
   </div>
+  <a href="#intro" data-i18n="about">О нас</a>
+  <a href="#download" data-i18n="start">Начать сейчас</a> <!-- заменили скачать + купить -->
+  <a href="#contacts" data-i18n="contacts">Контакты</a>
 </div>
 
 <div class="content">
@@ -147,7 +144,7 @@ footer { flex-shrink:0; background: rgba(20,20,20,0.7); padding:20px 0; position
 // Переключение языка
 const translations = {
   ru: {
-    about:"О нас", download:"Скачать", buy:"Купить", contacts:"Контакты",
+    about:"О нас", start:"Начать сейчас", contacts:"Контакты",
     description:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
     aboutText:"Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.",
     intro:"Преимущества использования нашего VPN для вашей безопасности и удобства",
@@ -163,7 +160,7 @@ const translations = {
     copyright:"© 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0."
   },
   en: {
-    about:"About", download:"Download", buy:"Buy", contacts:"Contacts",
+    about:"About", start:"Get Started", contacts:"Contacts",
     description:"Vecna VPN protects your privacy, hides your IP, and opens access to blocked websites with high speed and reliability",
     aboutText:"We work 24/7 providing secure connections for all users. Our VPN servers are distributed worldwide for stable access. Each server uses modern encryption protocols to protect your data.",
     intro:"Advantages of using our VPN for your safety and convenience",
@@ -179,7 +176,7 @@ const translations = {
     copyright:"© 2025 vecna-VPN. All rights reserved.<br>License: Creative Commons BY-NC-SA 4.0."
   },
   de: {
-    about:"Über uns", download:"Herunterladen", buy:"Kaufen", contacts:"Kontakte",
+    about:"Über uns", start:"Jetzt starten", contacts:"Kontakte",
     description:"Vecna VPN schützt Ihre Privatsphäre, verbirgt Ihre IP und öffnet den Zugriff auf blockierte Websites mit hoher Geschwindigkeit und Zuverlässigkeit",
     aboutText:"Wir arbeiten rund um die Uhr und bieten sichere Verbindungen für alle Benutzer. Unsere VPN-Server sind weltweit verteilt für stabilen Zugriff. Jeder Server verwendet moderne Verschlüsselungsprotokolle, um Ihre Daten zu schützen.",
     intro:"Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit",

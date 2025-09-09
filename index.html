@@ -17,18 +17,13 @@ body {
   overflow-x:hidden;
 }
 
+/* Контент */
 .content {
-  flex:1 0 auto; /* Чтобы растягивать контент и сдвигать футер вниз */
+  flex:1 0 auto;
   position:relative;
   z-index:2;
   padding:120px 20px 20px;
   text-align:center;
-}
-
-footer {
-  flex-shrink:0; /* Футер не сжимается */
-  background: rgba(20,20,20,0.7);
-  padding:20px 0;
 }
 
 /* Фон */
@@ -56,15 +51,6 @@ footer {
 .lang-dropdown img { width:25px;height:18px;margin:5px; cursor:pointer; transition: transform 0.2s; }
 .lang-dropdown img:hover { transform: scale(1.1); }
 .lang-switch.open .lang-dropdown { display:flex; flex-direction:column; }
-
-/* Контент */
-.content {
-  flex:1 0 auto;
-  position:relative;
-  z-index:2;
-  padding:120px 20px 20px;
-  text-align:center;
-}
 
 /* Анимация появления */
 .vpn-description { font-size:22px; font-weight:600; margin-bottom:30px; color:#7dbbff; line-height:1.4; opacity:0; transform:translateY(-20px); animation:fadeIn 1s forwards; }
@@ -97,6 +83,8 @@ footer {
   flex-shrink:0;
   background: rgba(20,20,20,0.7);
   padding:20px 0;
+  position:relative; /* обязательно */
+  z-index:3;
 }
 .footer-contacts { display:flex; justify-content:center; gap:40px; margin-bottom:10px; flex-wrap:wrap; }
 .footer-tile { display:flex; align-items:center; gap:8px; color:white; text-decoration:none; font-size:16px; transition:all 0.3s; }
@@ -198,6 +186,7 @@ footer {
     © 2025 vecna-VPN. Все права защищены.<br>
     Лицензия: Creative Commons BY-NC-SA 4.0.
   </div>
+</footer>
 
 <script>
 // Переключение языка

@@ -115,10 +115,13 @@ footer {
         <img src="https://flagcdn.com/w20/de.png" data-lang="de">
       </div>
     </div>
-    <a href="#intro">О нас</a>
-    <a href="#download">Скачать</a>
-    <a href="#download">Купить</a>
-    <a href="#contacts">Контакты</a>
+    <a href="#intro" data-i18n="about">О нас</a>
+<a href="#download" data-i18n="download">Скачать</a>
+<a href="#contacts" data-i18n="contacts">Контакты</a>
+
+<p class="intro-text" data-i18n="intro">
+  Преимущества использования нашего VPN для вашей безопасности и удобства
+</p>
   </div>
 </div>
 
@@ -195,17 +198,23 @@ const translations = {
   en: { about:"About", download:"Download", contacts:"Contacts", intro:"Advantages of using our VPN for your safety and convenience" },
   de: { about:"Über uns", download:"Herunterladen", contacts:"Kontakte", intro:"Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit" }
 };
+
 const langSwitch = document.getElementById("langSwitch");
 const flagImg = langSwitch.querySelector("img");
-flagImg.addEventListener("click", ()=>{langSwitch.classList.toggle("open");});
-langSwitch.querySelectorAll(".lang-dropdown img").forEach(img=>{
-  img.addEventListener("click", ()=>{
-    const lang=img.dataset.lang;
-    flagImg.src=img.src;
+
+flagImg.addEventListener("click", () => {
+  langSwitch.classList.toggle("open");
+});
+
+langSwitch.querySelectorAll(".lang-dropdown img").forEach(img => {
+  img.addEventListener("click", () => {
+    const lang = img.dataset.lang;
+    flagImg.src = img.src;
     langSwitch.classList.remove("open");
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key=el.dataset.i18n;
-      if(translations[lang][key]) el.textContent=translations[lang][key];
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.dataset.i18n;
+      if(translations[lang][key]) el.textContent = translations[lang][key];
     });
   });
 });

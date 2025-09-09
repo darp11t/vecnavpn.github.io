@@ -11,7 +11,7 @@
       color: white;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
-      scroll-behavior: smooth;
+      scroll-behavior: smooth; /* базовый плавный скролл */
     }
 
     /* Фон */
@@ -127,11 +127,10 @@
     .content {
       position: relative;
       z-index: 2;
-      padding: 120px 20px 200px;
+      padding: 120px 20px 500px;
       text-align: center;
-      min-height: 1000px;
+      min-height: 1600px;
     }
-
     .vpn-description {
       font-size: 22px;
       font-weight: 600;
@@ -196,80 +195,39 @@
       color: #e0e0e0;
     }
 
-    /* Тарифы */
-    .download-section {
-      margin-top: 100px;
-      padding: 50px 20px;
-      background: rgba(20,20,20,0.6);
-      border-radius: 12px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .download-section h2 {
-      margin-bottom: 30px;
-      font-size: 32px;
-      color: #fff;
-      text-align: center;
-    }
-
-    .plans {
+    /* Под плитки для действий */
+    .action-tiles {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 40px;
+      margin: 20px 0 60px;
+      flex-wrap: wrap;
     }
 
-    .plan {
-      background: rgba(50, 50, 50, 0.7);
-      border: 2px solid #777;
-      border-radius: 12px;
-      width: 300px;
-      padding: 20px;
-      box-sizing: border-box;
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .plan:hover {
-      background: rgba(70, 70, 70, 0.8);
-      transform: translateY(-5px);
-    }
-
-    .plan h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #7dbbff;
-    }
-
-    .plan ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px;
-      text-align: left;
-      color: #ddd;
-    }
-
-    .plan ul li {
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-
-    .plan-btn {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #444;
+    .action-tile {
+      width: 180px;
+      height: 60px;
+      background: rgba(70,130,180,0.6);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 20px;
+      cursor: pointer;
       color: white;
+      transition: background 0.3s;
+      flex-direction: column;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: 0.3s;
     }
 
-    .plan-btn:hover {
-      background: #7dbbff;
-      color: black;
+    .action-tile:hover {
+      background: rgba(70,130,180,0.9);
+    }
+
+    .action-tile span {
+      font-size: 14px;
+      font-weight: 500;
     }
 
     /* Подвал */
@@ -334,8 +292,7 @@
       </div>
 
       <a href="#about" data-i18n="about">О нас</a>
-      <a href="#download" data-i18n="download">Скачать</a>
-      <a href="#download" data-i18n="buy">Купить</a>
+      <a href="https://docs.google.com/yourfilelink" target="_blank" data-i18n="download">Скачать</a>
       <a href="#contacts" data-i18n="contacts">Контакты</a>
     </div>
   </div>
@@ -362,36 +319,19 @@
       <div class="tile"><h3 data-i18n="mobilityTitle">Мобильность</h3><p data-i18n="mobilityText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
       <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
-  </div>
 
-  <!-- Тарифы -->
-  <div class="download-section" id="download">
-    <h2>Наши тарифы</h2>
-    <div class="plans">
-      <!-- Free -->
-      <div class="plan">
-        <h3>Free</h3>
-        <ul>
-          <li>✓ Ограниченная скорость</li>
-          <li>✓ Доступ к 3 серверам</li>
-          <li>✓ Базовая защита</li>
-          <li>✗ Нет круглосуточной поддержки</li>
-        </ul>
-        <a href="https://example.com/free-download" class="plan-btn">Скачать</a>
-      </div>
-
-      <!-- Premium -->
-      <div class="plan">
-        <h3>Premium</h3>
-        <ul>
-          <li>✓ Максимальная скорость</li>
-          <li>✓ Более 50 серверов</li>
-          <li>✓ Расширенная защита</li>
-          <li>✓ Поддержка 24/7</li>
-        </ul>
-        <a href="https://example.com/premium-buy" class="plan-btn">Купить</a>
-      </div>
+    <!-- Премиум и Фри плитки -->
+    <div class="action-tiles">
+      <a href="#buy-premium" class="action-tile">
+        PREM
+        <span>Купить</span>
+      </a>
+      <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile">
+        FREE
+        <span>Скачать</span>
+      </a>
     </div>
+
   </div>
 
   <!-- Подвал -->
@@ -418,7 +358,6 @@
       ru: {
         about: "О нас",
         download: "Скачать",
-        buy: "Купить",
         contacts: "Контакты",
         intro: "Преимущества использования нашего VPN для вашей безопасности и удобства:",
         anonymityTitle: "Анонимность",
@@ -437,7 +376,6 @@
       en: {
         about: "About",
         download: "Download",
-        buy: "Buy",
         contacts: "Contacts",
         intro: "Advantages of using our VPN for your safety and convenience:",
         anonymityTitle: "Anonymity",
@@ -456,7 +394,6 @@
       de: {
         about: "Über uns",
         download: "Herunterladen",
-        buy: "Kaufen",
         contacts: "Kontakte",
         intro: "Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit:",
         anonymityTitle: "Anonymität",
@@ -474,25 +411,57 @@
       }
     };
 
-    const langSwitch = document.getElementById('langSwitch');
-    const currentFlag = langSwitch.querySelector('img');
-    const dropdown = langSwitch.querySelector('.lang-dropdown');
+    const langSwitch = document.getElementById("langSwitch");
+    const flagImg = langSwitch.querySelector("img");
 
-    langSwitch.addEventListener('click', () => {
-      langSwitch.classList.toggle('open');
+    flagImg.addEventListener("click", () => {
+      langSwitch.classList.toggle("open");
     });
 
-    dropdown.querySelectorAll('img').forEach(img => {
-      img.addEventListener('click', (e) => {
-        e.stopPropagation();
+    langSwitch.querySelectorAll(".lang-dropdown img").forEach(img => {
+      img.addEventListener("click", () => {
         const lang = img.dataset.lang;
-        currentFlag.src = img.src;
-        langSwitch.classList.remove('open');
+        flagImg.src = img.src;
+        langSwitch.classList.remove("open");
 
         document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
-          el.innerText = translations[lang][key];
+          const key = el.dataset.i18n;
+          el.textContent = translations[lang][key];
         });
+      });
+    });
+
+    /* Плавный скролл с анимацией */
+    function smoothScroll(target) {
+      const element = document.querySelector(target);
+      if (!element) return;
+
+      const start = window.pageYOffset;
+      const end = element.getBoundingClientRect().top + start - 70; // отступ под шапку
+      const duration = 800;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        const ease = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        window.scrollTo(0, start + (end - start) * ease);
+
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        smoothScroll(this.getAttribute('href'));
       });
     });
   </script>

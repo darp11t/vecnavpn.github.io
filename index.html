@@ -5,13 +5,21 @@
   <title>vecna-VPN</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       background: black;
       color: white;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
       scroll-behavior: smooth;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* Фон */
@@ -127,9 +135,9 @@
     .content {
       position: relative;
       z-index: 2;
-      padding: 120px 20px 500px;
+      padding: 120px 20px 40px; /* снизу уменьшили padding, футер закрепим */
       text-align: center;
-      min-height: 1600px;
+      flex: 1;
     }
 
     .vpn-description {
@@ -200,13 +208,13 @@
       display: flex;
       justify-content: center;
       gap: 40px;
-      margin: 20px 0 60px;
+      margin: 20px 0 20px;
       flex-wrap: wrap;
     }
 
     .action-tile {
       width: 180px;
-      height: 60px;
+      height: 50px;
       background: rgba(70,130,180,0.6);
       border-radius: 10px;
       display: flex;
@@ -219,6 +227,7 @@
       transition: background 0.3s;
       flex-direction: column;
       text-decoration: none;
+      margin-top:10px;
     }
 
     .action-tile:hover {
@@ -230,22 +239,25 @@
       font-weight: 500;
     }
 
-    /* Разделы с пробелами */
     .section {
       margin-top: 80px;
       margin-bottom: 80px;
     }
 
     /* Подвал */
-    .footer {
-      position: relative;
-      bottom: 0;
+    footer {
+      background: rgba(20,20,20,0.7);
+      padding: 20px 0 10px;
       width: 100%;
+      box-sizing: border-box;
+    }
+
+    .footer-content {
       display: flex;
       justify-content: center;
       gap: 40px;
-      padding: 25px 20px 10px;
-      z-index: 5;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
     }
 
     .footer-tile {
@@ -272,9 +284,9 @@
       text-align: center;
       font-size: 12px;
       color: #ddd;
-      margin-bottom: 15px;
       line-height: 1.5;
     }
+
   </style>
 </head>
 <body>
@@ -318,7 +330,7 @@
       </p>
     </div>
 
-    <!-- Раздел: Преимущества -->
+    <!-- Преимущества -->
     <div class="section" id="intro">
       <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства</p>
 
@@ -332,40 +344,37 @@
       </div>
     </div>
 
-    <!-- Раздел: Премиум/Free -->
-<div class="section" id="download">
-  <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
-    <!-- PREM -->
-    <div style="display:flex; flex-direction:column; align-items:center;">
-      <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); border-radius:10px; display:flex; justify-content:center; align-items:center;">
-        <h3 style="margin:0; font-size:22px;">PREM</h3>
-      </div>
-      <a href="#buy-premium" class="action-tile" style="width:180px; height:50px; display:flex; justify-content:center; align-items:center; margin-top:10px;">
-        Купить
-      </a>
-      <div style="margin-top:5px; font-size:12px; color:#ccc; text-align:center; line-height:1.4; text-transform:lowercase;">
-        быстрее соединение<br>
-        больше серверов<br>
-        24/7 поддержка<br>
-        более стабильное подключение
-      </div>
-    </div>
+    <!-- Премиум/Free -->
+    <div class="section" id="download">
+      <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+        <!-- PREM -->
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); border-radius:10px; display:flex; justify-content:center; align-items:center;">
+            <h3 style="margin:0; font-size:22px;">PREM</h3>
+          </div>
+          <a href="#buy-premium" class="action-tile">Купить</a>
+          <div style="margin-top:5px; font-size:12px; color:#ccc; text-align:center; line-height:1.4; text-transform:lowercase;">
+            быстрее соединение<br>
+            больше серверов<br>
+            24/7 поддержка<br>
+            более стабильное подключение
+          </div>
+        </div>
 
-    <!-- FREE -->
-    <div style="display:flex; flex-direction:column; align-items:center;">
-      <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); border-radius:10px; display:flex; justify-content:center; align-items:center;">
-        <h3 style="margin:0; font-size:22px;">FREE</h3>
+        <!-- FREE -->
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); border-radius:10px; display:flex; justify-content:center; align-items:center;">
+            <h3 style="margin:0; font-size:22px;">FREE</h3>
+          </div>
+          <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile">Скачать</a>
+        </div>
       </div>
-      <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile" style="width:180px; height:50px; display:flex; justify-content:center; align-items:center; margin-top:10px;">
-        Скачать
-      </a>
     </div>
   </div>
-</div>
 
   <!-- Подвал -->
-  <footer id="contacts" style="position: relative; width: 100%; z-index: 5; background: rgba(20,20,20,0.7); padding: 20px 0;">
-    <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 10px;">
+  <footer id="contacts">
+    <div class="footer-content">
       <a href="https://discord.com" target="_blank" class="footer-tile">
         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
         <span>Discord</span>
@@ -383,78 +392,23 @@
 
   <script>
     const translations = {
-      ru: {
-        about: "О нас",
-        download: "Скачать",
-        contacts: "Контакты",
-        intro: "Преимущества использования нашего VPN для вашей безопасности и удобства",
-        anonymityTitle: "Анонимность",
-        anonymityText: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
-        securityTitle: "Безопасность",
-        securityText: "Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
-        speedTitle: "Скорость",
-        speedText: "Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
-        accessTitle: "Доступ",
-        accessText: "Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.",
-        mobilityTitle: "Мобильность",
-        mobilityText: "Приложения для Windows, Android и iOS с простым интерфейсом.",
-        supportTitle: "Поддержка",
-        supportText: "Круглосуточная помощь в чате и быстрая реакция на любые вопросы."
-      },
-      en: {
-        about: "About",
-        download: "Download",
-        contacts: "Contacts",
-        intro: "Advantages of using our VPN for your safety and convenience",
-        anonymityTitle: "Anonymity",
-        anonymityText: "Your IP is fully hidden, websites cannot track your activity.",
-        securityTitle: "Security",
-        securityText: "Military-grade encryption protects traffic from hackers and ISPs.",
-        speedTitle: "Speed",
-        speedText: "Optimized servers provide stable and fast connections.",
-        accessTitle: "Access",
-        accessText: "Unlock your favorite sites and services unavailable in your country.",
-        mobilityTitle: "Mobility",
-        mobilityText: "Apps for Windows, Android, and iOS with a simple interface.",
-        supportTitle: "Support",
-        supportText: "24/7 chat support and quick responses to any questions."
-      },
-      de: {
-        about: "Über uns",
-        download: "Herunterladen",
-        contacts: "Kontakte",
-        intro: "Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit",
-        anonymityTitle: "Anonymität",
-        anonymityText: "Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen.",
-        securityTitle: "Sicherheit",
-        securityText: "Verschlüsselung nach Militärstandards schützt den Datenverkehr vor Hackern und Providern.",
-        speedTitle: "Geschwindigkeit",
-        speedText: "Optimierte Server sorgen für stabile und schnelle Verbindungen.",
-        accessTitle: "Zugang",
-        accessText: "Entsperren Sie Ihre Lieblingsseiten und -dienste, die in Ihrem Land nicht verfügbar sind.",
-        mobilityTitle: "Mobilität",
-        mobilityText: "Apps für Windows, Android, und iOS mit einfacher Benutzeroberfläche.",
-        supportTitle: "Support",
-        supportText: "24/7 Chat-Support und schnelle Antworten auf alle Fragen."
-      }
+      ru: { about: "О нас", download: "Скачать", contacts: "Контакты", intro: "Преимущества использования нашего VPN для вашей безопасности и удобства", anonymityTitle: "Анонимность", anonymityText: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.", securityTitle: "Безопасность", securityText: "Военные стандарты шифрования защищают трафик от хакеров и провайдеров.", speedTitle: "Скорость", speedText: "Оптимизированные сервера обеспечивают стабильное и быстрое соединение.", accessTitle: "Доступ", accessText: "Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.", mobilityTitle: "Мобильность", mobilityText: "Приложения для Windows, Android и iOS с простым интерфейсом.", supportTitle: "Поддержка", supportText: "Круглосуточная помощь в чате и быстрая реакция на любые вопросы." },
+      en: { about: "About", download: "Download", contacts: "Contacts", intro: "Advantages of using our VPN for your safety and convenience", anonymityTitle: "Anonymity", anonymityText: "Your IP is fully hidden, websites cannot track your activity.", securityTitle: "Security", securityText: "Military-grade encryption protects traffic from hackers and ISPs.", speedTitle: "Speed", speedText: "Optimized servers provide stable and fast connections.", accessTitle: "Access", accessText: "Unlock your favorite sites and services unavailable in your country.", mobilityTitle: "Mobility", mobilityText: "Apps for Windows, Android, and iOS with a simple interface.", supportTitle: "Support", supportText: "24/7 chat support and quick responses to any questions." },
+      de: { about: "Über uns", download: "Herunterladen", contacts: "Kontakte", intro: "Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit", anonymityTitle: "Anonymität", anonymityText: "Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen.", securityTitle: "Sicherheit", securityText: "Verschlüsselung nach Militärstandards schützt den Datenverkehr vor Hackern und Providern.", speedTitle: "Geschwindigkeit", speedText: "Optimierte Server sorgen für stabile und schnelle Verbindungen.", accessTitle: "Zugang", accessText: "Entsperren Sie Ihre Lieblingsseiten und -dienste, die in Ihrem Land nicht verfügbar sind.", mobilityTitle: "Mobilität", mobilityText: "Apps für Windows, Android, und iOS mit einfacher Benutzeroberfläche.", supportTitle: "Support", supportText: "24/7 Chat-Support und schnelle Antworten auf alle Fragen." }
     };
 
     const langSwitch = document.getElementById("langSwitch");
     const flagImg = langSwitch.querySelector("img");
 
-    flagImg.addEventListener("click", () => {
-      langSwitch.classList.toggle("open");
-    });
+    flagImg.addEventListener("click", () => { langSwitch.classList.toggle("open"); });
 
     langSwitch.querySelectorAll(".lang-dropdown img").forEach(img => {
       img.addEventListener("click", () => {
         const lang = img.dataset.lang;
         flagImg.src = img.src;
         langSwitch.classList.remove("open");
-
         document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.dataset.i18n;
-          el.textContent = translations[lang][key];
+          el.textContent = translations[lang][el.dataset.i18n];
         });
       });
     });
@@ -462,7 +416,6 @@
     function smoothScroll(target) {
       const element = document.querySelector(target);
       if (!element) return;
-
       const start = window.pageYOffset;
       const end = element.getBoundingClientRect().top + start - 70;
       const duration = 800;
@@ -472,10 +425,7 @@
         if (!startTime) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
         const progress = Math.min(timeElapsed / duration, 1);
-        const ease = progress < 0.5
-          ? 4 * progress * progress * progress
-          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
+        const ease = progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
         window.scrollTo(0, start + (end - start) * ease);
         if (timeElapsed < duration) requestAnimationFrame(animation);
       }

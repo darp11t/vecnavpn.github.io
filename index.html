@@ -6,40 +6,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 <style>
 body {
-  margin:0;
-  font-family:'Montserrat',sans-serif;
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
-  background:black;
-  color:white;
-  scroll-behavior:smooth;
-  overflow-x:hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
-/* Описание ближе к шапке */
+.content {
+  flex: 1; /* Контент занимает всё пространство между шапкой и футером */
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 3000px;
+}
+
+/* Vecna VPN описание ближе к шапке */
 #about .vpn-description {
-  margin-top: 120px; /* регулируем, чтобы было ближе к шапке */
-  margin-bottom: 60px; /* чтобы не слипалось с иллюстрацией */
-  font-size:22px;
-  font-weight:600;
-  color:#7dbbff;
-  line-height:1.4;
-  opacity:0;
-  transform:translateY(-20px);
-  animation:fadeIn 1s forwards;
+  margin-top: 120px; /* от шапки */
+  margin-bottom: 60px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #7dbbff;
+  line-height: 1.4;
+  opacity: 1; /* отключаем анимацию для точного позиционирования */
+  transform: translateY(0);
 }
 
-/* "Начать сейчас" по центру между преимуществами и PREM/FREE */
+/* Начать сейчас между преимуществами и PREM/FREE */
 #startNowSection {
-  display:flex;
-  justify-content:center;
-  margin:60px 0; /* расстояние сверху и снизу */
+  text-align: center;
+  margin: 60px 0;
 }
 #startNowSection .vpn-description {
-  font-size:26px;
-  font-weight:700;
-  color:#7dbbff;
+  font-size: 26px;
+  font-weight: 700;
+  color: #7dbbff;
 }
 
 /* Содержимое страницы */
@@ -179,7 +179,7 @@ footer {
       <div class="tile"><h3 data-i18n="support">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
 
-    <!-- После блока преимуществ, до плиток PREM/FREE -->
+    <!-- После блока преимуществ, перед плитками -->
 <div id="startNowSection">
   <div class="vpn-description" data-i18n="startNow">
     Начать сейчас

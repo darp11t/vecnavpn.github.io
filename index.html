@@ -13,68 +13,69 @@
       font-family: 'Montserrat', sans-serif;
       background: black;
       color: white;
-      display: flex;
-      flex-direction: column;
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
+    /* --- Header (старый дизайн) --- */
     header {
       background: #111;
-      padding: 20px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     header nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s;
     }
 
     header nav a:hover {
       color: #1e90ff;
     }
 
+    /* --- Основной контент --- */
     main {
-      flex: 1;
-      padding: 50px;
+      padding: 30px;
     }
 
-    h1, h2, h3 {
-      text-align: center;
-      margin-bottom: 20px;
+    h1, h2 {
+      text-align: left;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
 
-    .animated-text {
-      font-size: 22px;
-      text-align: center;
-      margin-bottom: 40px;
-      animation: fadeIn 2s ease-in-out infinite alternate;
-      color: #1e90ff;
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0.5; }
-      to { opacity: 1; }
+    li {
+      margin-bottom: 10px;
     }
 
+    /* --- Блок тарифов (PREM/FREE) --- */
     .plans {
       display: flex;
       justify-content: center;
       gap: 40px;
-      margin-bottom: 40px;
+      margin: 40px 0;
     }
 
     .plan {
       background: rgba(255, 255, 255, 0.05);
       padding: 20px;
       border-radius: 15px;
-      width: 200px;
+      width: 220px;
       text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .plan:hover {
+      transform: scale(1.05);
     }
 
     .plan h3 {
@@ -97,6 +98,7 @@
       background: #0066cc;
     }
 
+    /* --- Футер (оставляем как есть) --- */
     footer {
       background: #111;
       text-align: center;
@@ -136,28 +138,18 @@
   </header>
 
   <main>
-    <h1 class="animated-text" data-ru="Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью"
-        data-en="Vecna VPN protects your privacy, hides your IP, and unlocks access to blocked sites with high speed and reliability"
-        data-de="Vecna VPN schützt Ihre Privatsphäre, verbirgt Ihre IP-Adresse und ermöglicht den Zugriff auf blockierte Websites mit hoher Geschwindigkeit und Zuverlässigkeit">
-      Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью
-    </h1>
-
+    <!-- Старый основной контент -->
     <section id="features">
-      <h2 data-ru="Преимущества использования нашего VPN для вашей безопасности и удобства"
-          data-en="Advantages of using our VPN for your security and convenience"
-          data-de="Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit">
-        Преимущества использования нашего VPN для вашей безопасности и удобства
-      </h2>
+      <h2 data-ru="Преимущества использования нашего VPN" data-en="Advantages of using our VPN" data-de="Vorteile unseres VPN">Преимущества использования нашего VPN</h2>
       <ul>
         <li data-ru="Анонимность" data-en="Anonymity" data-de="Anonymität">Анонимность</li>
         <li data-ru="Безопасность" data-en="Security" data-de="Sicherheit">Безопасность</li>
         <li data-ru="Скорость" data-en="Speed" data-de="Geschwindigkeit">Скорость</li>
         <li data-ru="Доступ" data-en="Access" data-de="Zugang">Доступ</li>
-        <li data-ru="Мобильность" data-en="Mobility" data-de="Mobilität">Мобильность</li>
-        <li data-ru="Поддержка" data-en="Support" data-de="Unterstützung">Поддержка</li>
       </ul>
     </section>
 
+    <!-- Блок тарифов оставляем -->
     <section id="plans" class="plans">
       <div class="plan">
         <h3>PREM</h3>

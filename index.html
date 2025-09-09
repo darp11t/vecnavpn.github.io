@@ -11,7 +11,7 @@
       color: white;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
-      scroll-behavior: smooth; /* базовый плавный скролл */
+      scroll-behavior: smooth;
     }
 
     /* Фон */
@@ -131,6 +131,7 @@
       text-align: center;
       min-height: 1600px;
     }
+
     .vpn-description {
       font-size: 22px;
       font-weight: 600;
@@ -195,7 +196,6 @@
       color: #e0e0e0;
     }
 
-    /* Под плитки для действий */
     .action-tiles {
       display: flex;
       justify-content: center;
@@ -228,6 +228,12 @@
     .action-tile span {
       font-size: 14px;
       font-weight: 500;
+    }
+
+    /* Разделы с пробелами */
+    .section {
+      margin-top: 80px;
+      margin-bottom: 80px;
     }
 
     /* Подвал */
@@ -291,48 +297,54 @@
         </div>
       </div>
 
-      <a href="#about-section" data-i18n="about">О нас</a>
+      <a href="#intro" data-i18n="about">О нас</a>
       <a href="#download" data-i18n="download">Скачать</a>
-      <a href="#buy-premium" data-i18n="buy">Купить</a>
+      <a href="#download" data-i18n="buy">Купить</a>
       <a href="#contacts" data-i18n="contacts">Контакты</a>
     </div>
   </div>
 
-  <!-- Контент -->
-  <div class="content" id="about">
-    <div class="vpn-description">
-      Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью.
+  <div class="content">
+    <!-- Раздел: Описание VPN -->
+    <div class="section" id="about">
+      <div class="vpn-description">
+        Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью
+      </div>
+
+      <img src="https://cdn.sanity.io/images/jd0fxfd9/production/516bd915041ddfd1576cb4a81611528cb78fac39-5000x2617.jpg" alt="VPN Illustration" style="width:80%; max-width:900px; margin:20px auto; display:block; border-radius:10px;">
+
+      <p style="font-size:14px; color:#cccccc; max-width:900px; margin:10px auto 0; line-height:1.5;">
+        Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные. С нами вы можете свободно заходить на любые сайты и использовать онлайн-сервисы без ограничений. Мы заботимся о приватности, скорости соединения и надежности наших услуг. Независимо от того, Premium вы клиент или используете Free-версию, мы гарантируем стабильность и безопасность. Поддержка доступна на всех платформах, включая Windows, Android и iOS.
+      </p>
     </div>
 
-    <img src="https://cdn.sanity.io/images/jd0fxfd9/production/516bd915041ddfd1576cb4a81611528cb78fac39-5000x2617.jpg" alt="VPN Illustration" style="width:80%; max-width:900px; margin:20px auto; display:block; border-radius:10px;">
+    <!-- Раздел: Преимущества -->
+    <div class="section" id="intro">
+      <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства</p>
 
-    <p style="font-size:14px; color:#cccccc; max-width:900px; margin:10px auto 0; line-height:1.5;">
-      Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные. С нами вы можете свободно заходить на любые сайты и использовать онлайн-сервисы без ограничений. Мы заботимся о приватности, скорости соединения и надежности наших услуг. Независимо от того, Premium вы клиент или используете Free-версию, мы гарантируем стабильность и безопасность. Поддержка доступна на всех платформах, включая Windows, Android и iOS.
-    </p>
-
-    <p class="intro-text" data-i18n="intro" id="about-section">Преимущества использования нашего VPN для вашей безопасности и удобства</p>
-
-    <div class="tiles">
-      <div class="tile"><h3 data-i18n="anonymityTitle">Анонимность</h3><p data-i18n="anonymityText">Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
-      <div class="tile"><h3 data-i18n="securityTitle">Безопасность</h3><p data-i18n="securityText">Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
-      <div class="tile"><h3 data-i18n="speedTitle">Скорость</h3><p data-i18n="speedText">Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
-      <div class="tile"><h3 data-i18n="accessTitle">Доступ</h3><p data-i18n="accessText">Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
-      <div class="tile"><h3 data-i18n="mobilityTitle">Мобильность</h3><p data-i18n="mobilityText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
-      <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
+      <div class="tiles">
+        <div class="tile"><h3 data-i18n="anonymityTitle">Анонимность</h3><p data-i18n="anonymityText">Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
+        <div class="tile"><h3 data-i18n="securityTitle">Безопасность</h3><p data-i18n="securityText">Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
+        <div class="tile"><h3 data-i18n="speedTitle">Скорость</h3><p data-i18n="speedText">Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
+        <div class="tile"><h3 data-i18n="accessTitle">Доступ</h3><p data-i18n="accessText">Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
+        <div class="tile"><h3 data-i18n="mobilityTitle">Мобильность</h3><p data-i18n="mobilityText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
+        <div class="tile"><h3 data-i18n="supportTitle">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
+      </div>
     </div>
 
-    <!-- Премиум и Фри плитки -->
-    <div class="action-tiles">
-      <a id="buy-premium" href="#buy-premium" class="action-tile">
-        PREM
-        <span>Купить</span>
-      </a>
-      <a id="download" href="#download" class="action-tile" target="_blank">
-        FREE
-        <span>Скачать</span>
-      </a>
+    <!-- Раздел: Премиум/Free -->
+    <div class="section" id="download">
+      <div class="action-tiles">
+        <a href="#buy-premium" class="action-tile">
+          PREM
+          <span>Купить</span>
+        </a>
+        <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile">
+          FREE
+          <span>Скачать</span>
+        </a>
+      </div>
     </div>
-
   </div>
 
   <!-- Подвал -->
@@ -353,14 +365,13 @@
     </div>
   </footer>
 
-  <!-- Скрипт -->
   <script>
     const translations = {
       ru: {
         about: "О нас",
         download: "Скачать",
         contacts: "Контакты",
-        intro: "Преимущества использования нашего VPN для вашей безопасности и удобства:",
+        intro: "Преимущества использования нашего VPN для вашей безопасности и удобства",
         anonymityTitle: "Анонимность",
         anonymityText: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
         securityTitle: "Безопасность",
@@ -378,7 +389,7 @@
         about: "About",
         download: "Download",
         contacts: "Contacts",
-        intro: "Advantages of using our VPN for your safety and convenience:",
+        intro: "Advantages of using our VPN for your safety and convenience",
         anonymityTitle: "Anonymity",
         anonymityText: "Your IP is fully hidden, websites cannot track your activity.",
         securityTitle: "Security",
@@ -396,7 +407,7 @@
         about: "Über uns",
         download: "Herunterladen",
         contacts: "Kontakte",
-        intro: "Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit:",
+        intro: "Vorteile der Nutzung unseres VPNs für Ihre Sicherheit und Bequemlichkeit",
         anonymityTitle: "Anonymität",
         anonymityText: "Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen.",
         securityTitle: "Sicherheit",
@@ -432,13 +443,12 @@
       });
     });
 
-    /* Плавный скролл с анимацией */
     function smoothScroll(target) {
       const element = document.querySelector(target);
       if (!element) return;
 
       const start = window.pageYOffset;
-      const end = element.getBoundingClientRect().top + start - 70; // отступ под шапку
+      const end = element.getBoundingClientRect().top + start - 70;
       const duration = 800;
       let startTime = null;
 
@@ -446,13 +456,11 @@
         if (!startTime) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
         const progress = Math.min(timeElapsed / duration, 1);
-
         const ease = progress < 0.5
           ? 4 * progress * progress * progress
           : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 
         window.scrollTo(0, start + (end - start) * ease);
-
         if (timeElapsed < duration) requestAnimationFrame(animation);
       }
 

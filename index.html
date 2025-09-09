@@ -65,7 +65,7 @@ body {
 .section { margin:50px 0; }
 .intro-text { font-size:26px; font-weight:700; margin-bottom:30px; color:#f5f5f5; }
 
-/* === Футер фиксированный === */
+/* Футер */
 footer {
   background: rgba(20,20,20,0.8);
   padding: 10px 0;
@@ -133,7 +133,6 @@ footer {
 </div>
 
 <div class="content">
-  <!-- О нас -->
   <div class="section" id="about">
     <div class="vpn-description" data-i18n="description">
       Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью
@@ -144,7 +143,6 @@ footer {
     </p>
   </div>
 
-  <!-- Преимущества -->
   <div class="section" id="intro">
     <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства</p>
     <div class="tiles">
@@ -163,7 +161,6 @@ footer {
     </div>
   </div>
 
-  <!-- Скачать / Купить -->
   <div class="section" id="download">
     <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
       <div style="display:flex; flex-direction:column; align-items:center;">
@@ -194,7 +191,6 @@ footer {
   </div>
 </div>
 
-<!-- Футер -->
 <footer id="contacts">
   <div class="footer-contacts">
     <a href="https://discord.com" target="_blank" class="footer-tile">
@@ -247,7 +243,8 @@ const translations = {
     free2: "меньше серверов",
     discord: "Discord",
     gmail: "Gmail",
-    copyright: "© 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0."
+    copyright: "© 2025 vecna-VPN. Все права защищены.<br>Лицензия: Creative Commons BY-NC-SA 4.0.",
+    aboutText: "Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные."
   },
   en: {
     description: "Vecna VPN protects your privacy, hides your IP, and gives access to blocked sites with high speed and reliability",
@@ -282,7 +279,44 @@ const translations = {
     free2: "fewer servers",
     discord: "Discord",
     gmail: "Gmail",
-    copyright: "© 2025 vecna-VPN. All rights reserved.<br>License: Creative Commons BY-NC-SA 4.0."
+    copyright: "© 2025 vecna-VPN. All rights reserved.<br>License: Creative Commons BY-NC-SA 4.0.",
+    aboutText: "We operate 24/7, providing a secure connection for all users. Our VPN servers are distributed worldwide for stable access. Each server uses modern encryption protocols to protect your data."
+  },
+  de: {
+    description: "Vecna VPN schützt Ihre Privatsphäre, verbirgt Ihre IP und ermöglicht den Zugriff auf gesperrte Seiten mit hoher Geschwindigkeit und Zuverlässigkeit",
+    about: "Über uns",
+    start: "Jetzt starten",
+    contacts: "Kontakte",
+    intro: "Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit",
+    anon: "Anonymität",
+    anonText: "Ihre IP ist vollständig verborgen; Websites können Ihre Aktionen nicht verfolgen.",
+    secure: "Sicherheit",
+    secureText: "Verschlüsselung auf Militärniveau schützt den Datenverkehr vor Hackern und Internetanbietern.",
+    speed: "Geschwindigkeit",
+    speedText: "Optimierte Server sorgen für eine stabile und schnelle Verbindung.",
+    access: "Zugang",
+    accessText: "Entsperren Sie Lieblingsseiten und -dienste, die in Ihrem Land nicht verfügbar sind.",
+    mobile: "Mobilität",
+    mobileText: "Apps für Windows, Android und iOS mit einfacher Bedienung.",
+    support: "Support",
+    supportText: "24/7 Chat-Hilfe und schnelle Reaktion auf Fragen.",
+    startNow: "Jetzt starten",
+    prem: "PREM",
+    premPrice: "9,99$ p.m.",
+    buy: "Kaufen",
+    prem1: "schnellere Verbindung",
+    prem2: "mehr Server",
+    prem3: "24/7 Unterstützung",
+    prem4: "stabilere Verbindung",
+    prem5: "Prioritätssupport",
+    free: "FREE",
+    download: "Herunterladen",
+    free1: "begrenzte Geschwindigkeit",
+    free2: "weniger Server",
+    discord: "Discord",
+    gmail: "Gmail",
+    copyright: "© 2025 vecna-VPN. Alle Rechte vorbehalten.<br>Lizenz: Creative Commons BY-NC-SA 4.0.",
+    aboutText: "Wir arbeiten rund um die Uhr und bieten eine sichere Verbindung für alle Benutzer. Unsere VPN-Server sind weltweit verteilt, um stabilen Zugang zu gewährleisten. Jeder Server verwendet moderne Verschlüsselungsprotokolle zum Schutz Ihrer Daten."
   }
 };
 
@@ -305,7 +339,6 @@ langSwitch.querySelectorAll(".lang-dropdown img").forEach(img=>{
     });
   });
 });
-</script>
 
 // Плавная прокрутка
 function smoothScroll(target){

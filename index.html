@@ -5,7 +5,6 @@
 <title>vecna-VPN</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 <style>
-/* === Стили остаются без изменений === */
 body {
   margin:0;
   font-family:'Montserrat',sans-serif;
@@ -17,11 +16,12 @@ body {
   scroll-behavior:smooth;
   overflow-x:hidden;
 }
+
 .vpn-description[data-i18n="description"] { margin-bottom: 50px; }
 .content img { margin-bottom: 50px; }
 p[data-i18n="aboutText"] { margin-bottom: 50px; }
 .intro-text { margin-top: 50px; }
-.content { flex:1 0 auto; position:relative; z-index:2; padding:80px 20px 80px; text-align:center; min-height:1200px; } /* padding-bottom учтён под футер */
+.content { flex:1 0 auto; position:relative; z-index:2; padding:80px 20px 80px; text-align:center; min-height:1200px; }
 
 .background { position:fixed; top:0; left:0; width:100%; height:100%; background:url('https://img.freepik.com/premium-vector/blue-world-map_1378-997.jpg') center/cover no-repeat; filter:blur(5px); transform:scale(1.05); z-index:0; }
 .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85)); z-index:1; }
@@ -54,10 +54,13 @@ p[data-i18n="aboutText"] { margin-bottom: 50px; }
 .action-tile { margin-top:5px; width:180px; height:50px; background: rgba(70,130,180,0.6); border-radius:10px; display:flex; justify-content:center; align-items:center; font-weight:700; font-size:20px; cursor:pointer; color:white; transition:background 0.3s; text-decoration:none; }
 .action-tile:hover { background: rgba(70,130,180,0.9); }
 
+.section { margin:50px 0; }
+.intro-text { font-size:26px; font-weight:700; margin-bottom:30px; color:#f5f5f5; }
+
 /* === Футер внизу страницы, компактный === */
 footer {
   background: rgba(20,20,20,0.8);
-  padding: 2px 0; /* минимальный padding */
+  padding: 2px 0;
   text-align: center;
   color: white;
   box-sizing: border-box;
@@ -65,17 +68,17 @@ footer {
 }
 
 .footer-contacts {
-  display: inline-flex; /* иконки + текст в одной линии */
-  align-items: center;  /* вертикальное выравнивание */
-  gap: 8px; /* расстояние между контактами */
-  margin: 0 0 2px 0; /* минимальный отступ к копирайту */
-  flex-wrap: nowrap; /* запрет переноса */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 2px 0;
+  flex-wrap: nowrap;
 }
 
 .footer-tile {
   display: inline-flex;
   align-items: center;
-  gap: 4px; /* иконка + текст */
+  gap: 4px;
   font-size: 12px;
   text-decoration: none;
   color: white;
@@ -84,7 +87,7 @@ footer {
 .footer-tile img {
   width: 14px;
   height: 14px;
-  vertical-align: middle; /* чтобы по центру текста */
+  vertical-align: middle;
 }
 
 .footer-tile:hover {
@@ -98,10 +101,6 @@ footer {
   color: #ddd;
   margin: 0;
 }
-
-.section { margin:50px 0; }
-.intro-text { font-size:26px; font-weight:700; margin-bottom:30px; color:#f5f5f5; }
-
 </style>
 </head>
 <body>
@@ -113,7 +112,6 @@ footer {
     <img src="https://i.postimg.cc/FRBGy0Cr/image.png">
     <h1>Vecna-VPN</h1>
   </div>
-  
   <div class="nav">
     <div class="lang-switch" id="langSwitch">
       <img src="https://flagcdn.com/w20/ru.png" alt="RU">
@@ -141,48 +139,49 @@ footer {
   </div>
 
   <div class="section" id="intro">
-  <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства</p>
-  <div class="tiles">
-    <div class="tile"><h3 data-i18n="anon">Анонимность</h3><p data-i18n="anonText">Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
-    <div class="tile"><h3 data-i18n="secure">Безопасность</h3><p data-i18n="secureText">Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
-    <div class="tile"><h3 data-i18n="speed">Скорость</h3><p data-i18n="speedText">Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
-    <div class="tile"><h3 data-i18n="access">Доступ</h3><p data-i18n="accessText">Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
-    <div class="tile"><h3 data-i18n="mobile">Мобильность</h3><p data-i18n="mobileText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
-    <div class="tile"><h3 data-i18n="support">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
-  </div>
-
-  <div style="margin-top:50px;">
-    <div class="vpn-description" style="color:#7dbbff; font-size:26px; font-weight:700;" data-i18n="startNow">
-      Начать сейчас
-    </div>
-  </div>
-</div>
-
-<div class="section" id="download">
-  <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
-    <div style="display:flex; flex-direction:column; align-items:center;">
-      <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; flex-direction:column; justify-content:center; align-items:center;">
-        <h3 data-i18n="prem">PREM</h3>
-        <p style="margin:0; font-size:16px; color:#7dbbff;" data-i18n="premPrice">9.99$ p.m.</p>
-      </div>
-      <a href="#buy-premium" class="action-tile" data-i18n="buy" style="margin-top:10px;">Купить</a>
-      <div style="margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.5;">
-        <p data-i18n="prem1">быстрее соединение</p>
-        <p data-i18n="prem2">больше серверов</p>
-        <p data-i18n="prem3">24/7 поддержка</p>
-        <p data-i18n="prem4">более стабильное подключение</p>
-        <p data-i18n="prem5">приоритетная поддержка</p>
-      </div>
+    <p class="intro-text" data-i18n="intro">Преимущества использования нашего VPN для вашей безопасности и удобства</p>
+    <div class="tiles">
+      <div class="tile"><h3 data-i18n="anon">Анонимность</h3><p data-i18n="anonText">Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
+      <div class="tile"><h3 data-i18n="secure">Безопасность</h3><p data-i18n="secureText">Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
+      <div class="tile"><h3 data-i18n="speed">Скорость</h3><p data-i18n="speedText">Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
+      <div class="tile"><h3 data-i18n="access">Доступ</h3><p data-i18n="accessText">Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
+      <div class="tile"><h3 data-i18n="mobile">Мобильность</h3><p data-i18n="mobileText">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
+      <div class="tile"><h3 data-i18n="support">Поддержка</h3><p data-i18n="supportText">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
 
-    <div style="display:flex; flex-direction:column; align-items:center;">
-      <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; justify-content:center; align-items:center;">
-        <h3 data-i18n="free">FREE</h3>
+    <div style="margin-top:50px;">
+      <div class="vpn-description" style="color:#7dbbff; font-size:26px; font-weight:700;" data-i18n="startNow">
+        Начать сейчас
       </div>
-      <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile" data-i18n="download" style="margin-top:10px;">Скачать</a>
-      <div style="margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.5;">
-        <p data-i18n="free1">ограниченная скорость</p>
-        <p data-i18n="free2">меньше серверов</p>
+    </div>
+  </div>
+
+  <div class="section" id="download">
+    <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+      <div style="display:flex; flex-direction:column; align-items:center;">
+        <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; flex-direction:column; justify-content:center; align-items:center;">
+          <h3 data-i18n="prem">PREM</h3>
+          <p style="margin:0; font-size:16px; color:#7dbbff;" data-i18n="premPrice">9.99$ p.m.</p>
+        </div>
+        <a href="#buy-premium" class="action-tile" data-i18n="buy" style="margin-top:10px;">Купить</a>
+        <div style="margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.5;">
+          <p data-i18n="prem1">быстрее соединение</p>
+          <p data-i18n="prem2">больше серверов</p>
+          <p data-i18n="prem3">24/7 поддержка</p>
+          <p data-i18n="prem4">более стабильное подключение</p>
+          <p data-i18n="prem5">приоритетная поддержка</p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; align-items:center;">
+        <div class="tile" style="width:260px; height:120px; background: rgba(30,30,30,0.7); display:flex; justify-content:center; align-items:center;">
+          <h3 data-i18n="free">FREE</h3>
+        </div>
+        <a href="https://docs.google.com/yourfilelink" target="_blank" class="action-tile" data-i18n="download" style="margin-top:10px;">Скачать</a>
+        <div style="margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.5;">
+          <p data-i18n="free1">ограниченная скорость</p>
+          <p data-i18n="free2">меньше серверов</p>
+        </div>
       </div>
     </div>
   </div>
@@ -206,7 +205,7 @@ footer {
 
 <script>
 // Переключение языка
-const translations = { /* оставил твой код */ };
+const translations = { /* твои переводы */ };
 const langSwitch = document.getElementById("langSwitch");
 const flagImg = langSwitch.querySelector("img");
 flagImg.addEventListener("click", ()=>{langSwitch.classList.toggle("open");});

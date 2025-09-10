@@ -189,12 +189,29 @@ confirmDownload.addEventListener('change',()=>{
 });
 closeFaq.addEventListener('click',()=>{ faqModal.style.display='none'; });
 
-// Плавная прокрутка по шапке
-document.querySelectorAll('.nav a[data-target]').forEach(a=>{
-  a.addEventListener('click', function(e){
+// Плавный скролл по шапке с контролем скорости
+document.querySelectorAll('.nav a[data-target]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
     e.preventDefault();
-    const target = document.querySelector(this.dataset.target);
-    if(target) target.scrollIntoView({behavior:'smooth'});
+    const target = document.querySelector(this.getAttribute('data-target'));
+    if(!target) return;
+
+    const start = window.pageYOffset;
+    const end = target.getBoundingClientRect().top + window.pageYOffset - 70;
+    const distance = end - start;
+    const duration = 800; // время прокрутки в мс, увеличь для медленнее
+    let startTime = null;
+
+    function step(timestamp) {
+      if(!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percent = Math.min(progress / duration, 1);
+      window.scrollTo(0, start + distance * percent);
+      if(progress < duration) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
   });
 });
 </script>

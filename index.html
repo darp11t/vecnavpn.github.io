@@ -161,11 +161,13 @@ document.getElementById('confirmDownload').addEventListener('change', function()
 });
 document.getElementById('closeFaq').addEventListener('click', ()=>{ faqModal.style.display='none'; });
 
-// Перевод всего текста
+<script>
+// Переводы всех элементов
 const translations = {
   ru: {
     nav: ["О нас","Начать сейчас","Контакты"],
     vpnDescription: "Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
+    aboutText: "Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.",
     introText: "Преимущества использования нашего VPN для вашей безопасности и удобства",
     tiles: [
       {title:"Анонимность", text:"Ваш IP полностью скрыт, сайты не смогут отследить ваши действия."},
@@ -180,11 +182,29 @@ const translations = {
       PREM: {action:"Купить", features:["быстрее соединение","больше серверов","24/7 поддержка","более стабильное подключение","приоритетная поддержка"]},
       FREE: {action:"Скачать", features:["ограниченная скорость","меньше серверов"]}
     },
-    faq: {title:"FAQ / Пользовательское соглашение", checkbox:"Я согласен с условиями FAQ", download:"Перейти к скачиванию", close:"Закрыть"}
+    faq: {
+      title:"FAQ / Пользовательское соглашение",
+      text: [
+        "Вы согласны использовать Vecna VPN только в личных целях и не применять его для незаконной деятельности.",
+        "Бесплатная версия имеет ограничения по скорости и количеству серверов.",
+        "Ответственность за использование VPN полностью лежит на вас.",
+        "VPN может замедлять интернет при сильной нагрузке.",
+        "Проект не хранит ваши данные и не несёт ответственности за действия третьих лиц."
+      ],
+      checkbox:"Я согласен с условиями FAQ",
+      download:"Перейти к скачиванию",
+      close:"Закрыть"
+    },
+    footer: {
+      copyright:"© 2025 Vecna VPN. Все права защищены.",
+      license:'Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a>',
+      contacts:'Контакты: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a>'
+    }
   },
   en: {
     nav: ["About Us","Start Now","Contacts"],
     vpnDescription: "Vecna VPN protects your privacy, hides your IP and opens access to blocked sites with high speed and reliability",
+    aboutText: "We operate 24/7, providing secure connections for all users. Our VPN servers are distributed worldwide for stable access. Each server uses modern encryption protocols to protect your data.",
     introText: "Benefits of using our VPN for your security and convenience",
     tiles: [
       {title:"Anonymity", text:"Your IP is completely hidden, websites cannot track your actions."},
@@ -199,59 +219,75 @@ const translations = {
       PREM: {action:"Buy", features:["Faster connection","More servers","24/7 support","More stable connection","Priority support"]},
       FREE: {action:"Download", features:["Limited speed","Fewer servers"]}
     },
-    faq: {title:"FAQ / User Agreement", checkbox:"I agree with FAQ terms", download:"Go to Download", close:"Close"}
-  },
-  de: {
-    nav: ["Über Uns","Jetzt Starten","Kontakte"],
-    vpnDescription: "Vecna VPN schützt Ihre Privatsphäre, versteckt Ihre IP und ermöglicht den Zugriff auf gesperrte Seiten mit hoher Geschwindigkeit und Zuverlässigkeit",
-    introText: "Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit",
-    tiles: [
-      {title:"Anonymität", text:"Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen."},
-      {title:"Sicherheit", text:"Verschlüsselung nach Militärstandard schützt den Datenverkehr vor Hackern und ISPs."},
-      {title:"Geschwindigkeit", text:"Optimierte Server gewährleisten eine stabile und schnelle Verbindung."},
-      {title:"Zugang", text:"Entsperren Sie Ihre Lieblingsseiten und Dienste, die in Ihrem Land nicht verfügbar sind."},
-      {title:"Mobilität", text:"Apps für Windows, Android und iOS mit einfacher Benutzeroberfläche."},
-      {title:"Unterstützung", text:"24/7 Chat-Hilfe und schnelle Reaktion auf alle Fragen."}
-    ],
-    startNow:"Jetzt Starten",
-    plans: {
-      PREM: {action:"Kaufen", features:["Schnellere Verbindung","Mehr Server","24/7 Unterstützung","Stabilere Verbindung","Priorisierte Unterstützung"]},
-      FREE: {action:"Herunterladen", features:["Begrenzte Geschwindigkeit","Weniger Server"]}
+    faq: {
+      title:"FAQ / User Agreement",
+      text: [
+        "You agree to use Vecna VPN only for personal purposes and not for illegal activities.",
+        "The free version has speed and server limitations.",
+        "Responsibility for VPN use rests entirely with you.",
+        "VPN may slow down internet under heavy load.",
+        "The project does not store your data and is not responsible for third-party actions."
+      ],
+      checkbox:"I agree with FAQ terms",
+      download:"Go to Download",
+      close:"Close"
     },
-    faq: {title:"FAQ / Benutzervereinbarung", checkbox:"Ich stimme den FAQ-Bedingungen zu", download:"Zum Download", close:"Schließen"}
+    footer: {
+      copyright:"© 2025 Vecna VPN. All rights reserved.",
+      license:'License: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a>',
+      contacts:'Contacts: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a>'
+    }
   }
 };
 
+// Применение выбранного языка
 function setLanguage(lang){
   const t = translations[lang];
-  // Nav
+
+  // Навигация
   document.querySelectorAll('.nav a').forEach((a,i)=>{ a.textContent=t.nav[i]; });
-  // VPN Description
+
+  // VPN описание
   document.querySelector('.vpn-description').textContent = t.vpnDescription;
-  // Intro Text
+
+  // Абзац "О нас"
+  document.querySelector('#about p').textContent = t.aboutText;
+
+  // Intro
   document.querySelector('.intro-text').textContent = t.introText;
+
   // Tiles
   document.querySelectorAll('.tile').forEach((tile,i)=>{
     tile.querySelector('h3').textContent = t.tiles[i].title;
     tile.querySelector('p').textContent = t.tiles[i].text;
   });
-  // Start now
+
+  // Start Now
   document.getElementById('startNowSection').textContent = t.startNow;
+
   // Plans
   const planCols = document.querySelectorAll('.plan-col');
   planCols.forEach((col,i)=>{
     const planKey = i===0?'PREM':'FREE';
     col.querySelector('.action-tile').textContent = t.plans[planKey].action;
-    const features = col.querySelector('.plan-features').querySelectorAll('p');
-    t.plans[planKey].features.forEach((f,j)=>{
-      if(features[j]) features[j].textContent = f;
-    });
+    const features = col.querySelectorAll('.plan-features p');
+    t.plans[planKey].features.forEach((f,j)=>{ if(features[j]) features[j].textContent = f; });
   });
+
   // FAQ
-  document.querySelector('#faqContent h2').textContent = t.faq.title;
-  document.querySelector('label[for="confirmDownload"]').textContent = t.faq.checkbox;
+  const faqText = t.faq.text;
+  const faqContainer = document.querySelector('#faqContent div');
+  faqContainer.innerHTML = '';
+  faqText.forEach(p=>{
+    const el = document.createElement('p'); el.textContent=p; faqContainer.appendChild(el);
+  });
+  document.querySelector('label[for="confirmDownload"]').childNodes[1].textContent = ' '+t.faq.checkbox;
   document.getElementById('downloadLink').textContent = t.faq.download;
   document.getElementById('closeFaq').textContent = t.faq.close;
+
+  // Footer
+  const footer = document.querySelector('footer .footer-content');
+  footer.innerHTML = `<p>${t.footer.copyright}</p><p>${t.footer.license}</p><p>${t.footer.contacts}</p>`;
 }
 
 // Lang switch
@@ -265,6 +301,10 @@ document.getElementById('langSwitch').addEventListener('click', e=>{
     e.currentTarget.classList.toggle('open');
   }
 });
+
+// Инициализация по умолчанию
+setLanguage('ru');
+</script>
 
 // Init default
 setLanguage('ru');

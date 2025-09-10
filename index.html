@@ -63,8 +63,8 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
         <img src="https://flagcdn.com/w20/de.png" data-lang="de" alt="DE">
       </div>
     </div>
-    <a data-target="#about">О нас</a>
-    <a data-target="#plans">Начать сейчас</a>
+    <a href="#about">О нас</a>
+    <a href="#plans">Начать сейчас</a>
   </div>
 </div>
 
@@ -85,7 +85,6 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
       <div class="tile"><h3 data-i18n="tile5t">Мобильность</h3><p data-i18n="tile5d">Приложения для Windows, Android и iOS для полного контроля.</p></div>
       <div class="tile"><h3 data-i18n="tile6t">Поддержка</h3><p data-i18n="tile6d">Круглосуточная помощь по любым вопросам и проблемам.</p></div>
     </div>
-    <div id="startNow" class="vpn-description" data-i18n="startNow">Начать сейчас</div>
   </section>
 
   <section id="plans">
@@ -130,7 +129,7 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
 <script>
 // Переводы
 const translations = {
-  ru:{about:"О нас", startNow:"Начать сейчас", contacts:"Контакты",
+  ru:{about:"О нас", startNow:"Начать сейчас",
     vpnDescription:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
     vpnDetails:"Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.",
     introText:"Преимущества использования нашего VPN для вашей безопасности и удобства",
@@ -193,22 +192,8 @@ window.addEventListener("click", e=>{
   }
 });
 
-// Плавная прокрутка
-document.querySelectorAll(".nav a[data-target]").forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
-    e.preventDefault();
-    const targetElement = document.querySelector(this.getAttribute("data-target"));
-    if(!targetElement) return;
-    const headerOffset = document.querySelector('.header').offsetHeight;
-    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - headerOffset;
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-  });
-});
-
 // Изначальный язык
 applyTranslations("ru");
 </script>
-
 </body>
 </html>

@@ -275,17 +275,26 @@ langSwitch.addEventListener('click', (e)=>{
   }
 });
 
-// Плавный скролл
-document.querySelectorAll('.nav a[data-target]').forEach(a=>{
-  a.addEventListener('click', e=>{
+// Плавный скролл по шапке
+document.querySelectorAll('.nav a[data-target]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('data-target'));
-    if(!target) return;
-    const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
-    window.scrollTo({ top, behavior:'smooth' });
+    const targetSelector = this.getAttribute('data-target');
+    const target = document.querySelector(targetSelector);
+    if (!target) return;
+
+    // Вычисляем верхнюю позицию с учетом фиксированного хедера
+    const headerOffset = 80; // высота хедера
+    const elementPosition = target.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
   });
 });
-
+  
 // FAQ функционал
 const faqModal = document.getElementById('faqModal');
 const downloadLink = document.getElementById('downloadLink');

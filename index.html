@@ -7,21 +7,30 @@
 <style>
 :root { --blue:#7dbbff; --tile-bg: rgba(70,70,70,0.6); }
 html, body { height:100%; margin:0; font-family:'Montserrat',sans-serif; display:flex; flex-direction:column; min-height:100vh; background:black; color:white; scroll-behavior:smooth; overflow-x:hidden; }
+
+/* Фон и оверлей */
 .background { position:fixed; top:0; left:0; width:100%; height:100%; background:url('https://img.freepik.com/premium-vector/blue-world-map_1378-997.jpg') center/cover no-repeat; filter:blur(5px); z-index:0; }
 .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85)); z-index:1; }
+
+/* Хедер */
 .header { position:fixed; top:0; left:0; width:100%; height:80px; background: rgba(7,9,12,0.5); display:flex; justify-content:space-between; align-items:center; padding:0 30px; box-sizing:border-box; z-index:10; }
 .logo-section { display:flex; align-items:center; gap:10px; }
 .logo-section img { height:50px; display:block; }
 .logo-section h1 { font-size:26px; margin:0; color:white; }
+
 .nav { display:flex; gap:20px; align-items:center; position:relative; }
 .nav a { color:white; text-decoration:none; font-size:16px; white-space:nowrap; transition:color 0.25s; cursor:pointer; }
 .nav a:hover { color:var(--blue); }
+
 .lang-switch { position:relative; cursor:pointer; display:flex; align-items:center; gap:8px; }
 .lang-switch img { width:25px;height:18px;border-radius:3px; display:block; }
 .lang-dropdown { display:none; position:absolute; top:30px; left:0; background:rgba(20,20,20,0.95); border:1px solid #555; border-radius:5px; padding:6px; flex-direction:column; z-index:20; }
 .lang-dropdown img { width:25px;height:18px;margin:4px 0; cursor:pointer; }
 .lang-switch.open .lang-dropdown { display:flex; }
+
+/* Контент */
 main.content { flex:1 0 auto; position:relative; z-index:2; padding:100px 20px 40px; text-align:center; }
+
 .vpn-description { margin-top:48px; margin-bottom:18px; font-size:22px; font-weight:600; color:var(--blue); line-height:1.4; }
 .intro-text { font-size:26px; font-weight:700; margin-bottom:30px; color:#f5f5f5; }
 .tiles { display:flex; justify-content:center; flex-wrap:wrap; gap:20px; margin-bottom:24px; }
@@ -29,6 +38,7 @@ main.content { flex:1 0 auto; position:relative; z-index:2; padding:100px 20px 4
 .tile:hover { background: rgba(50,50,50,0.85); }
 .tile h3 { margin:0 0 8px; font-size:20px; color:#cfcfcf; }
 .tile p { margin:0; font-size:14px; color:#e0e0e0; }
+
 .plans { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; align-items:flex-start; margin-bottom:40px; }
 .plan-col { display:flex; flex-direction:column; align-items:center; width:260px; }
 .plan-tile { width:260px; height:120px; background: rgba(30,30,30,0.75); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; }
@@ -37,17 +47,24 @@ main.content { flex:1 0 auto; position:relative; z-index:2; padding:100px 20px 4
 .plan-features { margin-top:10px; font-size:12px; color:#ccc; text-align:center; line-height:1.4; }
 .action-tile { margin-top:10px; width:180px; height:44px; background: rgba(70,130,180,0.6); border-radius:10px; display:flex; justify-content:center; align-items:center; font-weight:700; font-size:18px; cursor:pointer; color:white; transition:background 0.25s; text-decoration:none; }
 .action-tile:hover { background: rgba(70,130,180,0.95); }
+
+/* Картинка About */
 #about img { max-width: 900px; width: 80%; height: auto; display: block; margin: 20px auto 30px; border-radius: 10px; }
+
+/* Футер */
 footer { background: rgba(20,20,20,0.9); padding: 12px 20px; text-align: center; color: white; font-family: 'Montserrat', sans-serif; box-sizing: border-box; margin-top: auto; position: relative; z-index: 2; }
 footer a { color: #7dbbff; text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
+
+/* FAQ Modal */
 #faqModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:50; }
 #faqContent { background: rgba(30,30,30,0.95); padding:30px; border-radius:10px; max-width:400px; text-align:center; color:white; display:flex; flex-direction:column; gap:15px; }
 #faqContent input[type="checkbox"] { transform: scale(1.3); cursor:pointer; }
 #downloadLink { background:var(--blue); padding:10px 20px; border-radius:8px; color:white; font-weight:700; text-decoration:none; opacity:0.5; pointer-events:none; transition:0.25s; }
 #downloadLink.enabled { opacity:1; pointer-events:auto; }
 #closeFaq { cursor:pointer; color:var(--blue); font-weight:700; margin-top:10px; }
+
 @media (max-width:700px){
   .tiles{ gap:12px }
   .tile, .plan-col { width:92%; max-width:320px; }
@@ -63,7 +80,7 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
 <div class="header">
   <div class="logo-section">
     <img src="https://i.postimg.cc/FRBGy0Cr/image.png" alt="logo">
-    <h1 id="siteTitle">Vecna-VPN</h1>
+    <h1>Vecna-VPN</h1>
   </div>
   <div class="nav">
     <div class="lang-switch" id="langSwitch" aria-haspopup="true">
@@ -74,41 +91,45 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
         <img src="https://flagcdn.com/w20/de.png" data-lang="de" alt="DE">
       </div>
     </div>
-    <a data-target="#about" id="navAbout">О нас</a>
-    <a data-target="#startNowSection" id="navStart">Начать сейчас</a>
-    <a data-target="#contacts" id="navContacts">Контакты</a>
+    <a data-target="#about">О нас</a>
+    <a data-target="#startNowSection">Начать сейчас</a>
+    <a data-target="#contacts">Контакты</a>
   </div>
 </div>
 
 <main class="content">
+  <!-- ABOUT -->
   <section id="about" class="section">
-    <div class="vpn-description" id="aboutText">Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью</div>
+    <div class="vpn-description">Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью</div>
     <img src="https://cdn.sanity.io/images/jd0fxfd9/production/516bd915041ddfd1576cb4a81611528cb78fac39-5000x2617.jpg" alt="VPN Illustration">
-    <p id="aboutParagraph">Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.</p>
+    <p>Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.</p>
   </section>
 
+  <!-- BENEFITS -->
   <section id="intro" class="section">
-    <div class="intro-text" id="benefitsTitle">Преимущества использования нашего VPN для вашей безопасности и удобства</div>
+    <div class="intro-text">Преимущества использования нашего VPN для вашей безопасности и удобства</div>
     <div class="tiles">
-      <div class="tile"><h3 id="tileAnon">Анонимность</h3><p id="tileAnonP">Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
-      <div class="tile"><h3 id="tileSafe">Безопасность</h3><p id="tileSafeP">Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
-      <div class="tile"><h3 id="tileSpeed">Скорость</h3><p id="tileSpeedP">Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
-      <div class="tile"><h3 id="tileAccess">Доступ</h3><p id="tileAccessP">Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
-      <div class="tile"><h3 id="tileMobile">Мобильность</h3><p id="tileMobileP">Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
-      <div class="tile"><h3 id="tileSupport">Поддержка</h3><p id="tileSupportP">Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
+      <div class="tile"><h3>Анонимность</h3><p>Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.</p></div>
+      <div class="tile"><h3>Безопасность</h3><p>Военные стандарты шифрования защищают трафик от хакеров и провайдеров.</p></div>
+      <div class="tile"><h3>Скорость</h3><p>Оптимизированные сервера обеспечивают стабильное и быстрое соединение.</p></div>
+      <div class="tile"><h3>Доступ</h3><p>Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.</p></div>
+      <div class="tile"><h3>Мобильность</h3><p>Приложения для Windows, Android и iOS с простым интерфейсом.</p></div>
+      <div class="tile"><h3>Поддержка</h3><p>Круглосуточная помощь в чате и быстрая реакция на любые вопросы.</p></div>
     </div>
-    <div id="startNowSection" class="vpn-description" >Начать сейчас</div>
+
+    <div id="startNowSection" class="vpn-description">Начать сейчас</div>
   </section>
 
+  <!-- DOWNLOAD / BUY -->
   <section id="download" class="section">
     <div class="plans">
       <div class="plan-col">
         <div class="plan-tile">
-          <h3 id="premTitle">PREM</h3>
+          <h3>PREM</h3>
           <div class="price">9.99$ p.m.</div>
         </div>
-        <a class="action-tile" href="#buy-premium" id="buyPrem">Купить</a>
-        <div class="plan-features" id="premFeatures">
+        <a class="action-tile" href="#buy-premium">Купить</a>
+        <div class="plan-features">
           <p>быстрее соединение</p>
           <p>больше серверов</p>
           <p>24/7 поддержка</p>
@@ -119,10 +140,10 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
 
       <div class="plan-col">
         <div class="plan-tile">
-          <h3 id="freeTitle">FREE</h3>
+          <h3>FREE</h3>
         </div>
-        <a class="action-tile" href="#faqModal" id="downloadFree">Скачать</a>
-        <div class="plan-features" id="freeFeatures">
+        <a class="action-tile" href="#faqModal">Скачать</a>
+        <div class="plan-features">
           <p>ограниченная скорость</p>
           <p>меньше серверов</p>
         </div>
@@ -131,15 +152,16 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
   </section>
 </main>
 
+<!-- FAQ / Соглашение -->
 <div id="faqModal">
   <div id="faqContent">
-    <h2 id="faqTitle">FAQ / Пользовательское соглашение</h2>
+    <h2 style="margin-bottom:10px;">FAQ / Пользовательское соглашение</h2>
     <div style="font-size:14px; text-align:left; max-height:220px; overflow-y:auto; margin-bottom:15px; line-height:1.5;">
-      <p id="faq1"><strong>1.</strong> Вы согласны использовать Vecna VPN только в личных целях и не применять его для незаконной деятельности.</p>
-      <p id="faq2"><strong>2.</strong> Бесплатная версия имеет ограничения по скорости и количеству серверов.</p>
-      <p id="faq3"><strong>3.</strong> Ответственность за использование VPN полностью лежит на вас.</p>
-      <p id="faq4"><strong>4.</strong> VPN может замедлять интернет при сильной нагрузке.</p>
-      <p id="faq5"><strong>5.</strong> Проект не хранит ваши данные и не несёт ответственности за действия третьих лиц.</p>
+      <p><strong>1.</strong> Вы согласны использовать Vecna VPN только в личных целях и не применять его для незаконной деятельности.</p>
+      <p><strong>2.</strong> Бесплатная версия имеет ограничения по скорости и количеству серверов.</p>
+      <p><strong>3.</strong> Ответственность за использование VPN полностью лежит на вас.</p>
+      <p><strong>4.</strong> VPN может замедлять интернет при сильной нагрузке.</p>
+      <p><strong>5.</strong> Проект не хранит ваши данные и не несёт ответственности за действия третьих лиц.</p>
     </div>
 
     <label style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
@@ -151,132 +173,65 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
   </div>
 </div>
 
+<!-- Футер -->
 <footer id="contacts">
   <div class="footer-content">
-    <p id="footerCopyright">© 2025 Vecna VPN. Все права защищены.</p>
-    <p id="footerLicense">Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></p>
-    <p id="footerContact">Контакты: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a></p>
+    <p>© 2025 Vecna VPN. Все права защищены.</p>
+    <p>Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></p>
+    <p>Контакты: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a></p>
   </div>
 </footer>
 
 <script>
-const translations = {
-  ru: {
-    navAbout: "О нас",
-    navStart: "Начать сейчас",
-    navContacts: "Контакты",
-    aboutText: "Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
-    aboutParagraph: "Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.",
-    benefitsTitle: "Преимущества использования нашего VPN для вашей безопасности и удобства",
-    tileAnon: "Анонимность",
-    tileAnonP: "Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
-    tileSafe: "Безопасность",
-    tileSafeP: "Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
-    tileSpeed: "Скорость",
-    tileSpeedP: "Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
-    tileAccess: "Доступ",
-    tileAccessP: "Разблокируйте любимые сайты и сервисы, недоступные в вашей стране.",
-    tileMobile: "Мобильность",
-    tileMobileP: "Приложения для Windows, Android и iOS с простым интерфейсом.",
-    tileSupport: "Поддержка",
-    tileSupportP: "Круглосуточная помощь в чате и быстрая реакция на любые вопросы.",
-    startNowSection: "Начать сейчас",
-    premTitle: "PREM",
-    premFeatures: ["быстрее соединение","больше серверов","24/7 поддержка","более стабильное подключение","приоритетная поддержка"],
-    buyPrem: "Купить",
-    freeTitle: "FREE",
-    freeFeatures: ["ограниченная скорость","меньше серверов"],
-    downloadFree: "Скачать",
-    faqTitle: "FAQ / Пользовательское соглашение",
-    faq1: "Вы согласны использовать Vecna VPN только в личных целях и не применять его для незаконной деятельности.",
-    faq2: "Бесплатная версия имеет ограничения по скорости и количеству серверов.",
-    faq3: "Ответственность за использование VPN полностью лежит на вас.",
-    faq4: "VPN может замедлять интернет при сильной нагрузке.",
-    faq5: "Проект не хранит ваши данные и не несёт ответственности за действия третьих лиц.",
-    confirmDownload: "Я согласен с условиями FAQ",
-    footerCopyright: "© 2025 Vecna VPN. Все права защищены.",
-    footerLicense: "Лицензия: ",
-    footerContact: "Контакты: "
-  },
-  en: {
-    navAbout: "About",
-    navStart: "Start Now",
-    navContacts: "Contacts",
-    aboutText: "Vecna VPN protects your privacy, hides your IP, and unlocks blocked sites with high speed and reliability.",
-    aboutParagraph: "We operate 24/7, providing a secure connection for all users. Our VPN servers are distributed worldwide for stable access. Each server uses modern encryption protocols to protect your data.",
-    benefitsTitle: "Benefits of using our VPN for your security and convenience",
-    tileAnon: "Anonymity",
-    tileAnonP: "Your IP is completely hidden, websites cannot track your activity.",
-    tileSafe: "Security",
-    tileSafeP: "Military-grade encryption protects traffic from hackers and providers.",
-    tileSpeed: "Speed",
-    tileSpeedP: "Optimized servers ensure stable and fast connections.",
-    tileAccess: "Access",
-    tileAccessP: "Unlock your favorite websites and services unavailable in your country.",
-    tileMobile: "Mobility",
-    tileMobileP: "Apps for Windows, Android, and iOS with a simple interface.",
-    tileSupport: "Support",
-    tileSupportP: "24/7 chat help and quick response to any questions.",
-    startNowSection: "Start Now",
-    premTitle: "PREM",
-    premFeatures: ["faster connection","more servers","24/7 support","more stable connection","priority support"],
-    buyPrem: "Buy",
-    freeTitle: "FREE",
-    freeFeatures: ["limited speed","fewer servers"],
-    downloadFree: "Download",
-    faqTitle: "FAQ / User Agreement",
-    faq1: "You agree to use Vecna VPN only for personal purposes and not for illegal activities.",
-    faq2: "The free version has limitations on speed and number of servers.",
-    faq3: "You are fully responsible for using the VPN.",
-    faq4: "VPN may slow down the internet under heavy load.",
-    faq5: "The project does not store your data and is not responsible for actions of third parties.",
-    confirmDownload: "I agree with the FAQ terms",
-    footerCopyright: "© 2025 Vecna VPN. All rights reserved.",
-    footerLicense: "License: ",
-    footerContact: "Contacts: "
-  },
-  de: {
-    navAbout: "Über uns",
-    navStart: "Jetzt starten",
-    navContacts: "Kontakte",
-    aboutText: "Vecna VPN schützt Ihre Privatsphäre, versteckt Ihre IP und entsperrt blockierte Websites mit hoher Geschwindigkeit und Zuverlässigkeit.",
-    aboutParagraph: "Wir arbeiten 24/7 und bieten allen Nutzern eine sichere Verbindung. Unsere VPN-Server sind weltweit verteilt, um stabilen Zugriff zu gewährleisten. Jeder Server verwendet moderne Verschlüsselungsprotokolle zum Schutz Ihrer Daten.",
-    benefitsTitle: "Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit",
-    tileAnon: "Anonymität",
-    tileAnonP: "Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen.",
-    tileSafe: "Sicherheit",
-    tileSafeP: "Verschlüsselung nach Militärstandard schützt den Datenverkehr vor Hackern und Anbietern.",
-    tileSpeed: "Geschwindigkeit",
-    tileSpeedP: "Optimierte Server sorgen für stabile und schnelle Verbindungen.",
-    tileAccess: "Zugang",
-    tileAccessP: "Entsperren Sie Ihre Lieblingswebsites und -dienste, die in Ihrem Land nicht verfügbar sind.",
-    tileMobile: "Mobilität",
-    tileMobileP: "Apps für Windows, Android und iOS mit einfacher Benutzeroberfläche.",
-    tileSupport: "Support",
-    tileSupportP: "24/7 Chat-Hilfe und schnelle Reaktion auf alle Fragen.",
-    startNowSection: "Jetzt starten",
-    premTitle: "PREM",
-    premFeatures: ["schnellere Verbindung","mehr Server","24/7 Support","stabilere Verbindung","Prioritätssupport"],
-    buyPrem: "Kaufen",
-    freeTitle: "FREE",
-    freeFeatures: ["begrenzte Geschwindigkeit","weniger Server"],
-    downloadFree: "Herunterladen",
-    faqTitle: "FAQ / Benutzervereinbarung",
-    faq1: "Sie stimmen zu, Vecna VPN nur für persönliche Zwecke und nicht für illegale Aktivitäten zu verwenden.",
-    faq2: "Die kostenlose Version hat Geschwindigkeits- und Serverbeschränkungen.",
-    faq3: "Die Verantwortung für die Nutzung des VPN liegt vollständig bei Ihnen.",
-    faq4: "VPN kann das Internet bei hoher Auslastung verlangsamen.",
-    faq5: "Das Projekt speichert keine Daten und ist nicht für Handlungen Dritter verantwortlich.",
-    confirmDownload: "Ich stimme den FAQ-Bedingungen zu",
-    footerCopyright: "© 2025 Vecna VPN. Alle Rechte vorbehalten.",
-    footerLicense: "Lizenz: ",
-    footerContact: "Kontakte: "
-  }
-};
+// Переводы
+const translations = { /* сюда вставить объект translations из предыдущего сообщения */ };
 
+// Функция применения перевода
+function applyTranslations(lang){
+  document.querySelector('[data-target="#about"]').innerText = translations[lang].navAbout;
+  document.querySelector('[data-target="#startNowSection"]').innerText = translations[lang].navStart;
+  document.querySelector('[data-target="#contacts"]').innerText = translations[lang].navContacts;
+
+  document.querySelector('.vpn-description').innerText = translations[lang].vpnDescription;
+  document.querySelector('.intro-text').innerText = translations[lang].introText;
+
+  const tiles = document.querySelectorAll('.tile');
+  tiles.forEach((tile,i)=>{
+    tile.querySelector('h3').innerText = translations[lang][`tile${i+1}Title`];
+    tile.querySelector('p').innerText = translations[lang][`tile${i+1}Text`];
+  });
+
+  document.getElementById('startNowSection').innerText = translations[lang].startNow;
+
+  const planCols = document.querySelectorAll('.plan-col');
+  planCols[0].querySelector('.action-tile').innerText = translations[lang].premBuy;
+  planCols[1].querySelector('.action-tile').innerText = translations[lang].freeDownload;
+
+  planCols[0].querySelectorAll('.plan-features p').forEach((p,i)=>{
+    p.innerText = translations[lang].premFeatures[i];
+  });
+  planCols[1].querySelectorAll('.plan-features p').forEach((p,i)=>{
+    p.innerText = translations[lang].freeFeatures[i];
+  });
+
+  document.querySelector('#faqContent h2').innerText = translations[lang].faqTitle;
+  const faqParas = document.querySelectorAll('#faqContent div p');
+  faqParas.forEach((p,i)=> p.innerText = translations[lang][`faq${i+1}`]);
+  document.querySelector('label[for="confirmDownload"]').childNodes[1].textContent = translations[lang].confirmDownload;
+  document.getElementById('downloadLink').innerText = translations[lang].downloadLinkText;
+  document.getElementById('closeFaq').innerText = translations[lang].closeFaq;
+
+  document.querySelector('#contacts p:first-child').innerText = translations[lang].footerCopyright;
+  const footerLicense = document.querySelector('#contacts p:nth-child(2)');
+  const footerContact = document.querySelector('#contacts p:nth-child(3)');
+  footerLicense.innerHTML = translations[lang].footerLicense + footerLicense.innerHTML.split(':')[1];
+  footerContact.innerHTML = translations[lang].footerContact + footerContact.innerHTML.split(':')[1];
+}
+
+// Языковой переключатель
 const langSwitch = document.getElementById('langSwitch');
 const currentFlag = document.getElementById('currentFlag');
-langSwitch.addEventListener('click', (e)=>{
+langSwitch.addEventListener('click',(e)=>{
   if(e.target && e.target.dataset && e.target.dataset.lang){
     const lang = e.target.dataset.lang;
     currentFlag.src = e.target.src;
@@ -285,29 +240,6 @@ langSwitch.addEventListener('click', (e)=>{
     return;
   }
   langSwitch.classList.toggle('open');
-});
-
-function applyTranslations(lang){
-  for(const id in translations[lang]){
-    const el = document.getElementById(id);
-    if(!el) continue;
-    if(Array.isArray(translations[lang][id])){
-      el.querySelectorAll('p').forEach((p,i)=>p.innerText=translations[lang][id][i]);
-    } else {
-      el.innerText = translations[lang][id];
-    }
-  }
-}
-
-// Навигация
-document.querySelectorAll('.nav a[data-target]').forEach(anchor=>{
-  anchor.addEventListener('click', function(e){
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('data-target'));
-    if(!target) return;
-    const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
-    window.scrollTo({ top: top, behavior:'smooth' });
-  });
 });
 
 // FAQ функционал
@@ -335,6 +267,17 @@ closeFaq.addEventListener('click', ()=>{
   faqModal.style.display = 'none';
   confirmCheckbox.checked = false;
   downloadLink.classList.remove('enabled');
+});
+
+// Плавный скролл
+document.querySelectorAll('.nav a[data-target]').forEach(anchor=>{
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('data-target'));
+    if(!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({top, behavior:'smooth'});
+  });
 });
 </script>
 </body>

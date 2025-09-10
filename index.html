@@ -216,22 +216,22 @@ document.getElementById("closeFaq").addEventListener("click",()=>{faqModal.style
 confirmDownload.addEventListener("change",()=>{confirmDownload.checked?downloadLink.classList.add("enabled"):downloadLink.classList.remove("enabled");});
 window.addEventListener("click",e=>{if(e.target===faqModal){faqModal.style.display="none";}});
 
-// Smooth scroll
-document.querySelectorAll(".nav a[data-target]").forEach(anchor=>{
-  anchor.addEventListener("click",function(e){
-    e.preventDefault();
-    const target=document.querySelector(this.getAttribute("data-target"));
-    if(!target) return;
-    const start=window.pageYOffset,end=target.getBoundingClientRect().top+window.pageYOffset-70,distance=end-start,duration=900;
-    let startTime=null;
-    function step(timestamp){
-      if(!startTime) startTime=timestamp;
-      const progress=timestamp-startTime,percent=Math.min(progress/duration,1);
-      window.scrollTo(0,start+distance*percent);
-      if(progress<duration) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  });
+// Smooth scroll с учётом фиксированной шапки
+document.querySelectorAll(".nav a[data-target]").forEach(anchor => {
+    anchor.addEventListener("click", function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("data-target"));
+        if (!target) return;
+
+        const headerOffset = 80; // высота шапки
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    });
 });
 
 applyTranslations("ru");

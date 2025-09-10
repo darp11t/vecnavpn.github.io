@@ -37,10 +37,6 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
 .plan-features { margin-top:10px; font-size:12px; line-height:1.4; }
 .action-tile { margin-top:10px; width:180px; height:44px; background: rgba(70,130,180,0.6); border-radius:10px; display:flex; justify-content:center; align-items:center; font-weight:700; font-size:18px; cursor:pointer; color:white; text-decoration:none; transition:background 0.25s; }
 .action-tile:hover { background: rgba(70,130,180,0.95); }
-footer { background: rgba(20,20,20,0.9); padding:12px 20px; text-align:center; color:white; margin-top:auto; }
-footer a { color: #7dbbff; text-decoration:none; }
-footer a:hover { text-decoration:underline; }
-footer p { margin:6px 0; font-size:14px; }
 #faqModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:50; }
 #faqContent { background: rgba(30,30,30,0.95); padding:30px; border-radius:10px; max-width:400px; text-align:center; color:white; display:flex; flex-direction:column; gap:15px; }
 #faqContent input { transform: scale(1.3); cursor:pointer; }
@@ -69,7 +65,6 @@ footer p { margin:6px 0; font-size:14px; }
     </div>
     <a data-target="#about">О нас</a>
     <a data-target="#startNow">Начать сейчас</a>
-    <a data-target="#contacts">Контакты</a>
   </div>
 </div>
 
@@ -132,77 +127,14 @@ footer p { margin:6px 0; font-size:14px; }
   </div>
 </div>
 
-<footer>
-  <div class="footer-content">
-    <p data-i18n="footerCopy">© 2025 Vecna VPN. Все права защищены.</p>
-    <p data-i18n="license">Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></p>
-    <p data-i18n="contacts">Контакты: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a></p>
-  </div>
-</footer>
-
 <script>
+// Переводы
 const translations = {
-  ru:{about:"О нас", startNow:"Начать сейчас", contacts:"Контакты",
-    vpnDescription:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
-    vpnDetails:"Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.",
-    introText:"Преимущества использования нашего VPN для вашей безопасности и удобства",
-    tile1t:"Анонимность", tile1d:"Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
-    tile2t:"Безопасность", tile2d:"Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
-    tile3t:"Скорость", tile3d:"Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
-    tile4t:"Доступ", tile4d:"Разблокируйте любимые сайты и стриминговые сервисы без ограничений.",
-    tile5t:"Мобильность", tile5d:"Приложения для Windows, Android и iOS для полного контроля.",
-    tile6t:"Поддержка", tile6d:"Круглосуточная помощь по любым вопросам и проблемам.",
-    buy:"Купить", download:"Скачать",
-    feat1:"быстрее соединение", feat2:"больше серверов", feat3:"24/7 поддержка", feat4:"более стабильное подключение", feat5:"приоритетная поддержка",
-    feat6:"ограниченная скорость", feat7:"меньше серверов",
-    faqTitle:"FAQ / Пользовательское соглашение", faq1:"1. Вы соглашаетесь использовать Vecna VPN только в личных целях и не нарушать законы вашей страны.",
-    faq2:"2. Бесплатная версия имеет ограничения по скорости и количеству серверов.",
-    faq3:"3. Ответственность за использование VPN полностью лежит на вас.",
-    faq4:"4. VPN может замедлять интернет при высокой нагрузке.",
-    faq5:"5. Проект не хранит ваши данные.",
-    faqCheckbox:"Я согласен с условиями FAQ", goDownload:"Перейти к скачиванию", close:"Закрыть",
-    footerCopy:"© 2025 Vecna VPN. Все права защищены.", license:"Лицензия:", contacts:"Контакты:"},
-  en:{about:"About", startNow:"Start now", contacts:"Contacts",
-    vpnDescription:"Vecna VPN protects your privacy, hides IP and provides access to blocked websites with high speed and reliability",
-    vpnDetails:"We operate 24/7, providing secure connections for all users. Our VPN servers are distributed worldwide for stable access. Each server uses modern encryption protocols to protect your data.",
-    introText:"Advantages of using our VPN for your security and convenience",
-    tile1t:"Anonymity", tile1d:"Your IP is completely hidden, websites cannot track your actions.",
-    tile2t:"Security", tile2d:"Military-grade encryption protects traffic from hackers and ISPs.",
-    tile3t:"Speed", tile3d:"Optimized servers ensure stable and fast connections.",
-    tile4t:"Access", tile4d:"Unlock your favorite sites and streaming services without restrictions.",
-    tile5t:"Mobility", tile5d:"Apps for Windows, Android, and iOS for full control.",
-    tile6t:"Support", tile6d:"24/7 help for any questions or issues.",
-    buy:"Buy", download:"Download",
-    feat1:"faster connection", feat2:"more servers", feat3:"24/7 support", feat4:"more stable connection", feat5:"priority support",
-    feat6:"limited speed", feat7:"fewer servers",
-    faqTitle:"FAQ / User Agreement", faq1:"1. You agree to use Vecna VPN for personal purposes only and not violate your country's laws.",
-    faq2:"2. Free version has speed and server limits.", faq3:"3. Responsibility for VPN use is entirely yours.",
-    faq4:"4. VPN may slow internet under high load.", faq5:"5. Project does not store your data.",
-    faqCheckbox:"I agree to the FAQ terms", goDownload:"Go to download", close:"Close",
-    footerCopy:"© 2025 Vecna VPN. All rights reserved.", license:"License:", contacts:"Contacts:"},
-  de:{about:"Über uns", startNow:"Jetzt starten", contacts:"Kontakte",
-    vpnDescription:"Vecna VPN schützt Ihre Privatsphäre, verbirgt die IP und bietet Zugang zu gesperrten Websites mit hoher Geschwindigkeit und Zuverlässigkeit",
-    vpnDetails:"Wir arbeiten rund um die Uhr und bieten allen Benutzern eine sichere Verbindung. Unsere VPN-Server sind weltweit verteilt für stabilen Zugang. Jeder Server verwendet moderne Verschlüsselungsprotokolle zum Schutz Ihrer Daten.",
-    introText:"Vorteile der Verwendung unseres VPN für Ihre Sicherheit und Bequemlichkeit",
-    tile1t:"Anonymität", tile1d:"Ihre IP ist vollständig verborgen, Websites können Ihre Aktionen nicht verfolgen.",
-    tile2t:"Sicherheit", tile2d:"Verschlüsselung auf Militärniveau schützt den Datenverkehr vor Hackern und ISPs.",
-    tile3t:"Geschwindigkeit", tile3d:"Optimierte Server gewährleisten stabile und schnelle Verbindungen.",
-    tile4t:"Zugang", tile4d:"Entsperren Sie Ihre Lieblingsseiten und Streaming-Dienste ohne Einschränkungen.",
-    tile5t:"Mobilität", tile5d:"Apps für Windows, Android und iOS für volle Kontrolle.",
-    tile6t:"Unterstützung", tile6d:"24/7 Hilfe bei allen Fragen und Problemen.",
-    buy:"Kaufen", download:"Herunterladen",
-    feat1:"schnellere Verbindung", feat2:"mehr Server", feat3:"24/7 Support", feat4:"stabilere Verbindung", feat5:"Prioritäts-Support",
-    feat6:"begrenzte Geschwindigkeit", feat7:"weniger Server",
-    faqTitle:"FAQ / Benutzervereinbarung", faq1:"1. Sie stimmen zu, Vecna VPN nur für persönliche Zwecke zu verwenden und die Gesetze Ihres Landes nicht zu verletzen.",
-    faq2:"2. Die kostenlose Version hat Geschwindigkeits- und Serverbeschränkungen.", faq3:"3. Die Verantwortung für die Nutzung des VPN liegt vollständig bei Ihnen.",
-    faq4:"4. VPN kann das Internet bei hoher Last verlangsamen.", faq5:"5. Das Projekt speichert keine Daten.",
-    faqCheckbox:"Ich stimme den FAQ-Bedingungen zu", goDownload:"Zum Download", close:"Schließen",
-    footerCopy:"© 2025 Vecna VPN. Alle Rechte vorbehalten.", license:"Lizenz:", contacts:"Kontakte:"}
+  ru:{about:"О нас", startNow:"Начать сейчас", vpnDescription:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью", vpnDetails:"Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.", introText:"Преимущества использования нашего VPN для вашей безопасности и удобства", tile1t:"Анонимность", tile1d:"Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.", tile2t:"Безопасность", tile2d:"Военные стандарты шифрования защищают трафик от хакеров и провайдеров.", tile3t:"Скорость", tile3d:"Оптимизированные сервера обеспечивают стабильное и быстрое соединение.", tile4t:"Доступ", tile4d:"Разблокируйте любимые сайты и стриминговые сервисы без ограничений.", tile5t:"Мобильность", tile5d:"Приложения для Windows, Android и iOS для полного контроля.", tile6t:"Поддержка", tile6d:"Круглосуточная помощь по любым вопросам и проблемам.", buy:"Купить", download:"Скачать", feat1:"быстрее соединение", feat2:"больше серверов", feat3:"24/7 поддержка", feat4:"более стабильное подключение", feat5:"приоритетная поддержка", feat6:"ограниченная скорость", feat7:"меньше серверов", faqTitle:"FAQ / Пользовательское соглашение", faq1:"1. Вы соглашаетесь использовать Vecna VPN только в личных целях и не нарушать законы вашей страны.", faq2:"2. Бесплатная версия имеет ограничения по скорости и количеству серверов.", faq3:"3. Ответственность за использование VPN полностью лежит на вас.", faq4:"4. VPN может замедлять интернет при высокой нагрузке.", faq5:"5. Проект не хранит ваши данные.", faqCheckbox:"Я согласен с условиями FAQ", goDownload:"Перейти к скачиванию", close:"Закрыть"}
 };
 
-const langSwitch=document.getElementById("langSwitch"),
-      currentFlag=document.getElementById("currentFlag");
-
+// Переключение языка
+const langSwitch=document.getElementById("langSwitch"), currentFlag=document.getElementById("currentFlag");
 langSwitch.addEventListener("click", e=>{
   if(e.target.dataset && e.target.dataset.lang){
     const lang=e.target.dataset.lang;
@@ -213,22 +145,20 @@ langSwitch.addEventListener("click", e=>{
   }
   langSwitch.classList.toggle("open");
 });
-
 function applyTranslations(lang){
-  const t = translations[lang];
+  const t=translations[lang];
   document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.getAttribute("data-i18n");
-    if(t[key] !== undefined){ el.textContent = t[key]; }
+    const key=el.getAttribute("data-i18n");
+    if(t[key]) el.textContent=t[key];
   });
-  if(t.about) document.querySelector('a[data-target="#about"]').textContent = t.about;
-  if(t.startNow) document.querySelector('a[data-target="#startNow"]').textContent = t.startNow;
-  if(t.contacts) document.querySelector('a[data-target="#contacts"]').textContent = t.contacts;
+  document.querySelector('a[data-target="#about"]').textContent=t.about;
+  document.querySelector('a[data-target="#startNow"]').textContent=t.startNow;
 }
 
+// FAQ modal
 const faqModal=document.getElementById("faqModal"),
       confirmDownload=document.getElementById("confirmDownload"),
       downloadLink=document.getElementById("downloadLink");
-
 document.querySelectorAll('.action-tile[href="#faqModal"]').forEach(el=>{
   el.addEventListener("click", e=>{
     e.preventDefault();
@@ -244,17 +174,18 @@ confirmDownload.addEventListener("change", ()=>{
   confirmDownload.checked ? downloadLink.classList.add("enabled") : downloadLink.classList.remove("enabled");
 });
 window.addEventListener("click", e=>{
-  if(e.target===faqModal){ faqModal.style.display="none"; }
+  if(e.target===faqModal){ 
+    faqModal.style.display="none";
+  }
 });
 
-// Плавная прокрутка для навигации с учетом хедера
+// Плавная прокрутка с учетом фиксированного хедера
 document.querySelectorAll(".nav a[data-target]").forEach(anchor => {
   anchor.addEventListener("click", function(e) {
     e.preventDefault();
     let targetElement;
     const headerOffset = document.querySelector('.header').offsetHeight;
 
-    // Определяем цель прокрутки
     switch(this.getAttribute("data-target")){
       case "#about":
         targetElement = document.querySelector('#about');
@@ -262,17 +193,12 @@ document.querySelectorAll(".nav a[data-target]").forEach(anchor => {
       case "#startNow":
         targetElement = document.querySelector('#plans');
         break;
-      case "#contacts":
-        targetElement = document.querySelector('footer');
-        break;
       default:
         return;
     }
     if(!targetElement) return;
-
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
     window.scrollTo({top: offsetPosition, behavior: "smooth"});
   });
 });

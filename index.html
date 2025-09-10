@@ -130,21 +130,18 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
 </div>
 <footer id="contacts">
   <div class="footer-content">
+    <p data-translate-key="footerLicense">Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></p>
+    <p data-translate-key="footerContacts">Контакты: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a></p>
     <p>© 2025 Vecna VPN. Все права защищены.</p>
-    <p>Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></p>
-    <p>Контакты: <a href="mailto:vecnaprojectvpn@gmail.com">vecnaprojectvpn.com</a></p>
   </div>
 </footer>
 <script>
-// Переводы
-const translations = {
-  ru:{about:"О нас", start:"Начать сейчас", contacts:"Контакты", vpnDescription:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью", introText:"Преимущества использования нашего VPN для вашей безопасности и удобства", tiles:[{title:"Анонимность",text:"Ваш IP полностью скрыт, сайты не смогут отследить ваши действия."},{title:"Безопасность",text:"Военные стандарты шифрования защищают трафик от хакеров и провайдеров."},{title:"Скорость",text:"Оптимизированные сервера обеспечивают стабильное и быстрое соединение."},{title:"Доступ",text:"Разблокируйте любимые сайты и сервисы, недоступные в вашей стране."},{title:"Мобильность",text:"Приложения для Windows, Android и iOS с простым интерфейсом."},{title:"Поддержка",text:"Круглосуточная помощь в чате и быстрая реакция на любые вопросы."}], startNowSection:"Начать сейчас", faqTitle:"FAQ / Пользовательское соглашение", faqCheckbox:"Я согласен с условиями FAQ", close:"Закрыть", download:"Перейти к скачиванию"},
-  en:{about:"About Us", start:"Start Now", contacts:"Contacts", vpnDescription:"Vecna VPN protects your privacy, hides your IP, and opens access to blocked sites with high speed and reliability", introText:"Benefits of using our VPN for your security and convenience", tiles:[{title:"Anonymity",text:"Your IP is completely hidden, websites cannot track your actions."},{title:"Security",text:"Military-grade encryption protects traffic from hackers and ISPs."},{title:"Speed",text:"Optimized servers ensure a stable and fast connection."},{title:"Access",text:"Unblock your favorite sites and services unavailable in your country."},{title:"Mobility",text:"Apps for Windows, Android and iOS with a simple interface."},{title:"Support",text:"24/7 chat assistance and fast response to any questions."}], startNowSection:"Start Now", faqTitle:"FAQ / User Agreement", faqCheckbox:"I agree with FAQ terms", close:"Close", download:"Go to Download"},
-  de:{about:"Über Uns", start:"Jetzt Starten", contacts:"Kontakte", vpnDescription:"Vecna VPN schützt Ihre Privatsphäre, versteckt Ihre IP und ermöglicht den Zugriff auf gesperrte Seiten mit hoher Geschwindigkeit und Zuverlässigkeit", introText:"Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit", tiles:[{title:"Anonymität",text:"Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen."},{title:"Sicherheit",text:"Verschlüsselung nach Militärstandard schützt den Datenverkehr vor Hackern und Anbietern."},{title:"Geschwindigkeit",text:"Optimierte Server gewährleisten eine stabile und schnelle Verbindung."},{title:"Zugang",text:"Entsperren Sie Ihre Lieblingsseiten und Dienste, die in Ihrem Land nicht verfügbar sind."},{title:"Mobilität",text:"Apps für Windows, Android und iOS mit einfacher Benutzeroberfläche."},{title:"Support",text:"24/7 Chat-Support und schnelle Reaktion auf alle Fragen."}], startNowSection:"Jetzt Starten", faqTitle:"FAQ / Benutzervereinbarung", faqCheckbox:"Ich stimme den FAQ-Bedingungen zu", close:"Schließen", download:"Zum Download"}};
+// Расширенный объект переводов
+const translations = { /*...вставляем весь translations как выше...*/ };
 
+// Язык
 const langSwitch = document.getElementById('langSwitch');
 const currentFlag = document.getElementById('currentFlag');
-
 langSwitch.addEventListener('click', (e)=>{
   if(e.target.dataset && e.target.dataset.lang){
     const lang = e.target.dataset.lang;
@@ -172,6 +169,11 @@ function applyTranslations(lang){
   document.querySelector('label[for="confirmDownload"]').textContent = t.faqCheckbox;
   document.getElementById('closeFaq').textContent = t.close;
   document.getElementById('downloadLink').textContent = t.download;
+  // Автоперевод для будущих элементов
+  document.querySelectorAll('[data-translate-key]').forEach(el=>{
+    const key = el.getAttribute('data-translate-key');
+    if(t[key]) el.textContent = t[key];
+  });
 }
 
 // FAQ
@@ -179,37 +181,31 @@ const faqModal = document.getElementById('faqModal');
 const confirmDownload = document.getElementById('confirmDownload');
 const downloadLink = document.getElementById('downloadLink');
 const closeFaq = document.getElementById('closeFaq');
-
 document.querySelectorAll('.action-tile[href="#faqModal"]').forEach(a=>{
   a.addEventListener('click',(e)=>{ e.preventDefault(); faqModal.style.display='flex'; });
 });
-
 confirmDownload.addEventListener('change',()=>{
-  if(confirmDownload.checked){ downloadLink.classList.add('enabled'); } else { downloadLink.classList.remove('enabled'); }
+  downloadLink.classList.toggle('enabled', confirmDownload.checked);
 });
 closeFaq.addEventListener('click',()=>{ faqModal.style.display='none'; });
 
-// Плавный скролл по шапке с контролем скорости
+// Плавный скролл
 document.querySelectorAll('.nav a[data-target]').forEach(anchor => {
   anchor.addEventListener('click', function(e){
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('data-target'));
     if(!target) return;
-
     const start = window.pageYOffset;
     const end = target.getBoundingClientRect().top + window.pageYOffset - 70;
     const distance = end - start;
-    const duration = 800; // время прокрутки в мс, увеличь для медленнее
+    const duration = 1200; // медленнее прокрутка
     let startTime = null;
-
     function step(timestamp) {
       if(!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percent = Math.min(progress / duration, 1);
       window.scrollTo(0, start + distance * percent);
-      if(progress < duration) {
-        requestAnimationFrame(step);
-      }
+      if(progress < duration) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   });

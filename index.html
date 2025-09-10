@@ -152,25 +152,79 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
   </section>
 </main>
 
-<!-- FAQ Modal -->
+<!-- FAQ / Соглашение -->
 <div id="faqModal">
   <div id="faqContent">
-    <div style="font-size:18px; font-weight:600;">FAQ</div>
-    <div style="font-size:14px; text-align:left; max-height:200px; overflow-y:auto; margin-bottom:15px;">
-      <p><strong>Вопрос 1:</strong> Что такое Vecna VPN?</p>
-      <p>Ответ: Безопасный VPN для анонимного серфинга и обхода блокировок.</p>
-      <p><strong>Вопрос 2:</strong> Бесплатная версия ограничена?</p>
-      <p>Ответ: Да, скорость и количество серверов ограничены.</p>
-      <p><strong>Вопрос 3:</strong> Можно ли использовать на мобильных устройствах?</p>
-      <p>Ответ: Да, есть приложения для Windows, Android и iOS.</p>
+    <h2 style="margin-bottom:10px;">FAQ / Пользовательское соглашение</h2>
+    <div style="font-size:14px; text-align:left; max-height:220px; overflow-y:auto; margin-bottom:15px; line-height:1.5;">
+      <p><strong>1.</strong> Вы согласны использовать Vecna VPN только в личных целях и не применять его для незаконной деятельности.</p>
+      <p><strong>2.</strong> Вы понимаете, что бесплатная версия имеет ограничения по скорости и количеству серверов.</p>
+      <p><strong>3.</strong> Вы подтверждаете, что ответственность за использование VPN полностью лежит на вас.</p>
+      <p><strong>4.</strong> Вы ознакомлены с тем, что VPN может замедлять интернет при сильной нагрузке.</p>
+      <p><strong>5.</strong> Вы согласны, что проект не хранит ваши данные и не несёт ответственности за действия третьих лиц.</p>
     </div>
-    <label style="display:flex; align-items:center; gap:10px;">
-      <input type="checkbox" id="confirmDownload"> Я прочитал FAQ
+
+    <label style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+      <input type="checkbox" id="confirmDownload"> Я согласен с условиями FAQ
     </label>
+
     <a id="downloadLink" href="https://mega.nz/yourlink" target="_blank">Перейти к скачиванию</a>
     <div id="closeFaq">Закрыть</div>
   </div>
 </div>
+
+<style>
+#faqModal {
+  display:none;
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+  z-index:1000;
+  justify-content:center; align-items:center;
+}
+#faqContent {
+  background:#1a1a1a; padding:20px; border-radius:10px;
+  max-width:500px; width:90%; text-align:center;
+}
+#faqContent h2 { margin:0 0 15px 0; }
+#faqContent a {
+  display:inline-block; margin-top:10px;
+  padding:10px 20px; background:#007bff;
+  color:white; text-decoration:none; border-radius:5px;
+  pointer-events:none; opacity:0.5;
+}
+#faqContent a.enabled { pointer-events:auto; opacity:1; }
+#closeFaq { margin-top:10px; cursor:pointer; color:#aaa; }
+#closeFaq:hover { color:#fff; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const faqModal = document.getElementById("faqModal");
+  const downloadBtn = document.querySelector('a[href="#download"]'); // твоя кнопка "Скачать"
+  const closeFaq = document.getElementById("closeFaq");
+  const confirmDownload = document.getElementById("confirmDownload");
+  const downloadLink = document.getElementById("downloadLink");
+
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      faqModal.style.display = "flex";
+    });
+  }
+
+  closeFaq.addEventListener("click", () => {
+    faqModal.style.display = "none";
+  });
+
+  confirmDownload.addEventListener("change", () => {
+    if (confirmDownload.checked) {
+      downloadLink.classList.add("enabled");
+    } else {
+      downloadLink.classList.remove("enabled");
+    }
+  });
+});
+</script>
 
 <!-- Футер -->
 <footer>

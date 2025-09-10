@@ -62,7 +62,7 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
 #faqContent { background: rgba(30,30,30,0.95); padding:30px; border-radius:10px; max-width:400px; text-align:center; color:white; display:flex; flex-direction:column; gap:15px; }
 #faqContent input[type="checkbox"] { transform: scale(1.3); cursor:pointer; }
 #downloadLink { background:var(--blue); padding:10px 20px; border-radius:8px; color:white; font-weight:700; text-decoration:none; opacity:0.5; pointer-events:none; transition:0.25s; }
-#downloadLink:hover { background:#4a90e2; }
+#downloadLink.enabled { opacity:1; pointer-events:auto; }
 #closeFaq { cursor:pointer; color:var(--blue); font-weight:700; margin-top:10px; }
 
 @media (max-width:700px){
@@ -158,10 +158,10 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
     <h2 style="margin-bottom:10px;">FAQ / Пользовательское соглашение</h2>
     <div style="font-size:14px; text-align:left; max-height:220px; overflow-y:auto; margin-bottom:15px; line-height:1.5;">
       <p><strong>1.</strong> Вы согласны использовать Vecna VPN только в личных целях и не применять его для незаконной деятельности.</p>
-      <p><strong>2.</strong> Вы понимаете, что бесплатная версия имеет ограничения по скорости и количеству серверов.</p>
-      <p><strong>3.</strong> Вы подтверждаете, что ответственность за использование VPN полностью лежит на вас.</p>
-      <p><strong>4.</strong> Вы ознакомлены с тем, что VPN может замедлять интернет при сильной нагрузке.</p>
-      <p><strong>5.</strong> Вы согласны, что проект не хранит ваши данные и не несёт ответственности за действия третьих лиц.</p>
+      <p><strong>2.</strong> Бесплатная версия имеет ограничения по скорости и количеству серверов.</p>
+      <p><strong>3.</strong> Ответственность за использование VPN полностью лежит на вас.</p>
+      <p><strong>4.</strong> VPN может замедлять интернет при сильной нагрузке.</p>
+      <p><strong>5.</strong> Проект не хранит ваши данные и не несёт ответственности за действия третьих лиц.</p>
     </div>
 
     <label style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
@@ -173,61 +173,8 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
   </div>
 </div>
 
-<style>
-#faqModal {
-  display:none;
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.8);
-  z-index:1000;
-  justify-content:center; align-items:center;
-}
-#faqContent {
-  background:#1a1a1a; padding:20px; border-radius:10px;
-  max-width:500px; width:90%; text-align:center;
-}
-#faqContent h2 { margin:0 0 15px 0; }
-#faqContent a {
-  display:inline-block; margin-top:10px;
-  padding:10px 20px; background:#007bff;
-  color:white; text-decoration:none; border-radius:5px;
-  pointer-events:none; opacity:0.5;
-}
-#faqContent a.enabled { pointer-events:auto; opacity:1; }
-#closeFaq { margin-top:10px; cursor:pointer; color:#aaa; }
-#closeFaq:hover { color:#fff; }
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const faqModal = document.getElementById("faqModal");
-  const downloadBtn = document.querySelector('a[href="#download"]'); // твоя кнопка "Скачать"
-  const closeFaq = document.getElementById("closeFaq");
-  const confirmDownload = document.getElementById("confirmDownload");
-  const downloadLink = document.getElementById("downloadLink");
-
-  if (downloadBtn) {
-    downloadBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      faqModal.style.display = "flex";
-    });
-  }
-
-  closeFaq.addEventListener("click", () => {
-    faqModal.style.display = "none";
-  });
-
-  confirmDownload.addEventListener("change", () => {
-    if (confirmDownload.checked) {
-      downloadLink.classList.add("enabled");
-    } else {
-      downloadLink.classList.remove("enabled");
-    }
-  });
-});
-</script>
-
 <!-- Футер -->
-<footer>
+<footer id="contacts">
   <div class="footer-content">
     <p>© 2025 Vecna VPN. Все права защищены.</p>
     <p>Лицензия: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></p>
@@ -240,10 +187,11 @@ document.addEventListener("DOMContentLoaded", () => {
 const langSwitch = document.getElementById('langSwitch');
 const currentFlag = document.getElementById('currentFlag');
 langSwitch.addEventListener('click', (e)=>{
-  if (e.target && e.target.tagName.toLowerCase() === 'img' && e.target.dataset && e.target.dataset.lang) {
+  if (e.target && e.target.dataset && e.target.dataset.lang) {
     const lang = e.target.dataset.lang;
     currentFlag.src = e.target.src;
     langSwitch.classList.remove('open');
+    // здесь можно вставить замену текста по выбранному языку
     return;
   }
   langSwitch.classList.toggle('open');
@@ -275,19 +223,16 @@ document.querySelectorAll('.action-tile[href="#faqModal"]').forEach(btn=>{
 
 confirmCheckbox.addEventListener('change', ()=>{
   if(confirmCheckbox.checked){
-    downloadLink.style.pointerEvents = 'auto';
-    downloadLink.style.opacity = '1';
+    downloadLink.classList.add('enabled');
   } else {
-    downloadLink.style.pointerEvents = 'none';
-    downloadLink.style.opacity = '0.5';
+    downloadLink.classList.remove('enabled');
   }
 });
 
 closeFaq.addEventListener('click', ()=>{
   faqModal.style.display = 'none';
   confirmCheckbox.checked = false;
-  downloadLink.style.pointerEvents = 'none';
-  downloadLink.style.opacity = '0.5';
+  downloadLink.classList.remove('enabled');
 });
 </script>
 </body>

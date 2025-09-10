@@ -16,6 +16,11 @@ html, body { height:100%; margin:0; font-family:'Montserrat',sans-serif; display
 .nav { display:flex; gap:20px; align-items:center; position:relative; }
 .nav a { color:white; text-decoration:none; font-size:16px; white-space:nowrap; transition:color 0.25s; cursor:pointer; }
 .nav a:hover { color:var(--blue); }
+.lang-switch { position:relative; cursor:pointer; display:flex; align-items:center; gap:8px; }
+.lang-switch img { width:25px;height:18px;border-radius:3px; display:block; }
+.lang-dropdown { display:none; position:absolute; top:30px; left:0; background:rgba(20,20,20,0.95); border:1px solid #555; border-radius:5px; padding:6px; flex-direction:column; z-index:20; }
+.lang-dropdown img { width:25px;height:18px;margin:4px 0; cursor:pointer; }
+.lang-switch.open .lang-dropdown { display:flex; }
 main.content { flex:1 0 auto; position:relative; z-index:2; padding:100px 20px 40px; text-align:center; }
 .vpn-description { margin-top:48px; margin-bottom:18px; font-size:22px; font-weight:600; color:var(--blue); line-height:1.4; }
 .intro-text { font-size:26px; font-weight:700; margin-bottom:30px; color:#f5f5f5; }
@@ -55,6 +60,14 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
     <h1>Vecna-VPN</h1>
   </div>
   <div class="nav">
+    <div class="lang-switch" id="langSwitch">
+      <img id="currentFlag" src="https://flagcdn.com/w20/ru.png" alt="RU">
+      <div class="lang-dropdown">
+        <img src="https://flagcdn.com/w20/ru.png" data-lang="ru" alt="RU">
+        <img src="https://flagcdn.com/w20/us.png" data-lang="en" alt="EN">
+        <img src="https://flagcdn.com/w20/de.png" data-lang="de" alt="DE">
+      </div>
+    </div>
     <a data-target="#about">О нас</a>
     <a data-target="#startNowSection">Начать сейчас</a>
     <a data-target="#contacts">Контакты</a>
@@ -106,7 +119,6 @@ footer .footer-content p { margin: 6px 0; font-size: 14px; line-height: 1.4; }
 </footer>
 
 <script>
-// Переводы
 const translations = {
   ru:{
     about:"О нас", start:"Начать сейчас", contacts:"Контакты",
@@ -140,6 +152,20 @@ const translations = {
   }
 };
 
+const langSwitch = document.getElementById('langSwitch');
+const currentFlag = document.getElementById('currentFlag');
+
+langSwitch.addEventListener('click', (e)=>{
+  if(e.target.dataset && e.target.dataset.lang){
+    const lang = e.target.dataset.lang;
+    currentFlag.src = e.target.src;
+    langSwitch.classList.remove('open');
+    applyTranslations(lang);
+    return;
+  }
+  langSwitch.classList.toggle('open');
+});
+
 function applyTranslations(lang){
   const t = translations[lang];
   document.querySelector('a[data-target="#about"]').textContent = t.about;
@@ -154,9 +180,6 @@ function applyTranslations(lang){
   });
   document.getElementById('startNowSection').textContent = t.startNowSection;
 }
-
-// Пример: смена языка через prompt
-// applyTranslations('en'); // Раскомментировать для теста
 </script>
 
 <script>

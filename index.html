@@ -161,22 +161,113 @@ document.getElementById('confirmDownload').addEventListener('change', function()
 });
 document.getElementById('closeFaq').addEventListener('click', ()=>{ faqModal.style.display='none'; });
 
-// Перевод
+// Перевод всего текста
 const translations = {
-  ru: {about:"О нас", start:"Начать сейчас", contacts:"Контакты"},
-  en: {about:"About Us", start:"Start Now", contacts:"Contacts"},
-  de: {about:"Über Uns", start:"Jetzt Starten", contacts:"Kontakte"}
+  ru: {
+    nav: ["О нас","Начать сейчас","Контакты"],
+    vpnDescription: "Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
+    introText: "Преимущества использования нашего VPN для вашей безопасности и удобства",
+    tiles: [
+      {title:"Анонимность", text:"Ваш IP полностью скрыт, сайты не смогут отследить ваши действия."},
+      {title:"Безопасность", text:"Военные стандарты шифрования защищают трафик от хакеров и провайдеров."},
+      {title:"Скорость", text:"Оптимизированные сервера обеспечивают стабильное и быстрое соединение."},
+      {title:"Доступ", text:"Разблокируйте любимые сайты и сервисы, недоступные в вашей стране."},
+      {title:"Мобильность", text:"Приложения для Windows, Android и iOS с простым интерфейсом."},
+      {title:"Поддержка", text:"Круглосуточная помощь в чате и быстрая реакция на любые вопросы."}
+    ],
+    startNow:"Начать сейчас",
+    plans: {
+      PREM: {action:"Купить", features:["быстрее соединение","больше серверов","24/7 поддержка","более стабильное подключение","приоритетная поддержка"]},
+      FREE: {action:"Скачать", features:["ограниченная скорость","меньше серверов"]}
+    },
+    faq: {title:"FAQ / Пользовательское соглашение", checkbox:"Я согласен с условиями FAQ", download:"Перейти к скачиванию", close:"Закрыть"}
+  },
+  en: {
+    nav: ["About Us","Start Now","Contacts"],
+    vpnDescription: "Vecna VPN protects your privacy, hides your IP and opens access to blocked sites with high speed and reliability",
+    introText: "Benefits of using our VPN for your security and convenience",
+    tiles: [
+      {title:"Anonymity", text:"Your IP is completely hidden, websites cannot track your actions."},
+      {title:"Security", text:"Military-grade encryption protects traffic from hackers and ISPs."},
+      {title:"Speed", text:"Optimized servers ensure a stable and fast connection."},
+      {title:"Access", text:"Unblock your favorite sites and services unavailable in your country."},
+      {title:"Mobility", text:"Apps for Windows, Android and iOS with a simple interface."},
+      {title:"Support", text:"24/7 chat assistance and fast response to any questions."}
+    ],
+    startNow:"Start Now",
+    plans: {
+      PREM: {action:"Buy", features:["Faster connection","More servers","24/7 support","More stable connection","Priority support"]},
+      FREE: {action:"Download", features:["Limited speed","Fewer servers"]}
+    },
+    faq: {title:"FAQ / User Agreement", checkbox:"I agree with FAQ terms", download:"Go to Download", close:"Close"}
+  },
+  de: {
+    nav: ["Über Uns","Jetzt Starten","Kontakte"],
+    vpnDescription: "Vecna VPN schützt Ihre Privatsphäre, versteckt Ihre IP und ermöglicht den Zugriff auf gesperrte Seiten mit hoher Geschwindigkeit und Zuverlässigkeit",
+    introText: "Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit",
+    tiles: [
+      {title:"Anonymität", text:"Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen."},
+      {title:"Sicherheit", text:"Verschlüsselung nach Militärstandard schützt den Datenverkehr vor Hackern und ISPs."},
+      {title:"Geschwindigkeit", text:"Optimierte Server gewährleisten eine stabile und schnelle Verbindung."},
+      {title:"Zugang", text:"Entsperren Sie Ihre Lieblingsseiten und Dienste, die in Ihrem Land nicht verfügbar sind."},
+      {title:"Mobilität", text:"Apps für Windows, Android und iOS mit einfacher Benutzeroberfläche."},
+      {title:"Unterstützung", text:"24/7 Chat-Hilfe und schnelle Reaktion auf alle Fragen."}
+    ],
+    startNow:"Jetzt Starten",
+    plans: {
+      PREM: {action:"Kaufen", features:["Schnellere Verbindung","Mehr Server","24/7 Unterstützung","Stabilere Verbindung","Priorisierte Unterstützung"]},
+      FREE: {action:"Herunterladen", features:["Begrenzte Geschwindigkeit","Weniger Server"]}
+    },
+    faq: {title:"FAQ / Benutzervereinbarung", checkbox:"Ich stimme den FAQ-Bedingungen zu", download:"Zum Download", close:"Schließen"}
+  }
 };
+
+function setLanguage(lang){
+  const t = translations[lang];
+  // Nav
+  document.querySelectorAll('.nav a').forEach((a,i)=>{ a.textContent=t.nav[i]; });
+  // VPN Description
+  document.querySelector('.vpn-description').textContent = t.vpnDescription;
+  // Intro Text
+  document.querySelector('.intro-text').textContent = t.introText;
+  // Tiles
+  document.querySelectorAll('.tile').forEach((tile,i)=>{
+    tile.querySelector('h3').textContent = t.tiles[i].title;
+    tile.querySelector('p').textContent = t.tiles[i].text;
+  });
+  // Start now
+  document.getElementById('startNowSection').textContent = t.startNow;
+  // Plans
+  const planCols = document.querySelectorAll('.plan-col');
+  planCols.forEach((col,i)=>{
+    const planKey = i===0?'PREM':'FREE';
+    col.querySelector('.action-tile').textContent = t.plans[planKey].action;
+    const features = col.querySelector('.plan-features').querySelectorAll('p');
+    t.plans[planKey].features.forEach((f,j)=>{
+      if(features[j]) features[j].textContent = f;
+    });
+  });
+  // FAQ
+  document.querySelector('#faqContent h2').textContent = t.faq.title;
+  document.querySelector('label[for="confirmDownload"]').textContent = t.faq.checkbox;
+  document.getElementById('downloadLink').textContent = t.faq.download;
+  document.getElementById('closeFaq').textContent = t.faq.close;
+}
+
+// Lang switch
 document.getElementById('langSwitch').addEventListener('click', e=>{
   if(e.target.dataset.lang){
     const lang = e.target.dataset.lang;
     document.getElementById('currentFlag').src = e.target.src;
-    document.querySelector('a[data-target="about"]').textContent = translations[lang].about;
-    document.querySelector('a[data-target="startNowSection"]').textContent = translations[lang].start;
-    document.querySelector('a[data-target="contacts"]').textContent = translations[lang].contacts;
+    setLanguage(lang);
     e.currentTarget.classList.remove('open');
-  } else { e.currentTarget.classList.toggle('open'); }
+  } else {
+    e.currentTarget.classList.toggle('open');
+  }
 });
+
+// Init default
+setLanguage('ru');
 </script>
 
 </body>

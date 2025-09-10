@@ -29,7 +29,6 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
 .tile:hover { background: rgba(50,50,50,0.85); }
 .tile h3 { margin:0 0 8px; font-size:20px; }
 .tile p { margin:0; font-size:14px; }
-.plans-section-title { font-size:24px; font-weight:700; color:var(--blue); margin-bottom:20px; }
 .plans { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
 .plan-col { width:260px; display:flex; flex-direction:column; align-items:center; }
 .plan-tile { width:260px; height:120px; background: rgba(30,30,30,0.75); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; }
@@ -89,7 +88,7 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
   </section>
 
   <section id="plans">
-    <div class="plans-section-title" data-i18n="plansTitle">Начать сейчас</div>
+    <div class="vpn-description" data-i18n="startNow">Начать сейчас</div>
     <div class="plans">
       <div class="plan-col">
         <div class="plan-tile"><h3>PREM</h3><div class="price">9.99$ p.m.</div></div>
@@ -129,11 +128,8 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
 </div>
 
 <script>
-// Переводы
 const translations = {
-  ru:{
-    about:"О нас",
-    startNow:"Начать сейчас",
+  ru:{about:"О нас", startNow:"Начать сейчас", contacts:"Контакты",
     vpnDescription:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
     vpnDetails:"Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.",
     introText:"Преимущества использования нашего VPN для вашей безопасности и удобства",
@@ -145,12 +141,8 @@ const translations = {
     tile6t:"Поддержка", tile6d:"Круглосуточная помощь по любым вопросам и проблемам.",
     buy:"Купить", download:"Скачать",
     feat1:"быстрее соединение", feat2:"больше серверов", feat3:"24/7 поддержка", feat4:"более стабильное подключение", feat5:"приоритетная поддержка", feat6:"ограниченная скорость", feat7:"меньше серверов",
-    faqTitle:"FAQ / Пользовательское соглашение", faq1:"1. Вы соглашаетесь использовать Vecna VPN только в личных целях и не нарушать законы вашей страны.", faq2:"2. Бесплатная версия имеет ограничения по скорости и количеству серверов.", faq3:"3. Ответственность за использование VPN полностью лежит на вас.", faq4:"4. VPN может замедлять интернет при высокой нагрузке.", faq5:"5. Проект не хранит ваши данные.", faqCheckbox:"Я согласен с условиями FAQ", goDownload:"Перейти к скачиванию", close:"Закрыть",
-    plansTitle:"Начать сейчас"
-  },
-  en:{
-    about:"About Us",
-    startNow:"Start Now",
+    faqTitle:"FAQ / Пользовательское соглашение", faq1:"1. Вы соглашаетесь использовать Vecna VPN только в личных целях и не нарушать законы вашей страны.", faq2:"2. Бесплатная версия имеет ограничения по скорости и количеству серверов.", faq3:"3. Ответственность за использование VPN полностью лежит на вас.", faq4:"4. VPN может замедлять интернет при высокой нагрузке.", faq5:"5. Проект не хранит ваши данные.", faqCheckbox:"Я согласен с условиями FAQ", goDownload:"Перейти к скачиванию", close:"Закрыть"},
+  en:{about:"About Us", startNow:"Start Now", contacts:"Contacts",
     vpnDescription:"Vecna VPN protects your privacy, hides your IP and provides access to blocked websites with high speed and reliability.",
     vpnDetails:"We operate 24/7, providing secure connections for all users. Our VPN servers are distributed worldwide for stable access. Each server uses modern encryption protocols to protect your data.",
     introText:"Benefits of using our VPN for your safety and convenience",
@@ -162,12 +154,22 @@ const translations = {
     tile6t:"Support", tile6d:"24/7 support for any questions and issues.",
     buy:"Buy", download:"Download",
     feat1:"faster connection", feat2:"more servers", feat3:"24/7 support", feat4:"more stable connection", feat5:"priority support", feat6:"limited speed", feat7:"fewer servers",
-    faqTitle:"FAQ / User Agreement", faq1:"1. You agree to use Vecna VPN only for personal purposes and comply with local laws.", faq2:"2. Free version has limitations on speed and servers.", faq3:"3. Responsibility for using VPN lies entirely with you.", faq4:"4. VPN may slow down internet under load.", faq5:"5. Project does not store your data.", faqCheckbox:"I agree with FAQ terms", goDownload:"Go to Download", close:"Close",
-    plansTitle:"Start Now"
-  }
+    faqTitle:"FAQ / User Agreement", faq1:"1. You agree to use Vecna VPN only for personal purposes and comply with local laws.", faq2:"2. Free version has limitations on speed and servers.", faq3:"3. Responsibility for using VPN lies entirely with you.", faq4:"4. VPN may slow down internet under load.", faq5:"5. Project does not store your data.", faqCheckbox:"I agree with FAQ terms", goDownload:"Go to Download", close:"Close"},
+  de:{about:"Über Uns", startNow:"Jetzt Starten", contacts:"Kontakte",
+    vpnDescription:"Vecna VPN schützt Ihre Privatsphäre, versteckt Ihre IP und ermöglicht Zugang zu blockierten Websites mit hoher Geschwindigkeit und Zuverlässigkeit.",
+    vpnDetails:"Wir arbeiten rund um die Uhr und bieten sichere Verbindungen für alle Benutzer. Unsere VPN-Server sind weltweit verteilt, um stabilen Zugriff zu gewährleisten. Jeder Server verwendet moderne Verschlüsselungsprotokolle, um Ihre Daten zu schützen.",
+    introText:"Vorteile der Nutzung unseres VPN für Ihre Sicherheit und Bequemlichkeit",
+    tile1t:"Anonymität", tile1d:"Ihre IP ist vollständig verborgen, Websites können Ihre Aktivitäten nicht verfolgen.",
+    tile2t:"Sicherheit", tile2d:"Verschlüsselung nach Militärstandard schützt den Datenverkehr vor Hackern und Anbietern.",
+    tile3t:"Geschwindigkeit", tile3d:"Optimierte Server sorgen für stabile und schnelle Verbindung.",
+    tile4t:"Zugang", tile4d:"Entsperren Sie Ihre Lieblingsseiten und Streaming-Dienste ohne Einschränkungen.",
+    tile5t:"Mobilität", tile5d:"Apps für Windows, Android und iOS für volle Kontrolle.",
+    tile6t:"Support", tile6d:"24/7 Unterstützung für alle Fragen und Probleme.",
+    buy:"Kaufen", download:"Herunterladen",
+    feat1:"schnellere Verbindung", feat2:"mehr Server", feat3:"24/7 Support", feat4:"stabilere Verbindung", feat5:"priorisierter Support", feat6:"begrenzte Geschwindigkeit", feat7:"weniger Server",
+    faqTitle:"FAQ / Benutzervereinbarung", faq1:"1. Sie stimmen zu, Vecna VPN nur privat zu nutzen und die örtlichen Gesetze einzuhalten.", faq2:"2. Die kostenlose Version hat Einschränkungen bei Geschwindigkeit und Servern.", faq3:"3. Verantwortung liegt vollständig bei Ihnen.", faq4:"4. VPN kann das Internet bei hoher Last verlangsamen.", faq5:"5. Projekt speichert keine Daten.", faqCheckbox:"Ich stimme den FAQ-Bedingungen zu", goDownload:"Zum Download", close:"Schließen"}
 };
 
-// Языковая логика
 const langSwitch=document.getElementById("langSwitch"),
       currentFlag=document.getElementById("currentFlag");
 
@@ -233,7 +235,6 @@ document.querySelectorAll(".nav a[href^='#']").forEach(anchor => {
   });
 });
 
-// Изначальный язык
 applyTranslations("ru");
 </script>
 </body>

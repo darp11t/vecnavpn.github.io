@@ -64,7 +64,7 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
       </div>
     </div>
     <a data-target="#about">О нас</a>
-    <a data-target="#startNow">Начать сейчас</a>
+    <a data-target="#plans">Начать сейчас</a>
   </div>
 </div>
 
@@ -130,11 +130,25 @@ main { flex:1; position:relative; z-index:2; padding:100px 20px 40px; text-align
 <script>
 // Переводы
 const translations = {
-  ru:{about:"О нас", startNow:"Начать сейчас", vpnDescription:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью", vpnDetails:"Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.", introText:"Преимущества использования нашего VPN для вашей безопасности и удобства", tile1t:"Анонимность", tile1d:"Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.", tile2t:"Безопасность", tile2d:"Военные стандарты шифрования защищают трафик от хакеров и провайдеров.", tile3t:"Скорость", tile3d:"Оптимизированные сервера обеспечивают стабильное и быстрое соединение.", tile4t:"Доступ", tile4d:"Разблокируйте любимые сайты и стриминговые сервисы без ограничений.", tile5t:"Мобильность", tile5d:"Приложения для Windows, Android и iOS для полного контроля.", tile6t:"Поддержка", tile6d:"Круглосуточная помощь по любым вопросам и проблемам.", buy:"Купить", download:"Скачать", feat1:"быстрее соединение", feat2:"больше серверов", feat3:"24/7 поддержка", feat4:"более стабильное подключение", feat5:"приоритетная поддержка", feat6:"ограниченная скорость", feat7:"меньше серверов", faqTitle:"FAQ / Пользовательское соглашение", faq1:"1. Вы соглашаетесь использовать Vecna VPN только в личных целях и не нарушать законы вашей страны.", faq2:"2. Бесплатная версия имеет ограничения по скорости и количеству серверов.", faq3:"3. Ответственность за использование VPN полностью лежит на вас.", faq4:"4. VPN может замедлять интернет при высокой нагрузке.", faq5:"5. Проект не хранит ваши данные.", faqCheckbox:"Я согласен с условиями FAQ", goDownload:"Перейти к скачиванию", close:"Закрыть"}
+  ru:{about:"О нас", startNow:"Начать сейчас", contacts:"Контакты",
+    vpnDescription:"Vecna VPN защищает вашу приватность, скрывает IP и открывает доступ к заблокированным сайтам с высокой скоростью и надежностью",
+    vpnDetails:"Мы работаем круглосуточно, обеспечивая безопасное соединение для всех пользователей. Наши VPN-серверы распределены по всему миру для стабильного доступа. Каждый сервер использует современные протоколы шифрования, защищающие ваши данные.",
+    introText:"Преимущества использования нашего VPN для вашей безопасности и удобства",
+    tile1t:"Анонимность", tile1d:"Ваш IP полностью скрыт, сайты не смогут отследить ваши действия.",
+    tile2t:"Безопасность", tile2d:"Военные стандарты шифрования защищают трафик от хакеров и провайдеров.",
+    tile3t:"Скорость", tile3d:"Оптимизированные сервера обеспечивают стабильное и быстрое соединение.",
+    tile4t:"Доступ", tile4d:"Разблокируйте любимые сайты и стриминговые сервисы без ограничений.",
+    tile5t:"Мобильность", tile5d:"Приложения для Windows, Android и iOS для полного контроля.",
+    tile6t:"Поддержка", tile6d:"Круглосуточная помощь по любым вопросам и проблемам.",
+    buy:"Купить", download:"Скачать",
+    feat1:"быстрее соединение", feat2:"больше серверов", feat3:"24/7 поддержка", feat4:"более стабильное подключение", feat5:"приоритетная поддержка", feat6:"ограниченная скорость", feat7:"меньше серверов",
+    faqTitle:"FAQ / Пользовательское соглашение", faq1:"1. Вы соглашаетесь использовать Vecna VPN только в личных целях и не нарушать законы вашей страны.", faq2:"2. Бесплатная версия имеет ограничения по скорости и количеству серверов.", faq3:"3. Ответственность за использование VPN полностью лежит на вас.", faq4:"4. VPN может замедлять интернет при высокой нагрузке.", faq5:"5. Проект не хранит ваши данные.", faqCheckbox:"Я согласен с условиями FAQ", goDownload:"Перейти к скачиванию", close:"Закрыть"}
 };
 
 // Переключение языка
-const langSwitch=document.getElementById("langSwitch"), currentFlag=document.getElementById("currentFlag");
+const langSwitch=document.getElementById("langSwitch"),
+      currentFlag=document.getElementById("currentFlag");
+
 langSwitch.addEventListener("click", e=>{
   if(e.target.dataset && e.target.dataset.lang){
     const lang=e.target.dataset.lang;
@@ -145,20 +159,20 @@ langSwitch.addEventListener("click", e=>{
   }
   langSwitch.classList.toggle("open");
 });
+
 function applyTranslations(lang){
   const t=translations[lang];
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key=el.getAttribute("data-i18n");
     if(t[key]) el.textContent=t[key];
   });
-  document.querySelector('a[data-target="#about"]').textContent=t.about;
-  document.querySelector('a[data-target="#startNow"]').textContent=t.startNow;
 }
 
 // FAQ modal
 const faqModal=document.getElementById("faqModal"),
       confirmDownload=document.getElementById("confirmDownload"),
       downloadLink=document.getElementById("downloadLink");
+
 document.querySelectorAll('.action-tile[href="#faqModal"]').forEach(el=>{
   el.addEventListener("click", e=>{
     e.preventDefault();
@@ -179,31 +193,22 @@ window.addEventListener("click", e=>{
   }
 });
 
-// Плавная прокрутка с учетом фиксированного хедера
+// Плавная прокрутка
 document.querySelectorAll(".nav a[data-target]").forEach(anchor => {
   anchor.addEventListener("click", function(e) {
     e.preventDefault();
-    let targetElement;
-    const headerOffset = document.querySelector('.header').offsetHeight;
-
-    switch(this.getAttribute("data-target")){
-      case "#about":
-        targetElement = document.querySelector('#about');
-        break;
-      case "#startNow":
-        targetElement = document.querySelector('#plans');
-        break;
-      default:
-        return;
-    }
+    const targetElement = document.querySelector(this.getAttribute("data-target"));
     if(!targetElement) return;
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    window.scrollTo({top: offsetPosition, behavior: "smooth"});
+    const headerOffset = document.querySelector('.header').offsetHeight;
+    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - headerOffset;
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   });
 });
 
+// Изначальный язык
 applyTranslations("ru");
 </script>
+
 </body>
 </html>

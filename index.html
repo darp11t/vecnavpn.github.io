@@ -214,17 +214,18 @@ confirmDownload.addEventListener('change',()=>{
 });
 closeFaq.addEventListener('click',()=>{ faqModal.style.display='none'; });
 
-// Плавный скролл
 document.querySelectorAll('.nav a[data-target]').forEach(anchor=>{
   anchor.addEventListener('click', function(e){
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('data-target'));
+    const targetId = this.getAttribute('data-target').replace('#','');
+    const target = document.getElementById(targetId);
     if(!target) return;
     const start = window.pageYOffset;
     const end = target.getBoundingClientRect().top + window.pageYOffset - 70;
     const distance = end - start;
-    const duration = 1000; // чуть медленнее
+    const duration = 1000;
     let startTime = null;
+
     function step(timestamp){
       if(!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
